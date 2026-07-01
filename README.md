@@ -2,21 +2,11 @@
 Enterprise AI Automation Roadmap for Banking
 
 <p align="center"> <img src="https://img.shields.io/badge/Version-2.0.0-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/Status-Active-brightgreen.svg" alt="Status"> <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"> <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey.svg" alt="Platform"> <img src="https://img.shields.io/badge/Powered%20By-AI-purple.svg" alt="AI Powered"> <img src="https://img.shields.io/badge/Modules-51-orange.svg" alt="Modules"> <img src="https://img.shields.io/badge/Phases-9-red.svg" alt="Phases"> </p>
----
 
-> MACBan (Master AI Banking Automation) is a comprehensive learning program designed to transform IT professionals into Bank AI Automation Engineers. The program combines n8n automation, Langflow AI agents, RAG systems, multi-agent orchestration, and enterprise system architecture specifically for banking environments.
+
+> MACBan is a comprehensive learning program designed to transform IT professionals into Bank AI Automation Engineers. The program combines n8n automation, Langflow AI agents, RAG systems, multi-agent orchestration, and enterprise system architecture specifically for banking environments.
 
 --- 
-Area	Technologies	Outcomes
-Workflow Automation	n8n, Docker, Git	Automated banking workflows
-AI Agents	Langflow, LangChain, LLMs	Intelligent banking agents
-Knowledge Systems	RAG, Vector DB, ChromaDB	Banking knowledge bases
-Security	Zero Trust, SIEM, IAM	Enterprise-grade security
-Architecture	TOGAF, SABSA, AWS WAF	Banking system design
-
-
-> **🌐 Live Repository:** [https://github.com/yourusername/MACBan](https://github.com/yourusername/MACBan)  
-> 📌 *Click any file link below to view its content directly on GitHub.*
 
 ---
 
@@ -1022,7 +1012,7 @@ An Enterprise AI Automation Engineer for Banking, capable of designing, building
 
  ---
 👤 Author
-MAC Matrix — AI Automation Learning System
+# MAC Matrix — AI Automation Learning System
 
 <p align="center"> <a href="mailto:architect@macban.io"> <img src="https://img.shields.io/badge/Email-architect%40macban.io-blue?style=for-the-badge&logo=gmail" alt="Email"> </a> <a href="https://linkedin.com/company/macban"> <img src="https://img.shields.io/badge/LinkedIn-MACBan-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn"> </a> <a href="https://twitter.com/macban_io"> <img src="https://img.shields.io/badge/Twitter-@macban__io-blue?style=for-the-badge&logo=twitter" alt="Twitter"> </a> </p>
 
@@ -1030,7 +1020,7 @@ MAC Matrix — AI Automation Learning System
 n8n Team - For the amazing workflow automation platform
 Langflow Team - For the visual AI workflow builder
 Open Source Community - For all the incredible tools
-# Bangladesh Bank - For regulatory guidelines
+Bangladesh Bank - For regulatory guidelines
 
 📧 Contact & Support
 Channel	Link
