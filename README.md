@@ -1105,4 +1105,8 @@ This project is licensed under the MAC Matrix License.
 
 <p align="center">
   <sub>© 2026 MAC Matrix. All Rights Reserved.</sub>
+<<<<<<< HEAD
 </p>
+=======
+</p>
+>>>>>>> a52cafbcf0bfda7453f2b22ba96ad07e85bccd14
