@@ -1367,15 +1367,3 @@
 
 </body>
 </html>
-
-<script>
-
-document.querySelectorAll('a[href$=".md"]').forEach(link=>{
-
-const file=link.getAttribute("href");
-
-link.href="viewer.html?file="+encodeURIComponent(file);
-
-});
-
-</script>
