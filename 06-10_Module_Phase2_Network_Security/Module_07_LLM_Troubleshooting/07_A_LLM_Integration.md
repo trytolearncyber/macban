@@ -6,7 +6,7 @@
 
 📌 S — Scenario 2 (Banking, Non-Technical)
 
-Nord Bank-এর একজন IT Support সদস্য প্রতিদিন অনেকগুলো Error Log দেখে, কিন্তু কোনটা সাধারণ সমস্যা আর কোনটা গুরুতর তা বুঝতে তার অভিজ্ঞতার উপর নির্ভর করতে হয়। নতুন Team Member-দের জন্য এই কাজ কঠিন, কারণ তাদের এখনো যথেষ্ট অভিজ্ঞতা নেই।
+Nord Bank-এর একটা Branch-এ প্রতিদিন Customer-রা Reception-এ এসে বিভিন্ন প্রশ্ন করে — কেউ জিজ্ঞেস করে Loan Interest Rate কত, কেউ জিজ্ঞেস করে নতুন Account খুলতে কী কী Document লাগবে। একজন অভিজ্ঞ Staff সহজেই উত্তর দিতে পারে, কিন্তু নতুন Staff-কে প্রতিটা প্রশ্নের জন্য Manual অথবা Senior Colleague-এর সাহায্য নিতে হয়, যার ফলে Customer-কে অপেক্ষা করতে হয়।
 
 🎯 T — Task
 
