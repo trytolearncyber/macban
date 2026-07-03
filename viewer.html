@@ -1,159 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>MACBan Documentation</title>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-
-<style>
-
-body{
-    margin:0;
-    background:#f6f8fa;
-    font-family:Segoe UI,Arial,sans-serif;
-}
-
-header{
-
-    background:#24292f;
-    color:white;
-    padding:15px 25px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-header a{
-
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-main{
-
-    max-width:1100px;
-    margin:40px auto;
-    background:white;
-
-    padding:40px;
-
-    border-radius:12px;
-
-    box-shadow:0 2px 12px rgba(0,0,0,.08);
-
-}
-
-img{
-
-max-width:100%;
-
-}
-
-pre{
-
-border-radius:8px;
-
-}
-
-</style>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>📄 Markdown Viewer</title>
+    <!-- Load Marked.js for rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f7fb;
+            color: #1a1a2e;
+            line-height: 1.7;
+        }
+        .container {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1, h2, h3 { color: #1a1a2e; }
+        h1 { border-bottom: 3px solid #4a00e0; padding-bottom: 10px; }
+        h2 { border-bottom: 2px solid #e8ecf4; padding-bottom: 8px; margin-top: 30px; }
+        code { background: #f0f4fe; padding: 2px 8px; border-radius: 4px; font-size: 0.9em; }
+        pre { background: #1a1a2e; color: #e8ecf4; padding: 16px 20px; border-radius: 10px; overflow-x: auto; }
+        blockquote { border-left: 4px solid #4a00e0; margin: 20px 0; padding-left: 20px; color: #4a5a6e; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        th, td { border: 1px solid #dce2ec; padding: 10px 14px; text-align: left; }
+        th { background: #f0f4fe; }
+        a { color: #4a00e0; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back-btn {
+            display: inline-block;
+            background: #4a00e0;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .back-btn:hover { background: #3a00b0; text-decoration: none; }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <a href="index.html" class="back-btn">⬅ Back to Course</a>
+        <div id="content">Loading...</div>
+    </div>
 
-<header>
+    <script>
+        // Get filename from URL
+        const params = new URLSearchParams(window.location.search);
+        const file = params.get('file');
 
-<div>
-
-🏦 <strong>MACBan Documentation</strong>
-
-</div>
-
-<div>
-
-<a href="index.html">← Home</a>
-
-</div>
-
-</header>
-
-<main>
-
-<article class="markdown-body" id="content">
-
-Loading...
-
-</article>
-
-</main>
-
-<script>
-
-const params=new URLSearchParams(location.search);
-
-const file=params.get("file");
-
-if(!file){
-
-document.getElementById("content").innerHTML="<h2>No file selected.</h2>";
-
-}else{
-
-fetch(decodeURIComponent(file))
-
-.then(r=>{
-
-if(!r.ok) throw new Error();
-
-return r.text();
-
-})
-
-.then(md=>{
-
-marked.setOptions({
-
-highlight:function(code,lang){
-
-if(lang && hljs.getLanguage(lang)){
-
-return hljs.highlight(code,{language:lang}).value;
-
-}
-
-return hljs.highlightAuto(code).value;
-
-}
-
-});
-
-document.getElementById("content").innerHTML=marked.parse(md);
-
-document.querySelectorAll("pre code").forEach(el=>hljs.highlightElement(el));
-
-})
-
-.catch(()=>{
-
-document.getElementById("content").innerHTML="<h2>Unable to load markdown file.</h2>";
-
-});
-
-}
-
-</script>
-
+        if (!file) {
+            document.getElementById('content').innerHTML = '<h2>❌ No file specified</h2><p>Please provide a ?file= parameter.</p>';
+        } else {
+            fetch(file)
+                .then(response => {
+                    if (!response.ok) throw new Error('File not found (404)');
+                    return response.text();
+                })
+                .then(markdown => {
+                    document.getElementById('content').innerHTML = marked.parse(markdown);
+                })
+                .catch(error => {
+                    document.getElementById('content').innerHTML = `
+                        <h2>❌ Error Loading File</h2>
+                        <p><strong>${error.message}</strong></p>
+                        <p>File: <code>${file}</code></p>
+                        <p>Make sure the file exists and is accessible.</p>
+                    `;
+                });
+        }
+    </script>
 </body>
 </html>
