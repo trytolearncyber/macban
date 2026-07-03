@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏦 Nord Bank · Device Inventory</title>
+  <!-- Font Awesome (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0e14;
+      color: #e8edf5;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      padding: 2rem 1.5rem;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* header */
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      margin-bottom: 2.2rem;
+      border-bottom: 1px solid #2a313c;
+      padding-bottom: 1.2rem;
+    }
+
+    .main-header h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #d4e2ff, #94b8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .main-header h1 i {
+      -webkit-text-fill-color: #5f8aff;
+      font-size: 2rem;
+    }
+
+    .badge-total {
+      background: #1f2937;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 1px solid #374151;
+      color: #b9c7e0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    .badge-total i {
+      margin-right: 8px;
+      color: #6d8cff;
+    }
+
+    /* summary cards */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .summary-card {
+      background: #141b24;
+      border-radius: 18px;
+      padding: 0.9rem 0.5rem 0.9rem 1rem;
+      border: 1px solid #28303d;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.2s;
+    }
+
+    .summary-card:hover {
+      border-color: #4d6eff;
+      background: #1a232e;
+    }
+
+    .summary-card .cat-name {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: #9aaec9;
+    }
+
+    .summary-card .cat-count {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #d6e3ff;
+    }
+
+    .summary-card i {
+      font-size: 1.6rem;
+      color: #4d6eff;
+      opacity: 0.7;
+    }
+
+    /* section headers */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1.2rem 0;
+      padding-left: 0.4rem;
+      border-left: 5px solid #3b5eff;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .section-title i {
+      color: #5f8aff;
+      font-size: 1.5rem;
+    }
+
+    .section-title small {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #7f94b5;
+      margin-left: auto;
+      background: #1e2733;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+    }
+
+    /* table wrapper (responsive) */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 20px;
+      border: 1px solid #232b38;
+      background: #111a24;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      margin-bottom: 1.8rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 700px;
+    }
+
+    th {
+      text-align: left;
+      padding: 1rem 0.8rem 0.8rem 1.2rem;
+      background: #0f1620;
+      color: #b2c9ec;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #28323f;
+    }
+
+    td {
+      padding: 0.9rem 0.8rem 0.9rem 1.2rem;
+      border-bottom: 1px solid #1f2937;
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: #17212b;
+    }
+
+    .device-model {
+      font-weight: 500;
+      color: #dce7ff;
+    }
+
+    .device-task {
+      color: #bfd0ea;
+      font-size: 0.85rem;
+    }
+
+    .control-badge {
+      display: inline-block;
+      background: #1e2a3a;
+      border-radius: 30px;
+      padding: 0.25rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #b3c9f0;
+      border: 1px solid #31415a;
+      white-space: nowrap;
+      letter-spacing: 0.2px;
+    }
+
+    .control-badge i {
+      margin-right: 5px;
+      font-size: 0.65rem;
+      color: #6d8cff;
+    }
+
+    .team-noc { border-color: #3b6eff; background: #14233b; }
+    .team-soc { border-color: #ff5e7c; background: #3a1e2a; color: #ffb0c0; }
+    .team-infra { border-color: #50b07a; background: #152b20; color: #a0e0b8; }
+    .team-it { border-color: #d4a554; background: #2f2816; color: #f0d49e; }
+    .team-app { border-color: #b07ad0; background: #2a1f35; color: #dab8f0; }
+    .team-dba { border-color: #5fa7d9; background: #172a3a; color: #a8d4ff; }
+    .team-atm { border-color: #d97a5f; background: #3a241c; color: #f5bfa8; }
+    .team-branch { border-color: #6fc2b0; background: #172e28; color: #b0e6da; }
+    .team-facility { border-color: #8f9bb3; background: #212833; color: #cdd9f0; }
+    .team-compliance { border-color: #b3a0d0; background: #28223a; color: #dac8f0; }
+    .team-devops { border-color: #e68a8a; background: #3a2222; color: #f5bfbf; }
+    .team-security { border-color: #e6b87a; background: #3a2e1a; color: #f5ddb0; }
+    .team-iam { border-color: #74b3c4; background: #182d34; color: #b0e4f0; }
+    .team-automation { border-color: #9bb87a; background: #25301a; color: #d4f0b0; }
+
+    .control-badge.team-noc i { color: #3b6eff; }
+    .control-badge.team-soc i { color: #ff5e7c; }
+    .control-badge.team-infra i { color: #50b07a; }
+    .control-badge.team-it i { color: #d4a554; }
+    .control-badge.team-app i { color: #b07ad0; }
+    .control-badge.team-dba i { color: #5fa7d9; }
+    .control-badge.team-atm i { color: #d97a5f; }
+    .control-badge.team-branch i { color: #6fc2b0; }
+    .control-badge.team-facility i { color: #8f9bb3; }
+    .control-badge.team-compliance i { color: #b3a0d0; }
+    .control-badge.team-devops i { color: #e68a8a; }
+    .control-badge.team-security i { color: #e6b87a; }
+    .control-badge.team-iam i { color: #74b3c4; }
+    .control-badge.team-automation i { color: #9bb87a; }
+
+    .num-col {
+      color: #7c93b5;
+      font-weight: 400;
+      font-size: 0.8rem;
+      width: 30px;
+      text-align: right;
+      padding-right: 0.2rem;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #5f7394;
+      font-size: 0.85rem;
+      border-top: 1px solid #1f2937;
+      padding-top: 2rem;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-note i {
+      color: #4d6eff;
+    }
+
+    /* small chip for category */
+    .cat-chip {
+      display: inline-block;
+      background: #1d2735;
+      padding: 0.1rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      color: #b6cbea;
+      border: 1px solid #2c384a;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      body { padding: 1rem 0.8rem; }
+      .main-header h1 { font-size: 1.5rem; }
+      .badge-total { font-size: 0.8rem; padding: 0.3rem 1rem; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="main-header">
+    <h1><i class="fas fa-university"></i> Nord Bank · Device Inventory</h1>
+    <div class="badge-total"><i class="fas fa-server"></i> 64 devices · 9 categories</div>
+  </header>
+
+  <!-- Summary cards (dynamic counts) -->
+  <div class="summary-grid" id="summaryGrid">
+    <!-- filled by JS -->
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 1. NETWORKING DEVICES -->
+  <div class="section-title"><i class="fas fa-network-wired"></i> Networking <small>8 devices</small></div>
+  <div class="table-wrap" id="table-networking"></div>
+
+  <!-- 2. SERVERS & STORAGE -->
+  <div class="section-title"><i class="fas fa-database"></i> Servers & Storage <small>7 devices</small></div>
+  <div class="table-wrap" id="table-servers"></div>
+
+  <!-- 3. SECURITY DEVICES -->
+  <div class="section-title"><i class="fas fa-shield-alt"></i> Security <small>8 devices</small></div>
+  <div class="table-wrap" id="table-security"></div>
+
+  <!-- 4. TELEPHONY & COMMUNICATIONS -->
+  <div class="section-title"><i class="fas fa-phone-alt"></i> Telephony & Comms <small>3 devices</small></div>
+  <div class="table-wrap" id="table-telecom"></div>
+
+  <!-- 5. MONITORING & MANAGEMENT -->
+  <div class="section-title"><i class="fas fa-chart-line"></i> Monitoring & Management <small>6 devices</small></div>
+  <div class="table-wrap" id="table-monitoring"></div>
+
+  <!-- 6. ATM & BRANCH DEVICES -->
+  <div class="section-title"><i class="fas fa-cash-register"></i> ATM & Branch <small>7 devices</small></div>
+  <div class="table-wrap" id="table-atm"></div>
+
+  <!-- 7. DATA CENTER INFRASTRUCTURE -->
+  <div class="section-title"><i class="fas fa-building"></i> DC Infrastructure <small>6 devices</small></div>
+  <div class="table-wrap" id="table-dc"></div>
+
+  <!-- 8. CLIENT DEVICES -->
+  <div class="section-title"><i class="fas fa-desktop"></i> Client Devices <small>7 devices</small></div>
+  <div class="table-wrap" id="table-client"></div>
+
+  <!-- 9. LAB SIMULATION -->
+  <div class="section-title"><i class="fas fa-flask"></i> Lab Simulation <small>12 devices</small></div>
+  <div class="table-wrap" id="table-lab"></div>
+
+  <!-- Footer -->
+  <div class="footer-note">
+    <i class="fas fa-robot"></i> AI-generated reference · Nord Bank infrastructure · control teams indicated
+  </div>
+</div>
+
+<script>
+  // --------------------------------------------------------------
+  // DATA (exactly as provided, with "Controlled By" & no location)
+  // --------------------------------------------------------------
+  const categories = [
+    {
+      name: "Networking",
+      icon: "fa-network-wired",
+      devices: [
+        { model: "Cisco ASR 1000", task: "Handle internet and WAN, route traffic between head office and branches", control: "Network Operations Center (NOC)", team: "team-noc" },
+        { model: "Cisco ISR 4000", task: "Connect branch offices to head office, handle inter-branch routing", control: "Network Operations Center (NOC)", team: "team-noc" },
+        { model: "Cisco Catalyst 9500", task: "High-speed backbone switching in data center, connect servers", control: "Network Operations Center (NOC)", team: "team-noc" },
+        { model: "Cisco Catalyst 9300", task: "Aggregate traffic from access switches, provide redundancy", control: "Network Operations Center (NOC)", team: "team-noc" },
+        { model: "Cisco Catalyst 9200", task: "Connect end-user devices (PCs, printers, IP phones)", control: "IT Support / Branch IT", team: "team-it" },
+        { model: "FortiGate 3000F / Palo Alto PA-5200", task: "Filter traffic, prevent intrusions, application control", control: "Security Operations Center (SOC)", team: "team-soc" },
+        { model: "F5 BIG-IP / A10 Networks", task: "Distribute incoming traffic across multiple servers", control: "Infrastructure Team", team: "team-infra" },
+        { model: "Riverbed SteelHead", task: "Accelerate WAN traffic, reduce latency, optimize bandwidth", control: "Network Operations Center (NOC)", team: "team-noc" }
+      ]
+    },
+    {
+      name: "Servers & Storage",
+      icon: "fa-database",
+      devices: [
+        { model: "Dell PowerEdge R750", task: "Run core banking apps (T24, Finacle), process transactions", control: "Application Support Team", team: "team-app" },
+        { model: "Dell PowerEdge R940 / IBM Power Systems", task: "Host Oracle/SQL Server, store customer & transaction data", control: "Database Administration (DBA)", team: "team-dba" },
+        { model: "Dell PowerEdge R650", task: "Host internet banking, mobile banking APIs", control: "Application Support Team", team: "team-app" },
+        { model: "Dell EMC Unity / NetApp AFF", task: "Centralized storage for all servers, data backup", control: "Infrastructure Team", team: "team-infra" },
+        { model: "Dell PowerEdge R540", task: "Manage backups, data retention, restoration", control: "Infrastructure Team", team: "team-infra" },
+        { model: "Dell EML / IBM TS4500", task: "Long-term archival storage, offline backups", control: "Infrastructure Team", team: "team-infra" },
+        { model: "Dell PowerEdge R750 (VMware ESXi)", task: "Run virtual machines, optimize hardware", control: "Infrastructure Team", team: "team-infra" }
+      ]
+    },
+    {
+      name: "Security",
+      icon: "fa-shield-alt",
+      devices: [
+        { model: "FortiGate / Check Point / Palo Alto", task: "Advanced threat protection, SSL inspection", control: "Security Operations Center (SOC)", team: "team-soc" },
+        { model: "Cisco Firepower / Snort", task: "Real-time intrusion detection/prevention", control: "Security Operations Center (SOC)", team: "team-soc" },
+        { model: "F5 ASM / Imperva", task: "Protect web apps from SQL injection, XSS attacks", control: "Security Operations Center (SOC)", team: "team-soc" },
+        { model: "Proofpoint / Mimecast", task: "Filter spam/phishing, prevent email malware", control: "Security Operations Center (SOC)", team: "team-soc" },
+        { model: "Cisco ISE / Aruba ClearPass", task: "Authenticate devices before network access", control: "Security Operations Center (SOC)", team: "team-soc" },
+        { model: "Splunk / QRadar", task: "Collect security logs, detect threats, generate alerts", control: "Security Operations Center (SOC)", team: "team-soc" },
+        { model: "Cisco ASA / FortiGate SSL VPN", task: "Secure remote access for employees", control: "Security Operations Center (SOC)", team: "team-soc" },
+        { model: "Thales Luna / Utimaco", task: "Manage encryption keys, secure digital signatures", control: "Security Operations Center (SOC)", team: "team-soc" }
+      ]
+    },
+    {
+      name: "Telephony & Comms",
+      icon: "fa-phone-alt",
+      devices: [
+        { model: "Cisco CUCM / Avaya", task: "Manage internal phone calls, voicemail", control: "IT Support / Telecom Team", team: "team-it" },
+        { model: "Cisco WebEx / Polycom", task: "Virtual meetings, video calls between branches", control: "IT Support", team: "team-it" },
+        { model: "NICE / Verint", task: "Record all calls for compliance, quality monitoring", control: "Compliance Team", team: "team-compliance" }
+      ]
+    },
+    {
+      name: "Monitoring & Management",
+      icon: "fa-chart-line",
+      devices: [
+        { model: "SolarWinds / PRTG / Zabbix", task: "Monitor devices health, bandwidth, uptime, alerts", control: "Network Operations Center (NOC)", team: "team-noc" },
+        { model: "Dynatrace / AppDynamics", task: "Monitor app performance, transaction tracing", control: "Application Support Team", team: "team-app" },
+        { model: "Splunk / Elastic Stack (ELK)", task: "Centralize logs, search and analyze, troubleshoot", control: "Security Operations Center (SOC)", team: "team-soc" },
+        { model: "Microsoft SCCM / ManageEngine", task: "Deploy software updates, security patches", control: "IT Support / Infrastructure", team: "team-it" },
+        { model: "Microsoft Active Directory", task: "Manage user accounts, authentication, access control", control: "IT Support / IAM Team", team: "team-iam" },
+        { model: "Microsoft / BIND", task: "Resolve domain names, assign IP addresses", control: "Network Operations Center (NOC)", team: "team-noc" }
+      ]
+    },
+    {
+      name: "ATM & Branch",
+      icon: "fa-cash-register",
+      devices: [
+        { model: "NCR / Diebold Nixdorf / Wincor", task: "Cash withdrawal, deposit, balance inquiry", control: "ATM Operations Team", team: "team-atm" },
+        { model: "Glory / NCR", task: "Accept and dispense cash, recycle notes", control: "ATM Operations Team", team: "team-atm" },
+        { model: "Diebold Nixdorf / HP", task: "Process counter transactions, open accounts", control: "Branch Operations", team: "team-branch" },
+        { model: "Epson / Wincor", task: "Print/update customer passbooks", control: "Branch Operations", team: "team-branch" },
+        { model: "Epson / Canon", task: "Scan cheques for clearing, capture MICR data", control: "Branch Operations", team: "team-branch" },
+        { model: "Secugen / Mantra", task: "Capture fingerprints for customer authentication", control: "Branch Operations", team: "team-branch" },
+        { model: "Ingenico / VeriFone", task: "Secure PIN entry for card transactions", control: "Branch Operations", team: "team-branch" }
+      ]
+    },
+    {
+      name: "DC Infrastructure",
+      icon: "fa-building",
+      devices: [
+        { model: "APC / Emerson", task: "Uninterrupted power during outages", control: "Facilities Management", team: "team-facility" },
+        { model: "Cummins / Caterpillar", task: "Backup power during extended outages", control: "Facilities Management", team: "team-facility" },
+        { model: "Schneider Electric / Stulz", task: "Maintain optimal temperature, prevent overheating", control: "Facilities Management", team: "team-facility" },
+        { model: "APC / Raritan", task: "Distribute power to racks, monitor consumption", control: "Facilities Management", team: "team-facility" },
+        { model: "APC / Dell", task: "House servers, organize cabling, physical security", control: "Infrastructure Team", team: "team-infra" },
+        { model: "FM200 / Novec", task: "Detect and extinguish fires without damaging equipment", control: "Facilities Management", team: "team-facility" }
+      ]
+    },
+    {
+      name: "Client Devices",
+      icon: "fa-desktop",
+      devices: [
+        { model: "Dell / HP / Lenovo", task: "Daily banking operations, customer service", control: "IT Support / End-User", team: "team-it" },
+        { model: "Dell / HP / Apple", task: "Mobile workforce, managers, remote work", control: "IT Support / End-User", team: "team-it" },
+        { model: "Dell Wyse / HP", task: "VDI access, secure remote sessions", control: "IT Support", team: "team-it" },
+        { model: "HP / Canon / Brother", task: "Print statements, reports, forms", control: "IT Support / End-User", team: "team-it" },
+        { model: "Fujitsu / Canon", task: "Digitize documents, KYC forms", control: "IT Support / End-User", team: "team-it" },
+        { model: "Cisco / Avaya / Yealink", task: "Internal and external voice communication", control: "IT Support / Telecom Team", team: "team-it" },
+        { model: "HID / Zebra", task: "Employee access control, secure entry", control: "Security Team", team: "team-security" }
+      ]
+    },
+    {
+      name: "Lab Simulation",
+      icon: "fa-flask",
+      devices: [
+        { model: "Mockoon API", task: "Simulate T24 banking APIs", control: "Development Team", team: "team-devops" },
+        { model: "PostgreSQL (Docker)", task: "Store customer accounts & transactions", control: "Development Team", team: "team-devops" },
+        { model: "Redis (Docker)", task: "Speed up balance inquiries", control: "Development Team", team: "team-devops" },
+        { model: "Grafana + Prometheus (Docker)", task: "Monitor server health", control: "DevOps Team", team: "team-devops" },
+        { model: "Zabbix (Docker)", task: "Monitor virtual network devices", control: "Network Team", team: "team-noc" },
+        { model: "Graylog + Elasticsearch (Docker)", task: "Collect and analyze logs", control: "DevOps Team", team: "team-devops" },
+        { model: "n8n", task: "Automate banking workflows", control: "Automation Team", team: "team-automation" },
+        { model: "Asterisk (Docker)", task: "Simulate branch phone system", control: "Telecom Team", team: "team-it" },
+        { model: "GNS3 / EVE-NG", task: "Simulate Cisco routers/switches", control: "Network Team", team: "team-noc" },
+        { model: "Snort/Suricata (Docker)", task: "Detect network attacks", control: "Security Team", team: "team-security" },
+        { model: "Kali Linux", task: "Practice ethical hacking", control: "Security Team", team: "team-security" },
+        { model: "Portainer (Docker)", task: "Manage all Docker containers", control: "DevOps Team", team: "team-devops" }
+      ]
+    }
+  ];
+
+  // --------------------------------------------------------------
+  // RENDER TABLE
+  // --------------------------------------------------------------
+  function renderTable(containerId, devices) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    let html = `<table>
+      <thead><tr>
+        <th style="width:30px;">#</th>
+        <th style="min-width:170px;">Device</th>
+        <th style="min-width:200px;">Primary Task</th>
+        <th style="min-width:160px;">Controlled By</th>
+      </tr></thead><tbody>`;
+    devices.forEach((d, idx) => {
+      const num = idx + 1;
+      html += `<tr>
+        <td class="num-col">${num}</td>
+        <td><span class="device-model">${d.model}</span></td>
+        <td class="device-task">${d.task}</td>
+        <td><span class="control-badge ${d.team}"><i class="fas fa-user-shield"></i> ${d.control}</span></td>
+      </tr>`;
+    });
+    html += `</tbody></table>`;
+    container.innerHTML = html;
+  }
+
+  // render all
+  renderTable("table-networking", categories[0].devices);
+  renderTable("table-servers", categories[1].devices);
+  renderTable("table-security", categories[2].devices);
+  renderTable("table-telecom", categories[3].devices);
+  renderTable("table-monitoring", categories[4].devices);
+  renderTable("table-atm", categories[5].devices);
+  renderTable("table-dc", categories[6].devices);
+  renderTable("table-client", categories[7].devices);
+  renderTable("table-lab", categories[8].devices);
+
+  // --------------------------------------------------------------
+  // SUMMARY CARDS
+  // --------------------------------------------------------------
+  const summaryGrid = document.getElementById("summaryGrid");
+  const summaryData = [
+    { name: "Networking", count: 8, icon: "fa-network-wired" },
+    { name: "Servers & Storage", count: 7, icon: "fa-database" },
+    { name: "Security", count: 8, icon: "fa-shield-alt" },
+    { name: "Telephony & Comms", count: 3, icon: "fa-phone-alt" },
+    { name: "Monitoring & Mgmt", count: 6, icon: "fa-chart-line" },
+    { name: "ATM & Branch", count: 7, icon: "fa-cash-register" },
+    { name: "DC Infrastructure", count: 6, icon: "fa-building" },
+    { name: "Client Devices", count: 7, icon: "fa-desktop" },
+    { name: "Lab Simulation", count: 12, icon: "fa-flask" }
+  ];
+  summaryGrid.innerHTML = summaryData.map(cat => `
+    <div class="summary-card">
+      <div>
+        <div class="cat-name">${cat.name}</div>
+        <div class="cat-count">${cat.count}</div>
+      </div>
+      <i class="fas ${cat.icon}"></i>
+    </div>
+  `).join('');
+</script>
+</body>
+</html>

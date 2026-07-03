@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🖥️ MACBan Lab Environment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0f16;
+            color: #e2eaf5;
+            font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            margin-bottom: 2.2rem;
+            border-bottom: 1px solid #232b38;
+            padding-bottom: 1.5rem;
+        }
+
+        .main-header h1 {
+            font-weight: 600;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #b6d0ff, #7aa2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .main-header h1 i {
+            -webkit-text-fill-color: #5f8aff;
+            font-size: 2rem;
+        }
+
+        .badge-summary {
+            background: #18212b;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            border: 1px solid #2d3a4a;
+            color: #b2c9ec;
+        }
+
+        .badge-summary i {
+            color: #5f8aff;
+            margin-right: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: #121b26;
+            border-radius: 18px;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #26303e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.2s;
+        }
+
+        .stat-card:hover {
+            border-color: #4d6eff;
+            background: #19232f;
+        }
+
+        .stat-card .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: #95aacb;
+        }
+
+        .stat-card .value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #d6e3ff;
+        }
+
+        .stat-card i {
+            font-size: 1.6rem;
+            color: #4d6eff;
+            opacity: 0.7;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2.8rem 0 1.2rem 0;
+            padding-left: 0.6rem;
+            border-left: 5px solid #3b5eff;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .section-title i {
+            color: #5f8aff;
+        }
+
+        .section-title small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #7f94b5;
+            margin-left: auto;
+            background: #1a232f;
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: 18px;
+            border: 1px solid #202a36;
+            background: #0f1822;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+            margin-bottom: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 550px;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.9rem 1rem 0.7rem 1.2rem;
+            background: #0d151f;
+            color: #adc3e6;
+            font-weight: 500;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border-bottom: 1px solid #25303e;
+        }
+
+        td {
+            padding: 0.8rem 1rem 0.8rem 1.2rem;
+            border-bottom: 1px solid #1c2633;
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #14202c;
+        }
+
+        .col-num {
+            color: #647b9c;
+            font-size: 0.8rem;
+            width: 30px;
+            text-align: right;
+            padding-right: 0.2rem;
+        }
+
+        .fw-medium {
+            font-weight: 500;
+            color: #d5e1f5;
+        }
+
+        .text-muted {
+            color: #a8bddb;
+            font-size: 0.85rem;
+        }
+
+        .badge-team {
+            display: inline-block;
+            background: #1b2636;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #c2d4f0;
+            border: 1px solid #31435c;
+            white-space: nowrap;
+        }
+
+        .badge-team i {
+            margin-right: 5px;
+            font-size: 0.7rem;
+            color: #6d8cff;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.9rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .service-item {
+            background: #121c28;
+            border-radius: 14px;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #263340;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: 0.2s;
+        }
+
+        .service-item:hover {
+            border-color: #4d6eff;
+            background: #192531;
+        }
+
+        .service-item .s-icon {
+            font-size: 1.3rem;
+            color: #5f8aff;
+            width: 32px;
+            text-align: center;
+        }
+
+        .service-item .s-name {
+            font-weight: 500;
+            color: #dce7ff;
+        }
+
+        .service-item .s-port {
+            font-size: 0.75rem;
+            color: #7990b3;
+            margin-left: auto;
+            background: #0f1a26;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+            border: 1px solid #263340;
+        }
+
+        .service-item .s-desc {
+            font-size: 0.78rem;
+            color: #9ab0d0;
+            margin-left: 0.3rem;
+        }
+
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.9rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .device-item {
+            background: #121c28;
+            border-radius: 14px;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #263340;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: 0.2s;
+        }
+
+        .device-item:hover {
+            border-color: #4d6eff;
+            background: #192531;
+        }
+
+        .device-item .d-icon {
+            font-size: 1.3rem;
+            color: #5f8aff;
+            width: 32px;
+            text-align: center;
+        }
+
+        .device-item .d-name {
+            font-weight: 500;
+            color: #dce7ff;
+            font-size: 0.9rem;
+        }
+
+        .device-item .d-role {
+            font-size: 0.7rem;
+            color: #9ab0d0;
+            display: block;
+        }
+
+        .device-item .d-model {
+            font-size: 0.7rem;
+            color: #7990b3;
+            margin-left: auto;
+            background: #0f1a26;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+            border: 1px solid #263340;
+            white-space: nowrap;
+        }
+
+        .ref-box {
+            background: #0d1622;
+            border-radius: 18px;
+            padding: 1.5rem 1.8rem;
+            border: 1px solid #263340;
+            margin: 1.8rem 0 0.5rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 2.5rem;
+        }
+
+        .ref-box .ref-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .ref-box .ref-item .ref-label {
+            color: #7f94b5;
+            font-weight: 400;
+            min-width: 80px;
+        }
+
+        .ref-box .ref-item .ref-value {
+            color: #d6e3ff;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85rem;
+        }
+
+        .ref-box .ref-item i {
+            color: #4d6eff;
+            width: 20px;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #5a7298;
+            font-size: 0.85rem;
+            border-top: 1px solid #1f2937;
+            padding-top: 2rem;
+        }
+
+        .footer i {
+            color: #4d6eff;
+        }
+
+        @media (max-width: 700px) {
+            .ref-box {
+                grid-template-columns: 1fr;
+            }
+            .main-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <h1><i class="fas fa-microchip"></i> MACBan Lab Environment</h1>
+        <div class="badge-summary"><i class="fas fa-server"></i> 18 services · Windows + Ubuntu + Docker + GNS3</div>
+    </header>
+
+    <!-- STATS
+    /* <div class="stats-grid">
+        <div class="stat-card"><div><div class="label">Windows Apps</div><div class="value">4</div></div><i class="fas fa-windows"></i></div>
+        <div class="stat-card"><div><div class="label">Ubuntu VM</div><div class="value">1</div></div><i class="fab fa-ubuntu"></i></div>
+        <div class="stat-card"><div><div class="label">Docker Services</div><div class="value">7</div></div><i class="fas fa-cubes"></i></div>
+        <div class="stat-card"><div><div class="label">GNS3 Devices</div><div class="value">7</div></div><i class="fas fa-network-wired"></i></div>
+        <div class="stat-card"><div><div class="label">Total Services</div><div class="value">18</div></div><i class="fas fa-list-ul"></i></div>
+        <div class="stat-card"><div><div class="label">RAM (VM)</div><div class="value">12 GB</div></div><i class="fas fa-memory"></i></div>
+    </div>
+    -->
+    <!-- ============ WINDOWS APPS ============ -->
+    <div class="section-title"><i class="fab fa-windows"></i> Windows Host <small>native applications</small></div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>#</th><th>Software</th><th>Purpose</th></tr></thead>
+            <tbody>
+                <tr><td class="col-num">1</td><td class="fw-medium">Mockoon Desktop</td><td class="text-muted">Fake Bank API simulation</td></tr>
+                <tr><td class="col-num">2</td><td class="fw-medium">Draw.io Desktop</td><td class="text-muted">Architecture diagram creation</td></tr>
+                <tr><td class="col-num">3</td><td class="fw-medium">Postman</td><td class="text-muted">API testing and debugging</td></tr>
+                <tr><td class="col-num">4</td><td class="fw-medium">VMware Workstation</td><td class="text-muted">Run Ubuntu virtual machine</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============ UBUNTU VM ============ -->
+    <div class="section-title"><i class="fab fa-ubuntu"></i> Ubuntu Virtual Machine <small>192.168.10.128 · 12GB RAM</small></div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+            <tbody>
+                <tr><td class="fw-medium">Operating System</td><td>Ubuntu (GNS3 VM)</td></tr>
+                <tr><td class="fw-medium">RAM</td><td>12 GB</td></tr>
+                <tr><td class="fw-medium">IP Address</td><td>192.168.10.128</td></tr>
+                <tr><td class="fw-medium">Username</td><td>gns3</td></tr>
+                <tr><td class="fw-medium">Home Directory</td><td>/home/gns3</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============ DOCKER SERVICES ============ -->
+    <div class="section-title"><i class="fas fa-cubes"></i> Docker Services <small>7 containers</small></div>
+    <div class="service-grid">
+        <div class="service-item"><span class="s-icon"><i class="fas fa-code-branch"></i></span><div><span class="s-name">n8n</span><span class="s-desc">Workflow automation</span></div><span class="s-port">:5678</span></div>
+        <div class="service-item"><span class="s-icon"><i class="fas fa-rocket"></i></span><div><span class="s-name">ngrok</span><span class="s-desc">Secure tunneling</span></div><span class="s-port">:4040</span></div>
+        <div class="service-item"><span class="s-icon"><i class="fas fa-database"></i></span><div><span class="s-name">ChromaDB</span><span class="s-desc">Vector database</span></div><span class="s-port">:8000</span></div>
+        <div class="service-item"><span class="s-icon"><i class="fas fa-bolt"></i></span><div><span class="s-name">Redis</span><span class="s-desc">Cache / message broker</span></div><span class="s-port">:6379</span></div>
+        <div class="service-item"><span class="s-icon"><i class="fas fa-brain"></i></span><div><span class="s-name">Langflow</span><span class="s-desc">LLM workflow builder</span></div><span class="s-port">:7860</span></div>
+        <div class="service-item"><span class="s-icon"><i class="fas fa-chart-simple"></i></span><div><span class="s-name">Prometheus</span><span class="s-desc">Metrics collection</span></div><span class="s-port">:9090</span></div>
+        <div class="service-item"><span class="s-icon"><i class="fas fa-chart-pie"></i></span><div><span class="s-name">Grafana</span><span class="s-desc">Monitoring dashboards</span></div><span class="s-port">:3000</span></div>
+    </div>
+
+    <!-- ============ GNS3 DEVICES ============ -->
+    <div class="section-title"><i class="fas fa-network-wired"></i> GNS3 Network Devices <small>7 devices</small></div>
+    <div class="device-grid">
+        <div class="device-item"><span class="d-icon"><i class="fas fa-router"></i></span><div><span class="d-name">Core Router</span><span class="d-role">Handle internet and WAN routing</span></div><span class="d-model">Cisco ASR 1000</span></div>
+        <div class="device-item"><span class="d-icon"><i class="fas fa-router"></i></span><div><span class="d-name">Distribution Router</span><span class="d-role">Connect branches, inter-branch routing</span></div><span class="d-model">Cisco ISR 4000</span></div>
+        <div class="device-item"><span class="d-icon"><i class="fas fa-server"></i></span><div><span class="d-name">Core Switch</span><span class="d-role">Backbone switching in data center</span></div><span class="d-model">Cisco Cat 9500</span></div>
+        <div class="device-item"><span class="d-icon"><i class="fas fa-server"></i></span><div><span class="d-name">Distribution Switch</span><span class="d-role">Aggregate traffic, provide redundancy</span></div><span class="d-model">Cisco Cat 9300</span></div>
+        <div class="device-item"><span class="d-icon"><i class="fas fa-server"></i></span><div><span class="d-name">Access Switch</span><span class="d-role">Connect end-user devices</span></div><span class="d-model">Cisco Cat 9200</span></div>
+        <div class="device-item"><span class="d-icon"><i class="fas fa-shield-halved"></i></span><div><span class="d-name">Firewall / NGFW</span><span class="d-role">Filter traffic, prevent intrusions</span></div><span class="d-model">FortiGate 3000F</span></div>
+        <div class="device-item"><span class="d-icon"><i class="fas fa-scale-balanced"></i></span><div><span class="d-name">Load Balancer</span><span class="d-role">Distribute traffic across servers</span></div><span class="d-model">F5 BIG-IP</span></div>
+    </div>
+
+    <!-- ============ SERVICE ACCESS ============ -->
+    <div class="section-title"><i class="fas fa-link"></i> Service Access URLs</div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Service</th><th>Access URL</th></tr></thead>
+            <tbody>
+                <tr><td class="fw-medium">n8n</td><td><span class="badge-team"><i class="fas fa-globe"></i> http://192.168.10.128:5678</span></td></tr>
+                <tr><td class="fw-medium">ngrok Dashboard</td><td><span class="badge-team"><i class="fas fa-globe"></i> http://192.168.10.128:4040</span></td></tr>
+                <tr><td class="fw-medium">ChromaDB</td><td><span class="badge-team"><i class="fas fa-globe"></i> http://192.168.10.128:8000</span></td></tr>
+                <tr><td class="fw-medium">Redis</td><td><span class="badge-team"><i class="fas fa-link"></i> redis://192.168.10.128:6379</span></td></tr>
+                <tr><td class="fw-medium">Langflow</td><td><span class="badge-team"><i class="fas fa-globe"></i> http://192.168.10.128:7860</span></td></tr>
+                <tr><td class="fw-medium">Prometheus</td><td><span class="badge-team"><i class="fas fa-globe"></i> http://192.168.10.128:9090</span></td></tr>
+                <tr><td class="fw-medium">Grafana</td><td><span class="badge-team"><i class="fas fa-globe"></i> http://192.168.10.128:3000</span></td></tr>
+                <tr><td class="fw-medium">GNS3 Web UI</td><td><span class="badge-team"><i class="fas fa-globe"></i> http://192.168.10.128:3080</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============ DIRECTORY STRUCTURE ============ -->
+    <div class="section-title"><i class="fas fa-folder-tree"></i> Directory Structure <small>/home/gns3/</small></div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Path</th><th>Content</th></tr></thead>
+            <tbody>
+                <tr><td class="fw-medium">docker/</td><td class="text-muted">Docker compose files per service</td></tr>
+                <tr><td class="fw-medium">docker/n8n/</td><td class="text-muted">n8n workflow data</td></tr>
+                <tr><td class="fw-medium">docker/ngrok/</td><td class="text-muted">ngrok configuration</td></tr>
+                <tr><td class="fw-medium">gns3/projects/</td><td class="text-muted">GNS3 topology files (nord-bank-topology.gns3)</td></tr>
+                <tr><td class="fw-medium">gns3/images/</td><td class="text-muted">Cisco & FortiGate device images</td></tr>
+                <tr><td class="fw-medium">gns3/configs/</td><td class="text-muted">Router & switch configurations</td></tr>
+                <tr><td class="fw-medium">projects/</td><td class="text-muted">bank-api, workflows, tests</td></tr>
+                <tr><td class="fw-medium">logs/</td><td class="text-muted">n8n, ngrok, monitoring logs</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============ USE CASES ============ -->
+    <div class="section-title"><i class="fas fa-bullseye"></i> Use Cases</div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Use Case</th><th>Services</th></tr></thead>
+            <tbody>
+                <tr><td class="fw-medium">API Development</td><td class="text-muted">Mockoon, Postman</td></tr>
+                <tr><td class="fw-medium">Workflow Automation</td><td class="text-muted">n8n</td></tr>
+                <tr><td class="fw-medium">External Integration</td><td class="text-muted">ngrok</td></tr>
+                <tr><td class="fw-medium">AI / LLM Applications</td><td class="text-muted">Langflow, ChromaDB</td></tr>
+                <tr><td class="fw-medium">Performance Monitoring</td><td class="text-muted">Prometheus, Grafana</td></tr>
+                <tr><td class="fw-medium">Caching</td><td class="text-muted">Redis</td></tr>
+                <tr><td class="fw-medium">Network Simulation</td><td class="text-muted">GNS3 (Cisco & FortiGate devices)</td></tr>
+                <tr><td class="fw-medium">Infrastructure Testing</td><td class="text-muted">Full bank network topology</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============ QUICK REFERENCE ============ -->
+    <div class="section-title"><i class="fas fa-terminal"></i> Quick Reference</div>
+    <div class="ref-box">
+        <div class="ref-item"><i class="fas fa-key"></i><span class="ref-label">VM Access</span><span class="ref-value">ssh gns3@192.168.10.128</span></div>
+        <div class="ref-item"><i class="fas fa-list"></i><span class="ref-label">List containers</span><span class="ref-value">docker ps</span></div>
+        <div class="ref-item"><i class="fas fa-play"></i><span class="ref-label">Start all</span><span class="ref-value">docker-compose up -d</span></div>
+        <div class="ref-item"><i class="fas fa-stop"></i><span class="ref-label">Stop all</span><span class="ref-value">docker-compose down</span></div>
+        <div class="ref-item"><i class="fas fa-network-wired"></i><span class="ref-label">GNS3 Web UI</span><span class="ref-value">http://192.168.10.128:3080</span></div>
+        <div class="ref-item"><i class="fas fa-folder"></i><span class="ref-label">GNS3 Projects</span><span class="ref-value">/home/gns3/gns3/projects/</span></div>
+        <div class="ref-item"><i class="fas fa-code-branch"></i><span class="ref-label">n8n</span><span class="ref-value">http://192.168.10.128:5678</span></div>
+        <div class="ref-item"><i class="fas fa-chart-pie"></i><span class="ref-label">Grafana</span><span class="ref-value">http://192.168.10.128:3000</span></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <i class="fas fa-microchip"></i> MACBan Lab · Windows Host + Ubuntu VM + 7 Docker Services + 7 GNS3 Devices · 192.168.10.128 · 12GB RAM
+    </div>
+
+</div>
+</body>
+</html>
