@@ -3,11 +3,11 @@ Project Name: MACBan
 🏛️ PART 01: FOUNDATION & STRATEGY (Module 1-5)
 📁 Module 01: AI Strategy & System Architecture Foundation
 
-📁 01-05_Module_Phase1_Foundation/
+📁 01-05_Phase1_Foundation/
 │
-├── 📁 Module_01_AI_Strategy/
+├── 📁 01_AI_Strategy/
 │   │
-│   ├── 📄 01_A_Module_AI_Strategy_Assignment.md
+│   ├── 📄 01_A_AI_Strategy.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 01_Introduction to AI Automation & Agents
 │   │       • Understand: What is AI Automation
@@ -19,7 +19,7 @@ Project Name: MACBan
 │   │       • Practice: Identify AI Use Cases
 │   │       • Complete: Module 1 Quiz
 │   │
-│   └── 📄 01_B_Module_Banking_AI_Roadmap_Assignment.md
+│   └── 📄 01_B_Banking_AI_Roadmap.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: 3-Year AI Roadmap for Banking Infrastructure
 │           │   └── n8n: Network Fault Prediction Strategy
@@ -49,17 +49,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete AI Strategy & Roadmap Document
 │           • 📝 n8n Deliverable: AI Strategy Implementation Blueprint
 │
-└── 📁 Module_01_Resources/
+└── 📁 01_Resources/
     ├── 📄 Banking_AI_Use_Cases_Template.md
     ├── 📄 ROI_Calculation_Worksheet.xlsx
     └── 📄 Architecture_Principles_Checklist.md
 📁 Module 02: Enterprise Tool Selection Framework
 
-📁 01-05_Module_Phase1_Foundation/
+📁 01-05_Phase1_Foundation/
 │
-├── 📁 Module_02_Tool_Selection/
+├── 📁 02_Tool_Selection/
 │   │
-│   ├── 📄 02_A_Module_Tool_Overview_Assignment.md
+│   ├── 📄 02_A_Tool_Overview.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 02_Tools Overview: n8n, Langflow, LangChain
 │   │       • Understand: Introduction to n8n
@@ -80,7 +80,7 @@ Project Name: MACBan
 │   │           └── LangChain: Complex AI Development
 │   │       • Complete: Tool Selection Quiz
 │   │
-│   └── 📄 02_B_Module_Enterprise_Tool_Evaluation_Assignment.md
+│   └── 📄 02_B_Enterprise_Tool_Evaluation.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Create: Tool Evaluation Framework for Banking
 │           │   └── n8n Evaluation:
@@ -114,17 +114,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Tool Evaluation Matrix Document
 │           • 📝 n8n Deliverable: Tool Selection Implementation Guide
 │
-└── 📁 Module_02_Resources/
+└── 📁 02_Resources/
     ├── 📄 Tool_Evaluation_Matrix_Template.xlsx
     ├── 📄 Vendor_Comparison_Checklist.md
     └── 📄 Security_Compliance_Assessment_Guide.md
 📁 Module 03: Production Automation Environment Setup
 
-📁 01-05_Module_Phase1_Foundation/
+📁 01-05_Phase1_Foundation/
 │
-├── 📁 Module_03_Environment_Setup/
+├── 📁 03_Environment_Setup/
 │   │
-│   ├── 📄 03_A_Module_Environment_Setup_Assignment.md
+│   ├── 📄 03_A_Environment_Setup.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 03_Setting Up Your Automation Environment (n8n self-hosted/cloud)
 │   │       • Setup: n8n Self-Hosted Installation (Docker/NPM)
@@ -155,7 +155,7 @@ Project Name: MACBan
 │   │       │
 │   │       • Complete: Environment Setup Checklist
 │   │
-│   └── 📄 03_B_Module_Bank_Grade_Production_Architecture_Assignment.md
+│   └── 📄 03_B_Bank_Grade_Production_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: High Availability (HA) Deployment Strategy
 │           │   └── n8n HA Architecture:
@@ -218,17 +218,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Production Architecture Blueprint with DR Strategy
 │           • 📝 n8n Deliverable: Production-Ready n8n Environment
 │
-└── 📁 Module_03_Resources/
+└── 📁 03_Resources/
     ├── 📄 docker-compose-production.yml
     ├── 📄 HA_Deployment_Checklist.md
     └── 📄 Disaster_Recovery_Plan_Template.md
 📁 Module 04: Banking API Integration Architecture
 
-📁 01-05_Module_Phase1_Foundation/
+📁 01-05_Phase1_Foundation/
 │
-├── 📁 Module_04_API_Integration/
+├── 📁 04_API_Integration/
 │   │
-│   ├── 📄 04_A_Module_API_Webhooks_Assignment.md
+│   ├── 📄 04_A_API_Webhooks.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 04_Understanding APIs and Webhooks
 │   │       • Learn: REST API Basics
@@ -251,7 +251,7 @@ Project Name: MACBan
 │   │       │
 │   │       • Complete: API Quiz
 │   │
-│   └── 📄 04_B_Module_Banking_API_Architecture_Assignment.md
+│   └── 📄 04_B_Banking_API_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Core Banking API Integration
 │           │   └── n8n Banking Integration:
@@ -309,17 +309,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Enterprise API Management Framework
 │           • 📝 n8n Deliverable: Banking API Integration Workflows
 │
-└── 📁 Module_04_Resources/
+└── 📁 04_Resources/
     ├── 📄 Banking_API_Specification_Document.md
     ├── 📄 Postman_Collection_Template.json
     └── 📄 API_Security_Checklist.md
 📁 Module 05: Mockoon Banking API Simulation (Lab)
 
-📁 01-05_Module_Phase1_Foundation/
+📁 01-05_Phase1_Foundation/
 │
-├── 📁 Module_05_Mockoon_Simulation/
+├── 📁 05_Mockoon_Simulation/
 │   │
-│   ├── 📄 05_A_Module_Mockoon_Setup_Assignment.md
+│   ├── 📄 05_A_Mockoon_Setup.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 05_Building Your First n8n Workflow
 │   │       ├── n8n Interface Overview
@@ -344,7 +344,7 @@ Project Name: MACBan
 │   │       │
 │   │       • Complete: First Workflow Quiz
 │   │
-│   └── 📄 05_B_Module_Banking_API_Simulation_Assignment.md
+│   └── 📄 05_B_Banking_API_Simulation.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Create: Network Devices API Collection
 │           │   └── 📝 n8n Mock API:
@@ -445,18 +445,18 @@ Project Name: MACBan
 │           • 🎯 Deliverable: 25+ Banking APIs Running on Windows 11
 │           • 📝 n8n Deliverable: Mockoon API Integration Workflow
 │
-└── 📁 Module_05_Resources/
+└── 📁 05_Resources/
     ├── 📄 mockoon-banking-collection.json
     ├── 📄 API_Testing_Checklist.md
     └── 📄 Cross_Platform_Connectivity_Guide.md
 🔐 PART 02: NETWORK & SECURITY AUTOMATION (Module 6-10)
 📁 Module 06: Network Health Monitoring Blueprint
 
-📁 06-10_Module_Phase2_Network_Security/
+📁 06-10_Phase2_Network_Security/
 │
-├── 📁 Module_06_Network_Health_Monitoring/
+├── 📁 06_Network_Health_Monitoring/
 │   │
-│   ├── 📄 06_A_Module_First_Workflow_Assignment.md
+│   ├── 📄 06_A_First_Workflow.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 06_Project 1 - Basic Email Automation Agent (n8n)
 │   │       ├── Email Automation Basics
@@ -489,7 +489,7 @@ Project Name: MACBan
 │   │       │
 │   │       • Complete: Email Automation Project
 │   │
-│   └── 📄 06_B_Module_SOAR_Framework_Assignment.md
+│   └── 📄 06_B_SOAR_Framework.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Firewall Log Monitoring System
 │           │   └── 📝 n8n Firewall Monitoring:
@@ -550,17 +550,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Security Alerting & SOAR Architecture
 │           • 📝 n8n Deliverable: Security Alert Escalation Workflow
 │
-└── 📁 Module_06_Resources/
+└── 📁 06_Resources/
     ├── 📄 email-alert-workflow.json
     ├── 📄 severity-classification-matrix.xlsx
     └── 📄 SOAR_Framework_Document.md
 📁 Module 07: LLM-Powered Network Troubleshooting
 
-📁 06-10_Module_Phase2_Network_Security/
+📁 06-10_Phase2_Network_Security/
 │
-├── 📁 Module_07_LLM_Troubleshooting/
+├── 📁 07_LLM_Troubleshooting/
 │   │
-│   ├── 📄 07_A_Module_LLM_Integration_Assignment.md
+│   ├── 📄 07_A_LLM_Integration.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 07_Integrating LLMs with n8n
 │   │       ├── What are LLMs
@@ -586,7 +586,7 @@ Project Name: MACBan
 │   │       │
 │   │       • Complete: LLM Integration Quiz
 │   │
-│   └── 📄 07_B_Module_AI_Troubleshooting_Architecture_Assignment.md
+│   └── 📄 07_B_AI_Troubleshooting_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Select: LLM for Banking
 │           │   └── 📝 n8n LLM Selection:
@@ -634,17 +634,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete AI-Powered Troubleshooting Architecture
 │           • 📝 n8n Deliverable: LLM-Powered Troubleshooting Workflow
 │
-└── 📁 Module_07_Resources/
+└── 📁 07_Resources/
     ├── 📄 llm-troubleshooting-workflow.json
     ├── 📄 prompt-engineering-guide.md
     └── 📄 LLM_Security_Compliance_Checklist.md
 📁 Module 08: Banking-Grade Error Recovery Architecture
 
-📁 06-10_Module_Phase2_Network_Security/
+📁 06-10_Phase2_Network_Security/
 │
-├── 📁 Module_08_Error_Recovery/
+├── 📁 08_Error_Recovery/
 │   │
-│   ├── 📄 08_A_Module_Error_Handling_Assignment.md
+│   ├── 📄 08_A_Error_Handling.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 08_Error Handling in n8n
 │   │       ├── Types of Errors
@@ -670,7 +670,7 @@ Project Name: MACBan
 │   │       │
 │   │       • Complete: Error Handling Quiz
 │   │
-│   └── 📄 08_B_Module_Resiliency_Framework_Assignment.md
+│   └── 📄 08_B_Resiliency_Framework.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Retry Logic with Exponential Backoff
 │           │   └── 📝 n8n Retry Logic:
@@ -703,17 +703,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Error Handling & Resiliency Framework
 │           • 📝 n8n Deliverable: Error Recovery Workflow
 │
-└── 📁 Module_08_Resources/
+└── 📁 08_Resources/
     ├── 📄 error-recovery-workflow.json
     ├── 📄 retry-strategy-template.md
     └── 📄 SLA_Compliance_Checklist.md
 📁 Module 08.1: First Assignment — Firewall Config Backup & GitOps
 
-📁 06-10_Module_Phase2_Network_Security/
+📁 06-10_Phase2_Network_Security/
 │
-├── 📁 Module_08.1_GitOps_Backup/
+├── 📁 08.1_GitOps_Backup/
 │   │
-│   ├── 📄 08.1_A_Module_First_Assignment_Assignment.md
+│   ├── 📄 08.1_A_First.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Complete: 08.1_First Assignment
 │   │       │   └── 📝 n8n Assignment:
@@ -725,7 +725,7 @@ Project Name: MACBan
 │   │       • Feedback: Peer Review
 │   │       • Improve: Best Practices Check
 │   │
-│   └── 📄 08.1_B_Module_GitOps_Network_Config_Assignment.md
+│   └── 📄 08.1_B_GitOps_Network_Config.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Firewall Config Backup System
 │           │   └── 📝 n8n Backup Workflow:
@@ -750,18 +750,18 @@ Project Name: MACBan
 │           • 🎯 Deliverable: GitOps for Network Configuration Blueprint
 │           • 📝 n8n Deliverable: Config Backup & GitOps Workflow
 │
-└── 📁 Module_08.1_Resources/
+└── 📁 08.1_Resources/
     ├── 📄 config-backup-workflow.json
     ├── 📄 gitops-strategy-guide.md
     └── 📄 IaC_Implementation_Checklist.md
 ⚙️ PART 03: ADVANCED AUTOMATION (Module 9-15)
 📁 Module 09: Self-Service NOC Portal
 
-📁 09-15_Module_Phase3_Advanced_Automation/
+📁 09-15_Phase3_Advanced_Automation/
 │
-├── 📁 Module_09_Self_Service_Portal/
+├── 📁 09_Self_Service_Portal/
 │   │
-│   ├── 📄 09_A_Module_Visual_Builder_Assignment.md
+│   ├── 📄 09_A_Visual_Builder.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 09_Introduction to n8n's Visual Builder
 │   │       ├── Visual Builder Interface
@@ -777,7 +777,7 @@ Project Name: MACBan
 │   │       │
 │   │       • Complete: Visual Builder Quiz
 │   │
-│   └── 📄 09_B_Module_Self_Service_Portal_Architecture_Assignment.md
+│   └── 📄 09_B_Self_Service_Portal_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Service Catalog
 │           │   └── 📝 n8n Service Catalog:
@@ -806,17 +806,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Self-Service Portal Architecture
 │           • 📝 n8n Deliverable: Self-Service Workflows
 │
-└── 📁 Module_09_Resources/
+└── 📁 09_Resources/
     ├── 📄 self-service-workflows.json
     ├── 📄 portal-ui-mockup.drawio
     └── 📄 RBAC_Implementation_Guide.md
 📁 Module 09.1: Branch Provisioning Automation
 
-📁 09-15_Module_Phase3_Advanced_Automation/
+📁 09-15_Phase3_Advanced_Automation/
 │
-├── 📁 Module_09.1_Branch_Provisioning/
+├── 📁 09.1_Branch_Provisioning/
 │   │
-│   ├── 📄 09.1_A_Module_Advanced_Features_Part1_Assignment.md
+│   ├── 📄 09.1_A_Advanced_Features_Part1.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 09.1_n8n Advanced Features — Part 1
 │   │       ├── Webhook Configuration
@@ -832,7 +832,7 @@ Project Name: MACBan
 │   │       └── Schedule Trigger
 │   │           └── 📝 n8n Schedule: Every 5 Minutes
 │   │
-│   └── 📄 09.1_B_Module_Zero_Touch_Provisioning_Assignment.md
+│   └── 📄 09.1_B_Zero_Touch_Provisioning.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Zero-Touch Branch Provisioning Architecture
 │           │   └── 📝 n8n Provisioning Workflow:
@@ -852,17 +852,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Zero-Touch Branch Provisioning Architecture
 │           • 📝 n8n Deliverable: Branch Provisioning Workflow
 │
-└── 📁 Module_09.1_Resources/
+└── 📁 09.1_Resources/
     ├── 📄 branch-provisioning-workflow.json
     ├── 📄 cisco-config-templates.md
     └── 📄 Zero_Touch_Provisioning_Checklist.md
 📁 Module 09.2: Network Compliance Automation
 
-📁 09-15_Module_Phase3_Advanced_Automation/
+📁 09-15_Phase3_Advanced_Automation/
 │
-├── 📁 Module_09.2_Compliance_Automation/
+├── 📁 09.2_Compliance_Automation/
 │   │
-│   ├── 📄 09.2_A_Module_Advanced_Features_Part2_Assignment.md
+│   ├── 📄 09.2_A_Advanced_Features_Part2.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 09.2_n8n Advanced Features — Part 2 (Learning Roadmap)
 │   │       ├── Code Node: Python & JavaScript
@@ -878,7 +878,7 @@ Project Name: MACBan
 │   │       │
 │   │       └── Custom Nodes: Create Your Own
 │   │
-│   └── 📄 09.2_B_Module_Compliance_Framework_Assignment.md
+│   └── 📄 09.2_B_Compliance_Framework.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: PCI-DSS/Regulatory Compliance Automation
 │           │   └── 📝 n8n Compliance Workflow:
@@ -894,17 +894,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Compliance Automation Framework
 │           • 📝 n8n Deliverable: Compliance Workflows
 │
-└── 📁 Module_09.2_Resources/
+└── 📁 09.2_Resources/
     ├── 📄 compliance-workflow.json
     ├── 📄 pci-dss-checklist.md
     └── 📄 compliance-report-template.html
 📁 Module 09.3: Network Inventory & CMDB Automation
 
-📁 09-15_Module_Phase3_Advanced_Automation/
+📁 09-15_Phase3_Advanced_Automation/
 │
-├── 📁 Module_09.3_CMDB_Inventory/
+├── 📁 09.3_CMDB_Inventory/
 │   │
-│   ├── 📄 09.3_A_Module_Advanced_Features_Part3_Assignment.md
+│   ├── 📄 09.3_A_Advanced_Features_Part3.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 09.3_n8n Advanced Features — Part 3 (Customer Data Processor)
 │   │       ├── Data Transformation
@@ -919,7 +919,7 @@ Project Name: MACBan
 │   │               ├── Average: CPU Usage
 │   │               └── Count: Total Devices
 │   │
-│   └── 📄 09.3_B_Module_CMDB_Architecture_Assignment.md
+│   └── 📄 09.3_B_CMDB_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Centralized Asset Management System
 │           │   └── 📝 n8n CMDB Workflow:
@@ -931,24 +931,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete CMDB & Asset Lifecycle Architecture
 │           • 📝 n8n Deliverable: CMDB Workflow
 │
-└── 📁 Module_09.3_Resources/
+└── 📁 09.3_Resources/
     ├── 📄 cmdb-workflow.json
     ├── 📄 asset-lifecycle-template.md
     └── 📄 CMDB_Implementation_Guide.md
 📁 Module 10: Security Incident Report Generator
 
-📁 09-15_Module_Phase3_Advanced_Automation/
+📁 09-15_Phase3_Advanced_Automation/
 │
-├── 📁 Module_10_Incident_Reporting/
+├── 📁 10_Incident_Reporting/
 │   │
-│   ├── 📄 10_A_Module_Social_Media_Generator_Assignment.md
+│   ├── 📄 10_A_Social_Media_Generator.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 10_Project 2 - Social Media Content Generator (n8n)
 │   │       ├── Social Media APIs
 │   │       ├── Content Generation with AI
 │   │       └── Post Scheduling
 │   │
-│   └── 📄 10_B_Module_Incident_Reporting_Architecture_Assignment.md
+│   └── 📄 10_B_Incident_Reporting_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Automated Post-Incident Report Generation
 │           │   └── 📝 n8n Incident Report:
@@ -960,17 +960,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Incident Reporting & Analytics Architecture
 │           • 📝 n8n Deliverable: Incident Report Workflow
 │
-└── 📁 Module_10_Resources/
+└── 📁 10_Resources/
     ├── 📄 incident-report-workflow.json
     ├── 📄 report-template.docx
     └── 📄 Incident_Reporting_Playbook.md
 📁 Module 11: Network Operations AI Assistant
 
-📁 09-15_Module_Phase3_Advanced_Automation/
+📁 09-15_Phase3_Advanced_Automation/
 │
-├── 📁 Module_11_NOC_AI_Assistant/
+├── 📁 11_NOC_AI_Assistant/
 │   │
-│   ├── 📄 11_A_Module_AI_Agent_Chatbot_Assignment.md
+│   ├── 📄 11_A_AI_Agent_Chatbot.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 11_Building AI Agent in n8n (Chatbot in Lovable)
 │   │       ├── Chatbot Architecture
@@ -980,7 +980,7 @@ Project Name: MACBan
 │   │       ├── AI Agent Development
 │   │       └── Integration with Lovable
 │   │
-│   └── 📄 11_B_Module_NOC_AI_Assistant_Architecture_Assignment.md
+│   └── 📄 11_B_NOC_AI_Assistant_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: NOC Engineer AI Assistant
 │           │   └── 📝 n8n NOC Assistant:
@@ -994,17 +994,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete NOC AI Assistant Architecture
 │           • 📝 n8n Deliverable: NOC Assistant Workflow
 │
-└── 📁 Module_11_Resources/
+└── 📁 11_Resources/
     ├── 📄 noc-assistant-workflow.json
     ├── 📄 intent-mapping-template.md
     └── 📄 NOC_Assistant_Integration_Guide.md
 📁 Module 12: Banking Network Knowledge Base (RAG)
 
-📁 09-15_Module_Phase3_Advanced_Automation/
+📁 09-15_Phase3_Advanced_Automation/
 │
-├── 📁 Module_12_RAG_Knowledge_Base/
+├── 📁 12_RAG_Knowledge_Base/
 │   │
-│   ├── 📄 12_A_Module_RAG_Theory_Assignment.md
+│   ├── 📄 12_A_RAG_Theory.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 12_Retrieval-Augmented Generation (RAG) in n8n — Theory
 │   │       ├── What is RAG
@@ -1012,7 +1012,7 @@ Project Name: MACBan
 │   │       ├── Embeddings
 │   │       └── Semantic Search
 │   │
-│   └── 📄 12_B_Module_Enterprise_RAG_Architecture_Assignment.md
+│   └── 📄 12_B_Enterprise_RAG_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Enterprise RAG Architecture
 │           │   └── 📝 n8n RAG Workflow:
@@ -1024,24 +1024,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Enterprise RAG Knowledge Base Blueprint
 │           • 📝 n8n Deliverable: RAG Workflow
 │
-└── 📁 Module_12_Resources/
+└── 📁 12_Resources/
     ├── 📄 rag-workflow.json
     ├── 📄 vector-database-setup-guide.md
     └── 📄 Knowledge_Base_Architecture.drawio
 📁 Module 13: Branch IT Support Bot
 
-📁 09-15_Module_Phase3_Advanced_Automation/
+📁 09-15_Phase3_Advanced_Automation/
 │
-├── 📁 Module_13_Branch_Support_Bot/
+├── 📁 13_Branch_Support_Bot/
 │   │
-│   ├── 📄 13_A_Module_Customer_Support_Bot_Assignment.md
+│   ├── 📄 13_A_Customer_Support_Bot.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 13_Project 3 - Customer Support Q&A Bot (n8n)
 │   │       ├── FAQ Database Integration
 │   │       ├── Intent Matching
 │   │       └── Escalation Handling
 │   │
-│   └── 📄 13_B_Module_Branch_Support_Architecture_Assignment.md
+│   └── 📄 13_B_Branch_Support_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Tier-1 Support Automation for Branches
 │           │   └── 📝 n8n Branch Support:
@@ -1055,17 +1055,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Branch IT Support Automation Architecture
 │           • 📝 n8n Deliverable: Branch Support Workflow
 │
-└── 📁 Module_13_Resources/
+└── 📁 13_Resources/
     ├── 📄 branch-support-workflow.json
     ├── 📄 faq-database-template.md
     └── 📄 ServiceNow_Integration_Guide.md
 📁 Module 14: Autonomous Network Operations Framework
 
-📁 09-15_Module_Phase3_Advanced_Automation/
+📁 09-15_Phase3_Advanced_Automation/
 │
-├── 📁 Module_14_Autonomous_Ops/
+├── 📁 14_Autonomous_Ops/
 │   │
-│   ├── 📄 14_A_Module_Multi_Agent_Systems_Assignment.md
+│   ├── 📄 14_A_Multi_Agent_Systems.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 14_Multi-Agent Systems in n8n
 │   │       ├── What are Multi-Agent Systems
@@ -1073,7 +1073,7 @@ Project Name: MACBan
 │   │       ├── Agent Communication
 │   │       └── Agent Orchestration
 │   │
-│   └── 📄 14_B_Module_Autonomous_Ops_Architecture_Assignment.md
+│   └── 📄 14_B_Autonomous_Ops_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Multi-Agent Architecture
 │           │   └── 📝 n8n Multi-Agent:
@@ -1086,24 +1086,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Multi-Agent Autonomous Ops Architecture
 │           • 📝 n8n Deliverable: Multi-Agent Workflow
 │
-└── 📁 Module_14_Resources/
+└── 📁 14_Resources/
     ├── 📄 multi-agent-workflow.json
     ├── 📄 agent-orchestration-guide.md
     └── 📄 Self_Healing_Infrastructure_Design.md
 📁 Module 15: Threat Intelligence Multi-Agent System
 
-📁 09-15_Module_Phase3_Advanced_Automation/
+📁 09-15_Phase3_Advanced_Automation/
 │
-├── 📁 Module_15_Threat_Intelligence/
+├── 📁 15_Threat_Intelligence/
 │   │
-│   ├── 📄 15_A_Module_Market_Research_Agent_Assignment.md
+│   ├── 📄 15_A_Market_Research_Agent.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 15_Project 4 - Market Research Multi-Agent System (n8n)
 │   │       ├── Data Collection Agents
 │   │       ├── Data Analysis Agents
 │   │       └── Report Generation Agents
 │   │
-│   └── 📄 15_B_Module_Threat_Intelligence_Architecture_Assignment.md
+│   └── 📄 15_B_Threat_Intelligence_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Threat Intelligence Multi-Agent System
 │           │   └── 📝 n8n Threat Intelligence:
@@ -1115,25 +1115,25 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Threat Intelligence & Response Architecture
 │           • 📝 n8n Deliverable: Threat Intelligence Workflow
 │
-└── 📁 Module_15_Resources/
+└── 📁 15_Resources/
     ├── 📄 threat-intelligence-workflow.json
     ├── 📄 mitre-attck-mapping.md
     └── 📄 Threat_Intelligence_Playbook.md
 🤖 PART 04: AI & INTELLIGENCE (Module 16-22)
 📁 Module 16: Change Management & Approval System
 
-📁 16-22_Module_Phase4_AI_Intelligence/
+📁 16-22_Phase4_AI_Intelligence/
 │
-├── 📁 Module_16_Change_Management/
+├── 📁 16_Change_Management/
 │   │
-│   ├── 📄 16_A_Module_Human_In_Loop_Assignment.md
+│   ├── 📄 16_A_Human_In_Loop.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 16_Human-in-the-Loop Workflows
 │   │       ├── Approval Workflows
 │   │       ├── Decision Points
 │   │       └── Escalation Paths
 │   │
-│   └── 📄 16_B_Module_Change_Management_Architecture_Assignment.md
+│   └── 📄 16_B_Change_Management_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Enterprise Change Management Architecture
 │           │   └── 📝 n8n Change Management:
@@ -1146,24 +1146,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Enterprise Change Management Architecture
 │           • 📝 n8n Deliverable: Change Management Workflow
 │
-└── 📁 Module_16_Resources/
+└── 📁 16_Resources/
     ├── 📄 change-management-workflow.json
     ├── 📄 itil-change-management-template.md
     └── 📄 Change_Management_Playbook.md
 📁 Module 16.1: Production Excellence & Network Architect Assistant
 
-📁 16-22_Module_Phase4_AI_Intelligence/
+📁 16-22_Phase4_AI_Intelligence/
 │
-├── 📁 Module_16.1_Production_Excellence/
+├── 📁 16.1_Production_Excellence/
 │   │
-│   ├── 📄 16.1_A_Module_Hidden_Tricks_Assignment.md
+│   ├── 📄 16.1_A_Hidden_Tricks.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 16.1_n8n — 12 Hidden Tricks & Features
 │   │       ├── Performance Tips
 │   │       ├── Debugging Tricks
 │   │       └── Security Best Practices
 │   │
-│   └── 📄 16.1_B_Module_Production_Excellence_Assignment.md
+│   └── 📄 16.1_B_Production_Excellence.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Production Performance Optimization
 │           │   └── 📝 n8n Performance:
@@ -1180,17 +1180,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Production Operations & Network Design Assistant Architecture
 │           • 📝 n8n Deliverable: Production Workflows
 │
-└── 📁 Module_16.1_Resources/
+└── 📁 16.1_Resources/
     ├── 📄 production-optimization-checklist.md
     ├── 📄 network-architect-assistant-workflow.json
     └── 📄 Performance_Tuning_Guide.md
 📁 Module 16.2: AI Assistant RAG Agent
 
-📁 16-22_Module_Phase4_AI_Intelligence/
+📁 16-22_Phase4_AI_Intelligence/
 │
-├── 📁 Module_16.2_AI_Assistant_RAG/
+├── 📁 16.2_AI_Assistant_RAG/
 │   │
-│   ├── 📄 16.2_A_Module_AI_Assistant_RAG_Assignment.md
+│   ├── 📄 16.2_A_AI_Assistant_RAG.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 16.2_AI Assistant RAG Agent
 │   │       ├── What is RAG Assistant
@@ -1198,7 +1198,7 @@ Project Name: MACBan
 │   │       ├── Document Q&A
 │   │       └── Intelligent Search
 │   │
-│   └── 📄 16.2_B_Module_Network_Architect_Assistant_Assignment.md
+│   └── 📄 16.2_B_Network_Architect_Assistant.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: AI-Powered Network Design Assistant
 │           │   └── 📝 n8n Network Architect Assistant:
@@ -1210,24 +1210,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete AI-Powered Network Design Assistant Architecture
 │           • 📝 n8n Deliverable: Network Architect Assistant Workflow
 │
-└── 📁 Module_16.2_Resources/
+└── 📁 16.2_Resources/
     ├── 📄 network-architect-assistant-workflow.json
     ├── 📄 network-design-templates.md
     └── 📄 Network_Architect_Assistant_Architecture.drawio
 📁 Module 16.3: Internal Communication Automation
 
-📁 16-22_Module_Phase4_AI_Intelligence/
+📁 16-22_Phase4_AI_Intelligence/
 │
-├── 📁 Module_16.3_Communication_Automation/
+├── 📁 16.3_Communication_Automation/
 │   │
-│   ├── 📄 16.3_A_Module_Facebook_Messenger_Assignment.md
+│   ├── 📄 16.3_A_Facebook_Messenger.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 16.3_Facebook Messenger Full Automation
 │   │       ├── Messenger API Integration
 │   │       ├── Automated Responses
 │   │       └── Chatbot Integration
 │   │
-│   └── 📄 16.3_B_Module_Enterprise_Communication_Architecture_Assignment.md
+│   └── 📄 16.3_B_Enterprise_Communication_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Enterprise Communication Strategy
 │           │   └── 📝 n8n Communication:
@@ -1240,18 +1240,18 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Enterprise Communication Integration Architecture
 │           • 📝 n8n Deliverable: Communication Automation Workflows
 │
-└── 📁 Module_16.3_Resources/
+└── 📁 16.3_Resources/
     ├── 📄 communication-workflow.json
     ├── 📄 slack-teams-integration-guide.md
     └── 📄 Enterprise_Communication_Architecture.drawio
 🔬 PART 05: LANGFLOW & ADVANCED AI (Module 17-21)
 📁 Module 17: Langflow Introduction & AI Workflow Orchestration
 
-📁 17-21_Module_Phase5_Langflow_Advanced/
+📁 17-21_Phase5_Langflow_Advanced/
 │
-├── 📁 Module_17_Langflow_Introduction/
+├── 📁 17_Langflow_Introduction/
 │   │
-│   ├── 📄 17_A_Module_Langflow_Intro_Assignment.md
+│   ├── 📄 17_A_Langflow_Intro.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 17_Introduction to Langflow
 │   │       ├── What is Langflow
@@ -1261,7 +1261,7 @@ Project Name: MACBan
 │   │       ├── LangChain Components
 │   │       └── Visual Programming
 │   │
-│   └── 📄 17_B_Module_AI_Workflow_Orchestration_Assignment.md
+│   └── 📄 17_B_AI_Workflow_Orchestration.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: AI Workflow Orchestration Framework
 │           │   └── n8n + Langflow Integration:
@@ -1272,24 +1272,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete AI Workflow Orchestration Architecture
 │           • 📝 n8n + Langflow Deliverable: Integrated Workflow
 │
-└── 📁 Module_17_Resources/
+└── 📁 17_Resources/
     ├── 📄 langflow-banking-workflow.json
     ├── 📄 langflow-installation-guide.md
     └── 📄 AI_Orchestration_Framework.drawio
 📁 Module 18: Enterprise RAG for Network Documentation
 
-📁 17-21_Module_Phase5_Langflow_Advanced/
+📁 17-21_Phase5_Langflow_Advanced/
 │
-├── 📁 Module_18_Advanced_RAG/
+├── 📁 18_Advanced_RAG/
 │   │
-│   ├── 📄 18_A_Module_RAG_Langflow_Assignment.md
+│   ├── 📄 18_A_RAG_Langflow.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 18_Building RAG Agents in Langflow
 │   │       ├── RAG with Langflow
 │   │       ├── Vector Database Setup
 │   │       └── Document Upload & Query
 │   │
-│   └── 📄 18_B_Module_Enterprise_RAG_Architecture_Assignment.md
+│   └── 📄 18_B_Enterprise_RAG_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Multi-Source Knowledge Retrieval
 │           │   └── n8n + Langflow RAG:
@@ -1300,24 +1300,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Advanced RAG Knowledge Management Architecture
 │           • 📝 n8n + Langflow Deliverable: RAG Workflow
 │
-└── 📁 Module_18_Resources/
+└── 📁 18_Resources/
     ├── 📄 advanced-rag-workflow.json
     ├── 📄 vector-database-configuration.md
     └── 📄 Document_Management_Architecture.drawio
 📁 Module 19: Cross-Domain Multi-Agent Orchestration
 
-📁 17-21_Module_Phase5_Langflow_Advanced/
+📁 17-21_Phase5_Langflow_Advanced/
 │
-├── 📁 Module_19_Multi_Agent_Orchestration/
+├── 📁 19_Multi_Agent_Orchestration/
 │   │
-│   ├── 📄 19_A_Module_Multi_Agent_Langflow_Assignment.md
+│   ├── 📄 19_A_Multi_Agent_Langflow.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 19_Multi-Agent Orchestration in Langflow
 │   │       ├── Agent Coordination
 │   │       ├── Task Distribution
 │   │       └── Result Aggregation
 │   │
-│   └── 📄 19_B_Module_Enterprise_Orchestration_Assignment.md
+│   └── 📄 19_B_Enterprise_Orchestration.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Cross-Domain Automation Architecture
 │           │   └── n8n + Langflow Multi-Agent:
@@ -1329,24 +1329,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Enterprise Multi-Agent Orchestration Framework
 │           • 📝 n8n + Langflow Deliverable: Multi-Agent Workflow
 │
-└── 📁 Module_19_Resources/
+└── 📁 19_Resources/
     ├── 📄 cross-domain-workflow.json
     ├── 📄 agent-coordination-guide.md
     └── 📄 Enterprise_Orchestration_Framework.drawio
 📁 Module 20: AI Workflow Lifecycle Management
 
-📁 17-21_Module_Phase5_Langflow_Advanced/
+📁 17-21_Phase5_Langflow_Advanced/
 │
-├── 📁 Module_20_Workflow_Lifecycle/
+├── 📁 20_Workflow_Lifecycle/
 │   │
-│   ├── 📄 20_A_Module_Exporting_Langflow_Assignment.md
+│   ├── 📄 20_A_Exporting_Langflow.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 20_Exporting Langflow Workflows
 │   │       ├── Export Functionality
 │   │       ├── Import/Export Formats
 │   │       └── Workflow Templates
 │   │
-│   └── 📄 20_B_Module_Workflow_Lifecycle_Assignment.md
+│   └── 📄 20_B_Workflow_Lifecycle.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: CI/CD for AI Workflows
 │           │   └── n8n + Langflow Lifecycle:
@@ -1357,24 +1357,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete AI Workflow Lifecycle Management Architecture
 │           • 📝 n8n + Langflow Deliverable: CI/CD Pipeline
 │
-└── 📁 Module_20_Resources/
+└── 📁 20_Resources/
     ├── 📄 ci-cd-pipeline-config.yml
     ├── 📄 versioning-strategy-guide.md
     └── 📄 Workflow_Governance_Framework.md
 📁 Module 21: AI Workflow Performance Optimization
 
-📁 17-21_Module_Phase5_Langflow_Advanced/
+📁 17-21_Phase5_Langflow_Advanced/
 │
-├── 📁 Module_21_AI_Optimization/
+├── 📁 21_AI_Optimization/
 │   │
-│   ├── 📄 21_A_Module_Debugging_Langflow_Assignment.md
+│   ├── 📄 21_A_Debugging_Langflow.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 21_Debugging and Optimizing Langflow
 │   │       ├── Debugging Techniques
 │   │       ├── Performance Profiling
 │   │       └── Memory Optimization
 │   │
-│   └── 📄 21_B_Module_AI_Quality_Assurance_Assignment.md
+│   └── 📄 21_B_AI_Quality_Assurance.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Banking-Grade Performance Standards
 │           │   └── n8n + Langflow QA:
@@ -1386,25 +1386,25 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete AI Workflow Quality Assurance Framework
 │           • 📝 n8n + Langflow Deliverable: QA Framework
 │
-└── 📁 Module_21_Resources/
+└── 📁 21_Resources/
     ├── 📄 performance-testing-checklist.md
     ├── 📄 cost-optimization-guide.md
     └── 📄 QA_Framework_Implementation_Guide.md
 📊 PART 06: ENTERPRISE SCALE (Module 22-35)
 📁 Module 22: Network Performance Analysis Agent
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_22_Network_Analytics/
+├── 📁 22_Network_Analytics/
 │   │
-│   ├── 📄 22_A_Module_Stock_Analysis_Assignment.md
+│   ├── 📄 22_A_Stock_Analysis.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 22_Project 5 - Stock Analysis Agent (n8n)
 │   │       ├── Data Collection
 │   │       ├── Trend Detection
 │   │       └── Report Generation
 │   │
-│   └── 📄 22_B_Module_Network_Analytics_Assignment.md
+│   └── 📄 22_B_Network_Analytics.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Network Performance Analysis System
 │           │   └── 📝 n8n Network Analytics:
@@ -1417,24 +1417,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Network Analytics & Predictive Architecture
 │           • 📝 n8n Deliverable: Network Analytics Workflow
 │
-└── 📁 Module_22_Resources/
+└── 📁 22_Resources/
     ├── 📄 network-analytics-workflow.json
     ├── 📄 capacity-planning-template.md
     └── 📄 Predictive_Analytics_Architecture.drawio
 📁 Module 23: Multilingual Enterprise Service Desk
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_23_Multilingual_Service_Desk/
+├── 📁 23_Multilingual_Service_Desk/
 │   │
-│   ├── 📄 23_A_Module_Multilingual_Assistance_Assignment.md
+│   ├── 📄 23_A_Multilingual_Assistance.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 23_Project 6 - Multilingual Full Stack Assistance with Payment Gateway
 │   │       ├── Multi-Language Support
 │   │       ├── Translation Integration
 │   │       └── Payment Gateway Integration
 │   │
-│   └── 📄 23_B_Module_Service_Desk_Architecture_Assignment.md
+│   └── 📄 23_B_Service_Desk_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Bengali/English Support Automation
 │           │   └── 📝 n8n Multilingual Service Desk:
@@ -1447,24 +1447,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Multilingual Enterprise Service Desk Architecture
 │           • 📝 n8n Deliverable: Multilingual Workflow
 │
-└── 📁 Module_23_Resources/
+└── 📁 23_Resources/
     ├── 📄 multilingual-workflow.json
     ├── 📄 bengali-translation-guide.md
     └── 📄 Service_Desk_Architecture.drawio
 📁 Module 24: Enterprise API Gateway Platform
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_24_API_Gateway/
+├── 📁 24_API_Gateway/
 │   │
-│   ├── 📄 24_A_Module_SaaS_Agent_Assignment.md
+│   ├── 📄 24_A_SaaS_Agent.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 24_Build Your First SaaS Agent (Webhook and Website Integration)
 │   │       ├── Webhook Integration
 │   │       ├── Website Integration
 │   │       └── SaaS Architecture
 │   │
-│   └── 📄 24_B_Module_API_Gateway_Architecture_Assignment.md
+│   └── 📄 24_B_API_Gateway_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Enterprise API Gateway Architecture
 │           │   └── 📝 n8n API Gateway:
@@ -1477,24 +1477,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Enterprise API Gateway Architecture
 │           • 📝 n8n Deliverable: API Gateway Workflow
 │
-└── 📁 Module_24_Resources/
+└── 📁 24_Resources/
     ├── 📄 api-gateway-config.json
     ├── 📄 api-management-guide.md
     └── 📄 API_Gateway_Architecture.drawio
 📁 Module 25: Branch Onboarding & Provisioning Portal
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_25_Branch_Onboarding/
+├── 📁 25_Branch_Onboarding/
 │   │
-│   ├── 📄 25_A_Module_Lead_Generation_Assignment.md
+│   ├── 📄 25_A_Lead_Generation.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 25_Project 7 - Website Lead Generation SaaS Project (n8n)
 │   │       ├── Lead Capture Forms
 │   │       ├── CRM Integration
 │   │       └── Email Automation
 │   │
-│   └── 📄 25_B_Module_Onboarding_Portal_Assignment.md
+│   └── 📄 25_B_Onboarding_Portal.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Zero-Touch Branch Provisioning Portal
 │           │   └── 📝 n8n Onboarding Portal:
@@ -1507,24 +1507,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Branch Onboarding & Provisioning Portal Architecture
 │           • 📝 n8n Deliverable: Onboarding Workflow
 │
-└── 📁 Module_25_Resources/
+└── 📁 25_Resources/
     ├── 📄 onboarding-portal-workflow.json
     ├── 📄 portal-ui-wireframe.drawio
     └── 📄 Provisioning_Automation_Guide.md
 📁 Module 26: IT Asset Lifecycle Management
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_26_Asset_Lifecycle/
+├── 📁 26_Asset_Lifecycle/
 │   │
-│   ├── 📄 26_A_Module_Dropshipping_Automation_Assignment.md
+│   ├── 📄 26_A_Dropshipping_Automation.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 26_Full Stack Dropshipping Business Automation
 │   │       ├── E-Commerce Integration
 │   │       ├── Inventory Management
 │   │       └── Order Processing
 │   │
-│   └── 📄 26_B_Module_Asset_Lifecycle_Assignment.md
+│   └── 📄 26_B_Asset_Lifecycle.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Procurement to Disposal Automation
 │           │   └── 📝 n8n Asset Lifecycle:
@@ -1536,24 +1536,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete IT Asset Lifecycle Management Architecture
 │           • 📝 n8n Deliverable: Asset Lifecycle Workflow
 │
-└── 📁 Module_26_Resources/
+└── 📁 26_Resources/
     ├── 📄 asset-lifecycle-workflow.json
     ├── 📄 procurement-automation-guide.md
     └── 📄 Asset_Lifecycle_Architecture.drawio
 📁 Module 27: Banking Customer Service AI Architecture
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_27_Customer_Service_AI/
+├── 📁 27_Customer_Service_AI/
 │   │
-│   ├── 📄 27_A_Module_Ecommerce_Chatbot_Assignment.md
+│   ├── 📄 27_A_Ecommerce_Chatbot.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 27_Project 8 - E-Commerce Chatbot Integration
 │   │       ├── Product Catalog
 │   │       ├── Order Management
 │   │       └── Customer Support
 │   │
-│   └── 📄 27_B_Module_Customer_Service_Architecture_Assignment.md
+│   └── 📄 27_B_Customer_Service_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Retail Banking Customer Service AI
 │           │   └── 📝 n8n Customer Service:
@@ -1565,24 +1565,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Banking Customer Service AI Architecture
 │           • 📝 n8n Deliverable: Customer Service Workflow
 │
-└── 📁 Module_27_Resources/
+└── 📁 27_Resources/
     ├── 📄 customer-service-workflow.json
     ├── 📄 banking-product-catalog.md
     └── 📄 Customer_Service_AI_Architecture.drawio
 📁 Module 28: Mobile NOC Operations Architecture
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_28_Mobile_NOC/
+├── 📁 28_Mobile_NOC/
 │   │
-│   ├── 📄 28_A_Module_Mobile_App_Integration_Assignment.md
+│   ├── 📄 28_A_Mobile_App_Integration.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 28_Mobile App Integration
 │   │       ├── Mobile APIs
 │   │       ├── Push Notifications
 │   │       └── Mobile Authentication
 │   │
-│   └── 📄 28_B_Module_Mobile_NOC_Architecture_Assignment.md
+│   └── 📄 28_B_Mobile_NOC_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Mobile-Friendly NOC Dashboard
 │           │   └── 📝 n8n Mobile NOC:
@@ -1593,24 +1593,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Mobile NOC Operations Architecture
 │           • 📝 n8n Deliverable: Mobile NOC Workflow
 │
-└── 📁 Module_28_Resources/
+└── 📁 28_Resources/
     ├── 📄 mobile-noc-workflow.json
     ├── 📄 mobile-ui-wireframe.drawio
     └── 📄 Mobile_Operations_Guide.md
 📁 Module 29: Skills Management System
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_29_Skills_Management/
+├── 📁 29_Skills_Management/
 │   │
-│   ├── 📄 29_A_Module_Job_Application_Assistant_Assignment.md
+│   ├── 📄 29_A_Job_Application_Assistant.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 29_AI Job Application Assistant (SaaS Platform)
 │   │       ├── Resume Parsing
 │   │       ├── Job Matching
 │   │       └── Application Tracking
 │   │
-│   └── 📄 29_B_Module_Skills_Management_Architecture_Assignment.md
+│   └── 📄 29_B_Skills_Management_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Internal Skills Management System
 │           │   └── 📝 n8n Skills Management:
@@ -1622,24 +1622,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Team Skills Management Architecture
 │           • 📝 n8n Deliverable: Skills Management Workflow
 │
-└── 📁 Module_29_Resources/
+└── 📁 29_Resources/
     ├── 📄 skills-management-workflow.json
     ├── 📄 skills-inventory-template.md
     └── 📄 Skills_Management_Architecture.drawio
 📁 Module 30: IT Request Management System
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_30_IT_Request_Management/
+├── 📁 30_IT_Request_Management/
 │   │
-│   ├── 📄 30_A_Module_CRM_Automation_Assignment.md
+│   ├── 📄 30_A_CRM_Automation.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 30_CRM Business Lead Automation
 │   │       ├── CRM Basics
 │   │       ├── Lead Management
 │   │       └── Automation Workflows
 │   │
-│   └── 📄 30_B_Module_IT_Request_Management_Architecture_Assignment.md
+│   └── 📄 30_B_IT_Request_Management_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: IT Request Management System (CRM for IT)
 │           │   └── 📝 n8n ITSM:
@@ -1652,24 +1652,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Enterprise Service Management Architecture
 │           • 📝 n8n Deliverable: ITSM Workflow
 │
-└── 📁 Module_30_Resources/
+└── 📁 30_Resources/
     ├── 📄 itsm-workflow.json
     ├── 📄 itsm-process-template.md
     └── 📄 Service_Management_Architecture.drawio
 📁 Module 31: Executive Dashboard & Reporting Architecture
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_31_Executive_Dashboard/
+├── 📁 31_Executive_Dashboard/
 │   │
-│   ├── 📄 31_A_Module_Newsletter_Automation_Assignment.md
+│   ├── 📄 31_A_Newsletter_Automation.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 31_Jobs Newsletter Automation System
 │   │       ├── Content Aggregation
 │   │       ├── Email Campaigns
 │   │       └── Subscriber Management
 │   │
-│   └── 📄 31_B_Module_Executive_Dashboard_Assignment.md
+│   └── 📄 31_B_Executive_Dashboard.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Daily Infrastructure Health Report
 │           │   └── 📝 n8n Executive Dashboard:
@@ -1682,24 +1682,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Executive Dashboard & Reporting Architecture
 │           • 📝 n8n Deliverable: Executive Report Workflow
 │
-└── 📁 Module_31_Resources/
+└── 📁 31_Resources/
     ├── 📄 executive-dashboard-workflow.json
     ├── 📄 kpi-metrics-template.md
     └── 📄 Executive_Dashboard_Architecture.drawio
 📁 Module 32: Enterprise Knowledge Management Architecture
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_32_Knowledge_Management/
+├── 📁 32_Knowledge_Management/
 │   │
-│   ├── 📄 32_A_Module_WordPress_Blog_Automation_Assignment.md
+│   ├── 📄 32_A_WordPress_Blog_Automation.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 32_WordPress Blog Automation
 │   │       ├── WordPress REST API
 │   │       ├── Blog Post Automation
 │   │       └── Content Scheduling
 │   │
-│   └── 📄 32_B_Module_Knowledge_Management_Assignment.md
+│   └── 📄 32_B_Knowledge_Management.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Internal IT Knowledge Base Automation
 │           │   └── 📝 n8n Knowledge Management:
@@ -1713,24 +1713,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Enterprise Knowledge Management Architecture
 │           • 📝 n8n Deliverable: Knowledge Management Workflow
 │
-└── 📁 Module_32_Resources/
+└── 📁 32_Resources/
     ├── 📄 knowledge-base-workflow.json
     ├── 📄 sop-template.md
     └── 📄 Knowledge_Management_Architecture.drawio
 📁 Module 33: Vendor & Contract Management Architecture
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_33_Vendor_Management/
+├── 📁 33_Vendor_Management/
 │   │
-│   ├── 📄 33_A_Module_Invoice_Automation_Assignment.md
+│   ├── 📄 33_A_Invoice_Automation.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 33_AI Powered Invoice Automation System
 │   │       ├── Invoice Processing
 │   │       ├── OCR Integration
 │   │       └── Approval Workflow
 │   │
-│   └── 📄 33_B_Module_Vendor_Management_Assignment.md
+│   └── 📄 33_B_Vendor_Management.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: IT Vendor & Contract Management
 │           │   └── 📝 n8n Vendor Management:
@@ -1742,24 +1742,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Vendor & Contract Management Architecture
 │           • 📝 n8n Deliverable: Vendor Management Workflow
 │
-└── 📁 Module_33_Resources/
+└── 📁 33_Resources/
     ├── 📄 vendor-management-workflow.json
     ├── 📄 contract-template.md
     └── 📄 Vendor_Management_Architecture.drawio
 📁 Module 34: Software Asset Management Architecture
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_34_License_Management/
+├── 📁 34_License_Management/
 │   │
-│   ├── 📄 34_A_Module_Ecommerce_Automation_Assignment.md
+│   ├── 📄 34_A_Ecommerce_Automation.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 34_WordPress E-Commerce Automation System
 │   │       ├── Product Management
 │   │       ├── Order Processing
 │   │       └── Inventory Sync
 │   │
-│   └── 📄 34_B_Module_License_Management_Assignment.md
+│   └── 📄 34_B_License_Management.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Software License Management System
 │           │   └── 📝 n8n License Management:
@@ -1771,24 +1771,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Software Asset Management Architecture
 │           • 📝 n8n Deliverable: License Management Workflow
 │
-└── 📁 Module_34_Resources/
+└── 📁 34_Resources/
     ├── 📄 license-management-workflow.json
     ├── 📄 license-compliance-checklist.md
     └── 📄 Software_Asset_Management_Architecture.drawio
 📁 Module 35: Voice-Enabled NOC Operations
 
-📁 22-35_Module_Phase6_Enterprise_Scale/
+📁 22-35_Phase6_Enterprise_Scale/
 │
-├── 📁 Module_35_Voice_NOC/
+├── 📁 35_Voice_NOC/
 │   │
-│   ├── 📄 35_A_Module_Voice_AI_Assignment.md
+│   ├── 📄 35_A_Voice_AI.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 35_Voice AI Assistant
 │   │       ├── Speech-to-
 │   │       ├── Natural Language Processing
 │   │       └── Voice Commands
 │   │
-│   └── 📄 35_B_Module_Voice_NOC_Architecture_Assignment.md
+│   └── 📄 35_B_Voice_NOC_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Voice-Enabled NOC Foundation
 │           │   └── 📝 n8n Voice NOC:
@@ -1801,25 +1801,25 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Voice-Enabled NOC Operations Architecture
 │           • 📝 n8n Deliverable: Voice NOC Workflow
 │
-└── 📁 Module_35_Resources/
+└── 📁 35_Resources/
     ├── 📄 voice-noc-workflow.json
     ├── 📄 voice-command-mapping.md
     └── 📄 Voice_NOC_Architecture.drawio
 🎤 PART 07: VOICE AI & ADVANCED (Module 36-38)
 📁 Module 36: Multilingual AI Agents
 
-📁 36-38_Module_Phase7_Voice_AI/
+📁 36-38_Phase7_Voice_AI/
 │
-├── 📁 Module_36_Multilingual_AI/
+├── 📁 36_Multilingual_AI/
 │   │
-│   ├── 📄 36_A_Module_Multilingual_AI_Assignment.md
+│   ├── 📄 36_A_Multilingual_AI.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 36_Multilingual AI Agents
 │   │       ├── Multi-Language Support
 │   │       ├── Language Detection
 │   │       └── Translation Integration
 │   │
-│   └── 📄 36_B_Module_Multilingual_NOC_Assignment.md
+│   └── 📄 36_B_Multilingual_NOC.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Multi-Language NOC Operations
 │           │   └── 📝 n8n Multilingual Voice:
@@ -1830,24 +1830,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Multi-Language AI Operations Architecture
 │           • 📝 n8n Deliverable: Multilingual AI Workflow
 │
-└── 📁 Module_36_Resources/
+└── 📁 36_Resources/
     ├── 📄 multilingual-ai-workflow.json
     ├── 📄 bengali-language-guide.md
     └── 📄 Multilingual_AI_Architecture.drawio
 📁 Module 37: Advanced Voice-Enabled NOC Operations
 
-📁 36-38_Module_Phase7_Voice_AI/
+📁 36-38_Phase7_Voice_AI/
 │
-├── 📁 Module_37_Advanced_Voice_NOC/
+├── 📁 37_Advanced_Voice_NOC/
 │   │
-│   ├── 📄 37_A_Module_Voice_Enabled_Agents_Assignment.md
+│   ├── 📄 37_A_Voice_Enabled_Agents.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 37_Voice-Enabled AI Agents
 │   │       ├── Voice Agent Architecture
 │   │       ├── Multi-Language Voice
 │   │       └── Voice Authentication
 │   │
-│   └── 📄 37_B_Module_Advanced_Voice_NOC_Assignment.md
+│   └── 📄 37_B_Advanced_Voice_NOC.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Advanced Voice-Enabled NOC Operations
 │           │   └── 📝 n8n Advanced Voice NOC:
@@ -1858,24 +1858,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Advanced Voice-Enabled NOC Architecture
 │           • 📝 n8n Deliverable: Advanced Voice NOC Workflow
 │
-└── 📁 Module_37_Resources/
+└── 📁 37_Resources/
     ├── 📄 advanced-voice-noc-workflow.json
     ├── 📄 voice-agent-architecture.md
     └── 📄 Advanced_Voice_NOC_Architecture.drawio
 📁 Module 38: Voice-Enabled Live NOC Response System
 
-📁 36-38_Module_Phase7_Voice_AI/
+📁 36-38_Phase7_Voice_AI/
 │
-├── 📁 Module_38_Emergency_Response/
+├── 📁 38_Emergency_Response/
 │   │
-│   ├── 📄 38_A_Module_Voice_Enabled_Live_Calling_Assignment.md
+│   ├── 📄 38_A_Voice_Enabled_Live_Calling.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 38_Project 9 - Voice-Enabled Live Calling Agent
 │   │       ├── Live Calling Architecture
 │   │       ├── Emergency Response
 │   │       └── Real-Time Voice Communication
 │   │
-│   └── 📄 38_B_Module_Emergency_Response_Architecture_Assignment.md
+│   └── 📄 38_B_Emergency_Response_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Voice-Enabled Live NOC Response System
 │           │   └── 📝 n8n Emergency Response:
@@ -1886,25 +1886,25 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Emergency Response Voice Architecture
 │           • 📝 n8n Deliverable: Emergency Response Workflow
 │
-└── 📁 Module_38_Resources/
+└── 📁 38_Resources/
     ├── 📄 emergency-response-workflow.json
     ├── 📄 emergency-playbook.md
     └── 📄 Emergency_Response_Architecture.drawio
 🏢 PART 08: BUSINESS & GOVERNANCE (Module 39-45)
 📁 Module 39: Center of Excellence (CoE) Architecture
 
-📁 39-45_Module_Phase8_Business_Governance/
+📁 39-45_Phase8_Business_Governance/
 │
-├── 📁 Module_39_CoE_Architecture/
+├── 📁 39_CoE_Architecture/
 │   │
-│   ├── 📄 39_A_Module_AI_Business_Assignment.md
+│   ├── 📄 39_A_AI_Business.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 39_Building an AI Automation Business
 │   │       ├── Business Model
 │   │       ├── Service Offering
 │   │       └── Client Acquisition
 │   │
-│   └── 📄 39_B_Module_CoE_Architecture_Assignment.md
+│   └── 📄 39_B_CoE_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Internal AI/Automation Center of Excellence
 │           │   └── 📝 n8n CoE:
@@ -1916,24 +1916,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete CoE Architecture & Governance Framework
 │           • 📝 n8n Deliverable: CoE Implementation Plan
 │
-└── 📁 Module_39_Resources/
+└── 📁 39_Resources/
     ├── 📄 coe-framework-template.md
     ├── 📄 governance-policy-template.md
     └── 📄 CoE_Architecture_Guide.md
 📁 Module 40: Career Path & Consulting Framework
 
-📁 39-45_Module_Phase8_Business_Governance/
+📁 39-45_Phase8_Business_Governance/
 │
-├── 📁 Module_40_Career_Consulting/
+├── 📁 40_Career_Consulting/
 │   │
-│   ├── 📄 40_A_Module_Job_Placement_Assignment.md
+│   ├── 📄 40_A_Job_Placement.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 40_Job Placement Guideline
 │   │       ├── Job Search Strategy
 │   │       ├── Interview Preparation
 │   │       └── Resume Building
 │   │
-│   └── 📄 40_B_Module_Career_Consulting_Assignment.md
+│   └── 📄 40_B_Career_Consulting.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Career Path Architecture for System Architect
 │           │   └── 📝 n8n Career Path:
@@ -1950,24 +1950,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Career Development & Consulting Framework
 │           • 📝 n8n Deliverable: Career Path Implementation Plan
 │
-└── 📁 Module_40_Resources/
+└── 📁 40_Resources/
     ├── 📄 career-path-template.md
     ├── 📄 consulting-framework.md
     └── 📄 ROI_Demonstration_Guide.md
 📁 Module 41: Internal Consulting & Advisory Framework
 
-📁 39-45_Module_Phase8_Business_Governance/
+📁 39-45_Phase8_Business_Governance/
 │
-├── 📁 Module_41_Freelancing_Consulting/
+├── 📁 41_Freelancing_Consulting/
 │   │
-│   ├── 📄 41_A_Module_Freelancing_Guideline_Assignment.md
+│   ├── 📄 41_A_Freelancing_Guideline.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 41_Freelancing Guideline — Become Upwork Pro
 │   │       ├── Freelancing Basics
 │   │       ├── Upwork Platform
 │   │       └── Client Acquisition
 │   │
-│   └── 📄 41_B_Module_Internal_Consulting_Assignment.md
+│   └── 📄 41_B_Internal_Consulting.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Internal Consulting & Advisory Framework
 │           │   └── 📝 n8n Consulting:
@@ -1978,24 +1978,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Internal Consulting & Advisory Architecture
 │           • 📝 n8n Deliverable: Consulting Framework Workflow
 │
-└── 📁 Module_41_Resources/
+└── 📁 41_Resources/
     ├── 📄 consulting-framework.md
     ├── 📄 success-stories-template.md
     └── 📄 Internal_Consulting_Architecture.drawio
 📁 Module 42: Code Standards & Quality Assurance Framework
 
-📁 39-45_Module_Phase8_Business_Governance/
+📁 39-45_Phase8_Business_Governance/
 │
-├── 📁 Module_42_Code_Standards/
+├── 📁 42_Code_Standards/
 │   │
-│   ├── 📄 42_A_Module_Vibe_Coding_Assignment.md
+│   ├── 📄 42_A_Vibe_Coding.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 42_Advanced Vibe Coding
 │   │       ├── Advanced Coding Techniques
 │   │       ├── Code Optimization
 │   │       └── Code Reviews
 │   │
-│   └── 📄 42_B_Module_Code_Standards_Assignment.md
+│   └── 📄 42_B_Code_Standards.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Banking-Grade Code Standards Framework
 │           │   └── 📝 n8n Code Standards:
@@ -2009,24 +2009,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Code Standards & Quality Assurance Framework
 │           • 📝 n8n Deliverable: Code Standards Workflow
 │
-└── 📁 Module_42_Resources/
+└── 📁 42_Resources/
     ├── 📄 code-standards-guide.md
     ├── 📄 code-review-checklist.md
     └── 📄 Code_Standards_Architecture.drawio
 📁 Module 43: Banking Data Handling Architecture
 
-📁 39-45_Module_Phase8_Business_Governance/
+📁 39-45_Phase8_Business_Governance/
 │
-├── 📁 Module_43_Data_Handling/
+├── 📁 43_Data_Handling/
 │   │
-│   ├── 📄 43_A_Module_JavaScript_JSON_Assignment.md
+│   ├── 📄 43_A_JavaScript_JSON.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 43_JavaScript & JSON Fundamental Crash Course
 │   │       ├── JavaScript Basics
 │   │       ├── JSON Data Format
 │   │       └── Data Parsing
 │   │
-│   └── 📄 43_B_Module_Banking_Data_Integration_Assignment.md
+│   └── 📄 43_B_Banking_Data_Integration.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Banking Data Handling Architecture
 │           │   └── 📝 n8n Data Integration:
@@ -2039,17 +2039,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Banking Data Integration Architecture
 │           • 📝 n8n Deliverable: Data Integration Workflow
 │
-└── 📁 Module_43_Resources/
+└── 📁 43_Resources/
     ├── 📄 swift-iso8583-parser-workflow.json
     ├── 📄 data-transformation-guide.md
     └── 📄 Data_Integration_Architecture.drawio
 📁 Module 44: GitOps & Infrastructure as Code
 
-📁 39-45_Module_Phase8_Business_Governance/
+📁 39-45_Phase8_Business_Governance/
 │
-├── 📁 Module_44_GitOps/
+├── 📁 44_GitOps/
 │   │
-│   ├── 📄 44_A_Module_Git_GitHub_Assignment.md
+│   ├── 📄 44_A_Git_GitHub.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 44_Git & GitHub for Professionals
 │   │       ├── Git Basics
@@ -2057,7 +2057,7 @@ Project Name: MACBan
 │   │       ├── GitHub Workflow
 │   │       └── CI/CD Integration
 │   │
-│   └── 📄 44_B_Module_GitOps_Architecture_Assignment.md
+│   └── 📄 44_B_GitOps_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: GitOps for Infrastructure Automation
 │           │   └── 📝 n8n GitOps:
@@ -2069,24 +2069,24 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete GitOps & Infrastructure as Code Architecture
 │           • 📝 n8n Deliverable: GitOps Workflow
 │
-└── 📁 Module_44_Resources/
+└── 📁 44_Resources/
     ├── 📄 gitops-workflow.json
     ├── 📄 git-strategy-guide.md
     └── 📄 GitOps_Architecture.drawio
 📁 Module 45: Enterprise Service Management Integration
 
-📁 39-45_Module_Phase8_Business_Governance/
+📁 39-45_Phase8_Business_Governance/
 │
-├── 📁 Module_45_Service_Integration/
+├── 📁 45_Service_Integration/
 │   │
-│   ├── 📄 45_A_Module_GoHighLevel_Assignment.md
+│   ├── 📄 45_A_GoHighLevel.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 45_GoHighLevel Tutorial
 │   │       ├── GoHighLevel Basics
 │   │       ├── CRM Features
 │   │       └── Marketing Automation
 │   │
-│   └── 📄 45_B_Module_Service_Integration_Architecture_Assignment.md
+│   └── 📄 45_B_Service_Integration_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Enterprise Service Management Integration
 │           │   └── 📝 n8n Service Integration:
@@ -2100,18 +2100,18 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Enterprise Service Management Integration Architecture
 │           • 📝 n8n Deliverable: Service Integration Workflow
 │
-└── 📁 Module_45_Resources/
+└── 📁 45_Resources/
     ├── 📄 service-integration-workflow.json
     ├── 📄 servicenow-integration-guide.md
     └── 📄 Service_Integration_Architecture.drawio
 🆕 PART 09: ENTERPRISE ARCHITECTURE FRAMEWORKS (Module 46-51) — 🆕 ADDED
 📁 Module 46: Enterprise Architecture Frameworks — 🆕 NEED TO ADD
 
-📁 46-51_Module_Phase9_Enterprise_Architecture/
+📁 46-51_Phase9_Enterprise_Architecture/
 │
-├── 📁 Module_46_Enterprise_Architecture/
+├── 📁 46_Enterprise_Architecture/
 │   │
-│   ├── 📄 46_A_Module_EA_Frameworks_Assignment.md
+│   ├── 📄 46_A_EA_Frameworks.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 46_Enterprise Architecture Frameworks
 │   │       • Understand: What is Enterprise Architecture
@@ -2136,7 +2136,7 @@ Project Name: MACBan
 │   │           ├── Application Layer
 │   │           └── Technology Layer
 │   │
-│   └── 📄 46_B_Module_Banking_EA_Implementation_Assignment.md
+│   └── 📄 46_B_Banking_EA_Implementation.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Nord Bank Enterprise Architecture Framework
 │           │   └── 📝 n8n + EA Integration:
@@ -2159,17 +2159,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Enterprise Architecture Framework Document
 │           • 📝 n8n Deliverable: EA Governance & Repository Workflow
 │
-└── 📁 Module_46_Resources/
+└── 📁 46_Resources/
     ├── 📄 TOGAF_ADM_Template.md
     ├── 📄 Zachman_Framework_Matrix.xlsx
     └── 📄 ArchiMate_Modeling_Guide.md
 📁 Module 47: Security Architecture for Banking — 🆕 NEED TO ADD
 
-📁 46-51_Module_Phase9_Enterprise_Architecture/
+📁 46-51_Phase9_Enterprise_Architecture/
 │
-├── 📁 Module_47_Security_Architecture/
+├── 📁 47_Security_Architecture/
 │   │
-│   ├── 📄 47_A_Module_Security_Architecture_Assignment.md
+│   ├── 📄 47_A_Security_Architecture.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 47_Security Architecture for Banking
 │   │       • Understand: What is Security Architecture
@@ -2200,7 +2200,7 @@ Project Name: MACBan
 │   │           ├── Certificate Management
 │   │           └── Digital Signatures
 │   │
-│   └── 📄 47_B_Module_Banking_Security_Architecture_Assignment.md
+│   └── 📄 47_B_Banking_Security_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Nord Bank Zero Trust Architecture
 │           │   └── 📝 n8n Security Automation:
@@ -2223,17 +2223,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Security Architecture Framework Document
 │           • 📝 n8n Deliverable: Security Automation Workflows
 │
-└── 📁 Module_47_Resources/
+└── 📁 47_Resources/
     ├── 📄 Zero_Trust_Architecture_Guide.md
     ├── 📄 SABSA_Framework_Implementation.md
     └── 📄 STRIDE_DREAD_Template.md
 📁 Module 48: Cloud Architecture for Banking — 🆕 NEED TO ADD
 
-📁 46-51_Module_Phase9_Enterprise_Architecture/
+📁 46-51_Phase9_Enterprise_Architecture/
 │
-├── 📁 Module_48_Cloud_Architecture/
+├── 📁 48_Cloud_Architecture/
 │   │
-│   ├── 📄 48_A_Module_Cloud_Architecture_Assignment.md
+│   ├── 📄 48_A_Cloud_Architecture.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 48_Cloud Architecture for Banking
 │   │       • Learn: AWS Well-Architected Framework
@@ -2273,7 +2273,7 @@ Project Name: MACBan
 │   │               ├── Migration
 │   │               └── Optimization
 │   │
-│   └── 📄 48_B_Module_Banking_Cloud_Architecture_Assignment.md
+│   └── 📄 48_B_Banking_Cloud_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Nord Bank Cloud Architecture
 │           │   └── 📝 n8n Cloud Integration:
@@ -2296,17 +2296,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Cloud Architecture Strategy Document
 │           • 📝 n8n Deliverable: Cloud Automation Workflows
 │
-└── 📁 Module_48_Resources/
+└── 📁 48_Resources/
     ├── 📄 AWS_WAF_Implementation_Guide.md
     ├── 📄 Azure_WAF_Implementation_Guide.md
     └── 📄 Cloud_Migration_Roadmap_Template.md
 📁 Module 49: Data Architecture for Banking — 🆕 NEED TO ADD
 
-📁 46-51_Module_Phase9_Enterprise_Architecture/
+📁 46-51_Phase9_Enterprise_Architecture/
 │
-├── 📁 Module_49_Data_Architecture/
+├── 📁 49_Data_Architecture/
 │   │
-│   ├── 📄 49_A_Module_Data_Architecture_Assignment.md
+│   ├── 📄 49_A_Data_Architecture.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 49_Data Architecture for Banking
 │   │       • Learn: Data Lake vs Data Warehouse Architecture
@@ -2347,7 +2347,7 @@ Project Name: MACBan
 │   │               ├── Product MDM
 │   │               └── Reference Data Management
 │   │
-│   └── 📄 49_B_Module_Banking_Data_Architecture_Assignment.md
+│   └── 📄 49_B_Banking_Data_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Nord Bank Data Architecture
 │           │   └── 📝 n8n Data Integration:
@@ -2370,17 +2370,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Data Architecture Document
 │           • 📝 n8n Deliverable: Data Automation Workflows
 │
-└── 📁 Module_49_Resources/
+└── 📁 49_Resources/
     ├── 📄 Data_Lake_vs_Warehouse_Guide.md
     ├── 📄 Data_Mesh_Implementation_Guide.md
     └── 📄 Data_Governance_Framework_Template.md
 📁 Module 50: Business Architecture for Banking — 🆕 NEED TO ADD
 
-📁 46-51_Module_Phase9_Enterprise_Architecture/
+📁 46-51_Phase9_Enterprise_Architecture/
 │
-├── 📁 Module_50_Business_Architecture/
+├── 📁 50_Business_Architecture/
 │   │
-│   ├── 📄 50_A_Module_Business_Architecture_Assignment.md
+│   ├── 📄 50_A_Business_Architecture.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 50_Business Architecture for Banking
 │   │       • Learn: Business Capability Mapping
@@ -2408,7 +2408,7 @@ Project Name: MACBan
 │   │               ├── Process Diagram
 │   │               └── Choreography Diagram
 │   │
-│   └── 📄 50_B_Module_Banking_Business_Architecture_Assignment.md
+│   └── 📄 50_B_Banking_Business_Architecture.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Nord Bank Business Capability Map
 │           │   └── 📝 n8n Capability Management:
@@ -2431,17 +2431,17 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Business Architecture Document
 │           • 📝 n8n Deliverable: Business Automation Workflows
 │
-└── 📁 Module_50_Resources/
+└── 📁 50_Resources/
     ├── 📄 Business_Capability_Map_Template.md
     ├── 📄 Value_Stream_Mapping_Guide.md
     └── 📄 BPMN_Modeling_Guide.md
 📁 Module 51: Architecture Governance — 🆕 NEED TO ADD
 
-📁 46-51_Module_Phase9_Enterprise_Architecture/
+📁 46-51_Phase9_Enterprise_Architecture/
 │
-├── 📁 Module_51_Architecture_Governance/
+├── 📁 51_Architecture_Governance/
 │   │
-│   ├── 📄 51_A_Module_Architecture_Governance_Assignment.md
+│   ├── 📄 51_A_Architecture_Governance.md
 │   │   └── 🎯 Section A (Course Content):
 │   │       • Watch: 51_Architecture Governance
 │   │       • Learn: Architecture Review Board (ARB)
@@ -2468,7 +2468,7 @@ Project Name: MACBan
 │   │       ├── ADR Lifecycle
 │   │       └── ADR Repository
 │   │
-│   └── 📄 51_B_Module_Banking_Architecture_Governance_Assignment.md
+│   └── 📄 51_B_Banking_Architecture_Governance.md
 │       └── 🏦 Section B (System Architect - Banking):
 │           • Design: Nord Bank Architecture Review Board
 │           │   └── 📝 n8n ARB Automation:
@@ -2491,7 +2491,7 @@ Project Name: MACBan
 │           • 🎯 Deliverable: Complete Architecture Governance Document
 │           • 📝 n8n Deliverable: Governance Automation Workflows
 │
-└── 📁 Module_51_Resources/
+└── 📁 51_Resources/
     ├── 📄 ARB_Charter_Template.md
     ├── 📄 Architecture_Principles_Template.md
     └── 📄 ADR_Template.md

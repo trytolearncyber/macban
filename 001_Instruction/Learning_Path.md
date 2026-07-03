@@ -6,45 +6,45 @@ Project Name: MACBan
 ├── 📁 00_Course_Materials/
 │   ├── 📄 00_README.md
 │   ├── 📄 00_Learning_Path_Summary.md
-│   ├── 📄 00_51_Module_Quick_Reference.md
+│   ├── 📄 00_51_Quick_Reference.md
 │   └── 📄 00_MAC_Matrix_Learning_Rules.md
 │
 ├── 📁 01-05_Phase1_Foundation/
 │   ├── 📁 Module_01_AI_Strategy/
-│   │   ├── 📄 01_A_Module_AI_Strategy_Assignment.md
-│   │   ├── 📄 01_B_Module_Banking_AI_Roadmap_Assignment.md
+│   │   ├── 📄 01_A_AI_Strategy.md
+│   │   ├── 📄 01_B_Banking_AI_Roadmap.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 Banking_AI_Use_Cases_Template.md
 │   │       ├── 📄 ROI_Calculation_Worksheet.xlsx
 │   │       └── 📄 Architecture_Principles_Checklist.md
 │   │
 │   ├── 📁 Module_02_Tool_Selection/
-│   │   ├── 📄 02_A_Module_Tool_Overview_Assignment.md
-│   │   ├── 📄 02_B_Module_Enterprise_Tool_Evaluation_Assignment.md
+│   │   ├── 📄 02_A_Tool_Overview.md
+│   │   ├── 📄 02_B_Enterprise_Tool_Evaluation.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 Tool_Evaluation_Matrix_Template.xlsx
 │   │       ├── 📄 Vendor_Comparison_Checklist.md
 │   │       └── 📄 Security_Compliance_Assessment_Guide.md
 │   │
 │   ├── 📁 Module_03_Environment_Setup/
-│   │   ├── 📄 03_A_Module_Environment_Setup_Assignment.md
-│   │   ├── 📄 03_B_Module_Bank_Grade_Production_Architecture_Assignment.md
+│   │   ├── 📄 03_A_Environment_Setup.md
+│   │   ├── 📄 03_B_Bank_Grade_Production_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 docker-compose-production.yml
 │   │       ├── 📄 HA_Deployment_Checklist.md
 │   │       └── 📄 Disaster_Recovery_Plan_Template.md
 │   │
 │   ├── 📁 Module_04_API_Integration/
-│   │   ├── 📄 04_A_Module_API_Webhooks_Assignment.md
-│   │   ├── 📄 04_B_Module_Banking_API_Architecture_Assignment.md
+│   │   ├── 📄 04_A_API_Webhooks.md
+│   │   ├── 📄 04_B_Banking_API_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 Banking_API_Specification_Document.md
 │   │       ├── 📄 Postman_Collection_Template.json
 │   │       └── 📄 API_Security_Checklist.md
 │   │
 │   └── 📁 Module_05_Mockoon_Simulation/
-│       ├── 📄 05_A_Module_Mockoon_Setup_Assignment.md
-│       ├── 📄 05_B_Module_Banking_API_Simulation_Assignment.md
+│       ├── 📄 05_A_Mockoon_Setup.md
+│       ├── 📄 05_B_Banking_API_Simulation.md
 │       └── 📁 Resources/
 │           ├── 📄 mockoon-banking-collection.json
 │           ├── 📄 API_Testing_Checklist.md
@@ -52,40 +52,40 @@ Project Name: MACBan
 │
 ├── 📁 06-10_Phase2_Network_Security/
 │   ├── 📁 Module_06_Network_Health_Monitoring/
-│   │   ├── 📄 06_A_Module_First_Workflow_Assignment.md
-│   │   ├── 📄 06_B_Module_Enterprise_Monitoring_Architecture_Assignment.md
+│   │   ├── 📄 06_A_First_Workflow.md
+│   │   ├── 📄 06_B_Enterprise_Monitoring_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 nagios-zabbix-api-integration.json
 │   │       ├── 📄 health-report-template.html
 │   │       └── 📄 Monitoring_Architecture_Diagram.drawio
 │   │
 │   ├── 📁 Module_07_Security_Alert_System/
-│   │   ├── 📄 07_A_Module_Email_Automation_Assignment.md
-│   │   ├── 📄 07_B_Module_SOAR_Framework_Assignment.md
+│   │   ├── 📄 07_A_Email_Automation.md
+│   │   ├── 📄 07_B_SOAR_Framework.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 email-alert-workflow.json
 │   │       ├── 📄 severity-classification-matrix.xlsx
 │   │       └── 📄 SOAR_Framework_Document.md
 │   │
 │   ├── 📁 Module_08_LLM_Troubleshooting/
-│   │   ├── 📄 08_A_Module_LLM_Integration_Assignment.md
-│   │   ├── 📄 08_B_Module_AI_Troubleshooting_Architecture_Assignment.md
+│   │   ├── 📄 08_A_LLM_Integration.md
+│   │   ├── 📄 08_B_AI_Troubleshooting_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 llm-troubleshooting-workflow.json
 │   │       ├── 📄 prompt-engineering-guide.md
 │   │       └── 📄 LLM_Security_Compliance_Checklist.md
 │   │
 │   ├── 📁 Module_09_Error_Recovery/
-│   │   ├── 📄 09_A_Module_Error_Handling_Assignment.md
-│   │   ├── 📄 09_B_Module_Resiliency_Framework_Assignment.md
+│   │   ├── 📄 09_A_Error_Handling.md
+│   │   ├── 📄 09_B_Resiliency_Framework.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 error-recovery-workflow.json
 │   │       ├── 📄 retry-strategy-template.md
 │   │       └── 📄 SLA_Compliance_Checklist.md
 │   │
 │   └── 📁 Module_10_GitOps_Backup/
-│       ├── 📄 10_A_Module_First_Assignment_Assignment.md
-│       ├── 📄 10_B_Module_GitOps_Network_Config_Assignment.md
+│       ├── 📄 10_A_First.md
+│       ├── 📄 10_B_GitOps_Network_Config.md
 │       └── 📁 Resources/
 │           ├── 📄 config-backup-workflow.json
 │           ├── 📄 gitops-strategy-guide.md
@@ -93,40 +93,40 @@ Project Name: MACBan
 │
 ├── 📁 11-15_Phase3_Advanced_Automation/
 │   ├── 📁 Module_11_Self_Service_Portal/
-│   │   ├── 📄 11_A_Module_Visual_Builder_Assignment.md
-│   │   ├── 📄 11_B_Module_Self_Service_Portal_Architecture_Assignment.md
+│   │   ├── 📄 11_A_Visual_Builder.md
+│   │   ├── 📄 11_B_Self_Service_Portal_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 self-service-workflows.json
 │   │       ├── 📄 portal-ui-mockup.drawio
 │   │       └── 📄 RBAC_Implementation_Guide.md
 │   │
 │   ├── 📁 Module_12_Branch_Provisioning/
-│   │   ├── 📄 12_A_Module_Advanced_Features_Part1_Assignment.md
-│   │   ├── 📄 12_B_Module_Zero_Touch_Provisioning_Assignment.md
+│   │   ├── 📄 12_A_Advanced_Features_Part1.md
+│   │   ├── 📄 12_B_Zero_Touch_Provisioning.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 branch-provisioning-workflow.json
 │   │       ├── 📄 cisco-config-templates.md
 │   │       └── 📄 Zero_Touch_Provisioning_Checklist.md
 │   │
 │   ├── 📁 Module_13_Compliance_Automation/
-│   │   ├── 📄 13_A_Module_Advanced_Features_Part2_Assignment.md
-│   │   ├── 📄 13_B_Module_Compliance_Framework_Assignment.md
+│   │   ├── 📄 13_A_Advanced_Features_Part2.md
+│   │   ├── 📄 13_B_Compliance_Framework.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 compliance-workflow.json
 │   │       ├── 📄 pci-dss-checklist.md
 │   │       └── 📄 compliance-report-template.html
 │   │
 │   ├── 📁 Module_14_CMDB_Inventory/
-│   │   ├── 📄 14_A_Module_Advanced_Features_Part3_Assignment.md
-│   │   ├── 📄 14_B_Module_CMDB_Architecture_Assignment.md
+│   │   ├── 📄 14_A_Advanced_Features_Part3.md
+│   │   ├── 📄 14_B_CMDB_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 cmdb-workflow.json
 │   │       ├── 📄 asset-lifecycle-template.md
 │   │       └── 📄 CMDB_Implementation_Guide.md
 │   │
 │   └── 📁 Module_15_Incident_Reporting/
-│       ├── 📄 15_A_Module_Social_Media_Generator_Assignment.md
-│       ├── 📄 15_B_Module_Incident_Reporting_Architecture_Assignment.md
+│       ├── 📄 15_A_Social_Media_Generator.md
+│       ├── 📄 15_B_Incident_Reporting_Architecture.md
 │       └── 📁 Resources/
 │           ├── 📄 incident-report-workflow.json
 │           ├── 📄 report-template.docx
@@ -134,57 +134,57 @@ Project Name: MACBan
 │
 ├── 📁 16-22_Phase4_AI_Intelligence/
 │   ├── 📁 Module_16_NOC_AI_Assistant/
-│   │   ├── 📄 16_A_Module_AI_Agent_Chatbot_Assignment.md
-│   │   ├── 📄 16_B_Module_NOC_AI_Assistant_Architecture_Assignment.md
+│   │   ├── 📄 16_A_AI_Agent_Chatbot.md
+│   │   ├── 📄 16_B_NOC_AI_Assistant_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 noc-assistant-workflow.json
 │   │       ├── 📄 intent-mapping-template.md
 │   │       └── 📄 NOC_Assistant_Integration_Guide.md
 │   │
 │   ├── 📁 Module_17_RAG_Knowledge_Base/
-│   │   ├── 📄 17_A_Module_RAG_Theory_Assignment.md
-│   │   ├── 📄 17_B_Module_Enterprise_RAG_Architecture_Assignment.md
+│   │   ├── 📄 17_A_RAG_Theory.md
+│   │   ├── 📄 17_B_Enterprise_RAG_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 rag-workflow.json
 │   │       ├── 📄 vector-database-setup-guide.md
 │   │       └── 📄 Knowledge_Base_Architecture.drawio
 │   │
 │   ├── 📁 Module_18_Branch_Support_Bot/
-│   │   ├── 📄 18_A_Module_Customer_Support_Bot_Assignment.md
-│   │   ├── 📄 18_B_Module_Branch_Support_Architecture_Assignment.md
+│   │   ├── 📄 18_A_Customer_Support_Bot.md
+│   │   ├── 📄 18_B_Branch_Support_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 branch-support-workflow.json
 │   │       ├── 📄 faq-database-template.md
 │   │       └── 📄 ServiceNow_Integration_Guide.md
 │   │
 │   ├── 📁 Module_19_Autonomous_Ops/
-│   │   ├── 📄 19_A_Module_Multi_Agent_Systems_Assignment.md
-│   │   ├── 📄 19_B_Module_Autonomous_Ops_Architecture_Assignment.md
+│   │   ├── 📄 19_A_Multi_Agent_Systems.md
+│   │   ├── 📄 19_B_Autonomous_Ops_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 multi-agent-workflow.json
 │   │       ├── 📄 agent-orchestration-guide.md
 │   │       └── 📄 Self_Healing_Infrastructure_Design.md
 │   │
 │   ├── 📁 Module_20_Threat_Intelligence/
-│   │   ├── 📄 20_A_Module_Market_Research_Agent_Assignment.md
-│   │   ├── 📄 20_B_Module_Threat_Intelligence_Architecture_Assignment.md
+│   │   ├── 📄 20_A_Market_Research_Agent.md
+│   │   ├── 📄 20_B_Threat_Intelligence_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 threat-intelligence-workflow.json
 │   │       ├── 📄 mitre-attck-mapping.md
 │   │       └── 📄 Threat_Intelligence_Playbook.md
 │   │
 │   ├── 📁 Module_21_Change_Management/
-│   │   ├── 📄 21_A_Module_Human_In_Loop_Assignment.md
-│   │   ├── 📄 21_B_Module_Change_Management_Architecture_Assignment.md
+│   │   ├── 📄 21_A_Human_In_Loop.md
+│   │   ├── 📄 21_B_Change_Management_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 change-management-workflow.json
 │   │       ├── 📄 itil-change-management-template.md
 │   │       └── 📄 Change_Management_Playbook.md
 │   │
 │   └── 📁 Module_22_Production_Excellence/
-│       ├── 📄 22_A_Module_Hidden_Tricks_Assignment.md
-│       ├── 📄 22_B_Module_Production_Excellence_Assignment.md
-│       ├── 📄 22_C_Module_Network_Architect_Assistant_Assignment.md
+│       ├── 📄 22_A_Hidden_Tricks.md
+│       ├── 📄 22_B_Production_Excellence.md
+│       ├── 📄 22_C_Network_Architect_Assistant.md
 │       └── 📁 Resources/
 │           ├── 📄 production-optimization-checklist.md
 │           ├── 📄 network-architect-assistant-workflow.json
@@ -192,40 +192,40 @@ Project Name: MACBan
 │
 ├── 📁 23-27_Phase5_Langflow_Advanced/
 │   ├── 📁 Module_23_Langflow_Introduction/
-│   │   ├── 📄 23_A_Module_Langflow_Intro_Assignment.md
-│   │   ├── 📄 23_B_Module_AI_Workflow_Orchestration_Assignment.md
+│   │   ├── 📄 23_A_Langflow_Intro.md
+│   │   ├── 📄 23_B_AI_Workflow_Orchestration.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 langflow-banking-workflow.json
 │   │       ├── 📄 langflow-installation-guide.md
 │   │       └── 📄 AI_Orchestration_Framework.drawio
 │   │
 │   ├── 📁 Module_24_Advanced_RAG/
-│   │   ├── 📄 24_A_Module_RAG_Langflow_Assignment.md
-│   │   ├── 📄 24_B_Module_Enterprise_RAG_Architecture_Assignment.md
+│   │   ├── 📄 24_A_RAG_Langflow.md
+│   │   ├── 📄 24_B_Enterprise_RAG_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 advanced-rag-workflow.json
 │   │       ├── 📄 vector-database-configuration.md
 │   │       └── 📄 Document_Management_Architecture.drawio
 │   │
 │   ├── 📁 Module_25_Multi_Agent_Orchestration/
-│   │   ├── 📄 25_A_Module_Multi_Agent_Langflow_Assignment.md
-│   │   ├── 📄 25_B_Module_Enterprise_Orchestration_Assignment.md
+│   │   ├── 📄 25_A_Multi_Agent_Langflow.md
+│   │   ├── 📄 25_B_Enterprise_Orchestration.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 cross-domain-workflow.json
 │   │       ├── 📄 agent-coordination-guide.md
 │   │       └── 📄 Enterprise_Orchestration_Framework.drawio
 │   │
 │   ├── 📁 Module_26_Workflow_Lifecycle/
-│   │   ├── 📄 26_A_Module_Exporting_Langflow_Assignment.md
-│   │   ├── 📄 26_B_Module_Workflow_Lifecycle_Assignment.md
+│   │   ├── 📄 26_A_Exporting_Langflow.md
+│   │   ├── 📄 26_B_Workflow_Lifecycle.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 ci-cd-pipeline-config.yml
 │   │       ├── 📄 versioning-strategy-guide.md
 │   │       └── 📄 Workflow_Governance_Framework.md
 │   │
 │   └── 📁 Module_27_AI_Optimization/
-│       ├── 📄 27_A_Module_Debugging_Langflow_Assignment.md
-│       ├── 📄 27_B_Module_AI_Quality_Assurance_Assignment.md
+│       ├── 📄 27_A_Debugging_Langflow.md
+│       ├── 📄 27_B_AI_Quality_Assurance.md
 │       └── 📁 Resources/
 │           ├── 📄 performance-testing-checklist.md
 │           ├── 📄 cost-optimization-guide.md
@@ -233,64 +233,64 @@ Project Name: MACBan
 │
 ├── 📁 28-35_Phase6_Enterprise_Scale/
 │   ├── 📁 Module_28_Network_Analytics/
-│   │   ├── 📄 28_A_Module_Stock_Analysis_Assignment.md
-│   │   ├── 📄 28_B_Module_Network_Analytics_Assignment.md
+│   │   ├── 📄 28_A_Stock_Analysis.md
+│   │   ├── 📄 28_B_Network_Analytics.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 network-analytics-workflow.json
 │   │       ├── 📄 capacity-planning-template.md
 │   │       └── 📄 Predictive_Analytics_Architecture.drawio
 │   │
 │   ├── 📁 Module_29_Multilingual_Service_Desk/
-│   │   ├── 📄 29_A_Module_Multilingual_Assistance_Assignment.md
-│   │   ├── 📄 29_B_Module_Service_Desk_Architecture_Assignment.md
+│   │   ├── 📄 29_A_Multilingual_Assistance.md
+│   │   ├── 📄 29_B_Service_Desk_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 multilingual-workflow.json
 │   │       ├── 📄 bengali-translation-guide.md
 │   │       └── 📄 Service_Desk_Architecture.drawio
 │   │
 │   ├── 📁 Module_30_API_Gateway/
-│   │   ├── 📄 30_A_Module_SaaS_Agent_Assignment.md
-│   │   ├── 📄 30_B_Module_API_Gateway_Architecture_Assignment.md
+│   │   ├── 📄 30_A_SaaS_Agent.md
+│   │   ├── 📄 30_B_API_Gateway_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 api-gateway-config.json
 │   │       ├── 📄 api-management-guide.md
 │   │       └── 📄 API_Gateway_Architecture.drawio
 │   │
 │   ├── 📁 Module_31_Branch_Onboarding/
-│   │   ├── 📄 31_A_Module_Lead_Generation_Assignment.md
-│   │   ├── 📄 31_B_Module_Onboarding_Portal_Assignment.md
+│   │   ├── 📄 31_A_Lead_Generation.md
+│   │   ├── 📄 31_B_Onboarding_Portal.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 onboarding-portal-workflow.json
 │   │       ├── 📄 portal-ui-wireframe.drawio
 │   │       └── 📄 Provisioning_Automation_Guide.md
 │   │
 │   ├── 📁 Module_32_Asset_Lifecycle/
-│   │   ├── 📄 32_A_Module_Dropshipping_Automation_Assignment.md
-│   │   ├── 📄 32_B_Module_Asset_Lifecycle_Assignment.md
+│   │   ├── 📄 32_A_Dropshipping_Automation.md
+│   │   ├── 📄 32_B_Asset_Lifecycle.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 asset-lifecycle-workflow.json
 │   │       ├── 📄 procurement-automation-guide.md
 │   │       └── 📄 Asset_Lifecycle_Architecture.drawio
 │   │
 │   ├── 📁 Module_33_Customer_Service_AI/
-│   │   ├── 📄 33_A_Module_Ecommerce_Chatbot_Assignment.md
-│   │   ├── 📄 33_B_Module_Customer_Service_Architecture_Assignment.md
+│   │   ├── 📄 33_A_Ecommerce_Chatbot.md
+│   │   ├── 📄 33_B_Customer_Service_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 customer-service-workflow.json
 │   │       ├── 📄 banking-product-catalog.md
 │   │       └── 📄 Customer_Service_AI_Architecture.drawio
 │   │
 │   ├── 📁 Module_34_Mobile_NOC/
-│   │   ├── 📄 34_A_Module_Mobile_App_Integration_Assignment.md
-│   │   ├── 📄 34_B_Module_Mobile_NOC_Architecture_Assignment.md
+│   │   ├── 📄 34_A_Mobile_App_Integration.md
+│   │   ├── 📄 34_B_Mobile_NOC_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 mobile-noc-workflow.json
 │   │       ├── 📄 mobile-ui-wireframe.drawio
 │   │       └── 📄 Mobile_Operations_Guide.md
 │   │
 │   └── 📁 Module_35_Skills_ITSM/
-│       ├── 📄 35_A_Module_Job_Application_Assistant_Assignment.md
-│       ├── 📄 35_B_Module_Skills_ITSM_Architecture_Assignment.md
+│       ├── 📄 35_A_Job_Application_Assistant.md
+│       ├── 📄 35_B_Skills_ITSM_Architecture.md
 │       └── 📁 Resources/
 │           ├── 📄 skills-management-workflow.json
 │           ├── 📄 itsm-process-template.md
@@ -298,24 +298,24 @@ Project Name: MACBan
 │
 ├── 📁 36-38_Phase7_Voice_AI/
 │   ├── 📁 Module_36_Multilingual_AI/
-│   │   ├── 📄 36_A_Module_Multilingual_AI_Assignment.md
-│   │   ├── 📄 36_B_Module_Multilingual_NOC_Assignment.md
+│   │   ├── 📄 36_A_Multilingual_AI.md
+│   │   ├── 📄 36_B_Multilingual_NOC.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 multilingual-ai-workflow.json
 │   │       ├── 📄 bengali-language-guide.md
 │   │       └── 📄 Multilingual_AI_Architecture.drawio
 │   │
 │   ├── 📁 Module_37_Advanced_Voice_NOC/
-│   │   ├── 📄 37_A_Module_Voice_Enabled_Agents_Assignment.md
-│   │   ├── 📄 37_B_Module_Advanced_Voice_NOC_Assignment.md
+│   │   ├── 📄 37_A_Voice_Enabled_Agents.md
+│   │   ├── 📄 37_B_Advanced_Voice_NOC.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 advanced-voice-noc-workflow.json
 │   │       ├── 📄 voice-agent-architecture.md
 │   │       └── 📄 Advanced_Voice_NOC_Architecture.drawio
 │   │
 │   └── 📁 Module_38_Emergency_Response/
-│       ├── 📄 38_A_Module_Voice_Enabled_Live_Calling_Assignment.md
-│       ├── 📄 38_B_Module_Emergency_Response_Architecture_Assignment.md
+│       ├── 📄 38_A_Voice_Enabled_Live_Calling.md
+│       ├── 📄 38_B_Emergency_Response_Architecture.md
 │       └── 📁 Resources/
 │           ├── 📄 emergency-response-workflow.json
 │           ├── 📄 emergency-playbook.md
@@ -323,56 +323,56 @@ Project Name: MACBan
 │
 ├── 📁 39-45_Phase8_Business_Governance/
 │   ├── 📁 Module_39_CoE_Architecture/
-│   │   ├── 📄 39_A_Module_AI_Business_Assignment.md
-│   │   ├── 📄 39_B_Module_CoE_Architecture_Assignment.md
+│   │   ├── 📄 39_A_AI_Business.md
+│   │   ├── 📄 39_B_CoE_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 coe-framework-template.md
 │   │       ├── 📄 governance-policy-template.md
 │   │       └── 📄 CoE_Architecture_Guide.md
 │   │
 │   ├── 📁 Module_40_Career_Consulting/
-│   │   ├── 📄 40_A_Module_Job_Placement_Assignment.md
-│   │   ├── 📄 40_B_Module_Career_Consulting_Assignment.md
+│   │   ├── 📄 40_A_Job_Placement.md
+│   │   ├── 📄 40_B_Career_Consulting.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 career-path-template.md
 │   │       ├── 📄 consulting-framework.md
 │   │       └── 📄 ROI_Demonstration_Guide.md
 │   │
 │   ├── 📁 Module_41_Freelancing_Consulting/
-│   │   ├── 📄 41_A_Module_Freelancing_Guideline_Assignment.md
-│   │   ├── 📄 41_B_Module_Internal_Consulting_Assignment.md
+│   │   ├── 📄 41_A_Freelancing_Guideline.md
+│   │   ├── 📄 41_B_Internal_Consulting.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 consulting-framework.md
 │   │       ├── 📄 success-stories-template.md
 │   │       └── 📄 Internal_Consulting_Architecture.drawio
 │   │
 │   ├── 📁 Module_42_Code_Standards/
-│   │   ├── 📄 42_A_Module_Vibe_Coding_Assignment.md
-│   │   ├── 📄 42_B_Module_Code_Standards_Assignment.md
+│   │   ├── 📄 42_A_Vibe_Coding.md
+│   │   ├── 📄 42_B_Code_Standards.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 code-standards-guide.md
 │   │       ├── 📄 code-review-checklist.md
 │   │       └── 📄 Code_Standards_Architecture.drawio
 │   │
 │   ├── 📁 Module_43_Data_Handling/
-│   │   ├── 📄 43_A_Module_JavaScript_JSON_Assignment.md
-│   │   ├── 📄 43_B_Module_Banking_Data_Integration_Assignment.md
+│   │   ├── 📄 43_A_JavaScript_JSON.md
+│   │   ├── 📄 43_B_Banking_Data_Integration.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 swift-iso8583-parser-workflow.json
 │   │       ├── 📄 data-transformation-guide.md
 │   │       └── 📄 Data_Integration_Architecture.drawio
 │   │
 │   ├── 📁 Module_44_GitOps/
-│   │   ├── 📄 44_A_Module_Git_GitHub_Assignment.md
-│   │   ├── 📄 44_B_Module_GitOps_Architecture_Assignment.md
+│   │   ├── 📄 44_A_Git_GitHub.md
+│   │   ├── 📄 44_B_GitOps_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 gitops-workflow.json
 │   │       ├── 📄 git-strategy-guide.md
 │   │       └── 📄 GitOps_Architecture.drawio
 │   │
 │   └── 📁 Module_45_Service_Integration/
-│       ├── 📄 45_A_Module_GoHighLevel_Assignment.md
-│       ├── 📄 45_B_Module_Service_Integration_Architecture_Assignment.md
+│       ├── 📄 45_A_GoHighLevel.md
+│       ├── 📄 45_B_Service_Integration_Architecture.md
 │       └── 📁 Resources/
 │           ├── 📄 service-integration-workflow.json
 │           ├── 📄 servicenow-integration-guide.md
@@ -380,48 +380,48 @@ Project Name: MACBan
 │
 ├── 📁 46-51_Phase9_Enterprise_Architecture/
 │   ├── 📁 Module_46_Enterprise_Architecture/
-│   │   ├── 📄 46_A_Module_EA_Frameworks_Assignment.md
-│   │   ├── 📄 46_B_Module_Banking_EA_Implementation_Assignment.md
+│   │   ├── 📄 46_A_EA_Frameworks.md
+│   │   ├── 📄 46_B_Banking_EA_Implementation.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 TOGAF_ADM_Template.md
 │   │       ├── 📄 Zachman_Framework_Matrix.xlsx
 │   │       └── 📄 ArchiMate_Modeling_Guide.md
 │   │
 │   ├── 📁 Module_47_Security_Architecture/
-│   │   ├── 📄 47_A_Module_Security_Architecture_Assignment.md
-│   │   ├── 📄 47_B_Module_Banking_Security_Architecture_Assignment.md
+│   │   ├── 📄 47_A_Security_Architecture.md
+│   │   ├── 📄 47_B_Banking_Security_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 Zero_Trust_Architecture_Guide.md
 │   │       ├── 📄 SABSA_Framework_Implementation.md
 │   │       └── 📄 STRIDE_DREAD_Template.md
 │   │
 │   ├── 📁 Module_48_Cloud_Architecture/
-│   │   ├── 📄 48_A_Module_Cloud_Architecture_Assignment.md
-│   │   ├── 📄 48_B_Module_Banking_Cloud_Architecture_Assignment.md
+│   │   ├── 📄 48_A_Cloud_Architecture.md
+│   │   ├── 📄 48_B_Banking_Cloud_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 AWS_WAF_Implementation_Guide.md
 │   │       ├── 📄 Azure_WAF_Implementation_Guide.md
 │   │       └── 📄 Cloud_Migration_Roadmap_Template.md
 │   │
 │   ├── 📁 Module_49_Data_Architecture/
-│   │   ├── 📄 49_A_Module_Data_Architecture_Assignment.md
-│   │   ├── 📄 49_B_Module_Banking_Data_Architecture_Assignment.md
+│   │   ├── 📄 49_A_Data_Architecture.md
+│   │   ├── 📄 49_B_Banking_Data_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 Data_Lake_vs_Warehouse_Guide.md
 │   │       ├── 📄 Data_Mesh_Implementation_Guide.md
 │   │       └── 📄 Data_Governance_Framework_Template.md
 │   │
 │   ├── 📁 Module_50_Business_Architecture/
-│   │   ├── 📄 50_A_Module_Business_Architecture_Assignment.md
-│   │   ├── 📄 50_B_Module_Banking_Business_Architecture_Assignment.md
+│   │   ├── 📄 50_A_Business_Architecture.md
+│   │   ├── 📄 50_B_Banking_Business_Architecture.md
 │   │   └── 📁 Resources/
 │   │       ├── 📄 Business_Capability_Map_Template.md
 │   │       ├── 📄 Value_Stream_Mapping_Guide.md
 │   │       └── 📄 BPMN_Modeling_Guide.md
 │   │
 │   └── 📁 Module_51_Architecture_Governance/
-│       ├── 📄 51_A_Module_Architecture_Governance_Assignment.md
-│       ├── 📄 51_B_Module_Banking_Architecture_Governance_Assignment.md
+│       ├── 📄 51_A_Architecture_Governance.md
+│       ├── 📄 51_B_Banking_Architecture_Governance.md
 │       └── 📁 Resources/
 │           ├── 📄 ARB_Charter_Template.md
 │           ├── 📄 Architecture_Principles_Template.md

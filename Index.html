@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🏦 MACBan - Enterprise AI Automation</title>
+    <style>
+        /* ── Reset & Base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f5f7fb;
+            color: #1a1a2e;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 30px 35px 50px;
+        }
+
+        /* ── Header ── */
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #eef2f7;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1a1a2e, #4a00e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .header .sub {
+            font-size: 1.1rem;
+            color: #5a6a7e;
+            margin-top: 6px;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 18px;
+            margin-top: 16px;
+        }
+
+        .badge {
+            background: #eef2f7;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2d3a4a;
+        }
+
+        .badge.blue { background: #e0edff; color: #0047ab; }
+        .badge.green { background: #e0f5e8; color: #0a7a3a; }
+        .badge.purple { background: #ede7ff; color: #5e2b9e; }
+        .badge.orange { background: #fff0e0; color: #b45a0a; }
+        .badge.red { background: #ffe8e8; color: #b01020; }
+
+        /* ── Quick Nav ── */
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 12px;
+            background: #f8faff;
+            padding: 16px 20px;
+            border-radius: 14px;
+            margin-bottom: 32px;
+            border: 1px solid #e8ecf4;
+        }
+
+        .quick-nav a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1a1a2e;
+            padding: 4px 12px;
+            border-radius: 30px;
+            transition: background 0.2s;
+        }
+
+        .quick-nav a:hover {
+            background: #e0edff;
+        }
+
+        /* ── Instructions Bar ── */
+        .instructions-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            background: #f0f4fe;
+            padding: 14px 24px;
+            border-radius: 12px;
+            margin-bottom: 36px;
+            border-left: 5px solid #4a00e0;
+        }
+
+        .instructions-bar a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1a2a4a;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .instructions-bar a:hover {
+            color: #4a00e0;
+        }
+
+        /* ── Phase Sections ── */
+        .phase {
+            margin-bottom: 40px;
+            scroll-margin-top: 20px;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #e8ecf4;
+        }
+
+        .phase-header .icon {
+            font-size: 1.8rem;
+        }
+
+        .phase-header h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .phase-header .count {
+            background: #e8ecf4;
+            padding: 2px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #4a5a6e;
+            margin-left: auto;
+        }
+
+        /* ── Module Cards ── */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 18px;
+        }
+
+        .module-card {
+            background: #fafbfd;
+            border: 1px solid #e8ecf4;
+            border-radius: 14px;
+            padding: 16px 18px 18px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .module-card:hover {
+            border-color: #c0d0e8;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .module-card .title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #1a1a2e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .module-card .title .num {
+            background: #e0edff;
+            color: #0047ab;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 1px 10px;
+            border-radius: 30px;
+        }
+
+        .module-card .desc {
+            font-size: 0.9rem;
+            color: #4a5a6e;
+            margin: 4px 0 10px;
+        }
+
+        .module-card .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+        }
+
+        .module-card .links a {
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #2d4a8a;
+            background: #eef4ff;
+            padding: 2px 12px;
+            border-radius: 30px;
+            transition: background 0.2s;
+        }
+
+        .module-card .links a:hover {
+            background: #dce6ff;
+        }
+
+        /* ── Resources (inline) ── */
+        .resources {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #dce2ec;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 12px;
+        }
+
+        .resources .label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #6a7a8e;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-right: 4px;
+        }
+
+        .resources a {
+            text-decoration: none;
+            font-size: 0.78rem;
+            color: #3a5a8a;
+            background: #f0f4fe;
+            padding: 1px 10px;
+            border-radius: 30px;
+        }
+
+        .resources a:hover {
+            background: #dce6ff;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px solid #eef2f7;
+            text-align: center;
+            color: #5a6a7e;
+            font-size: 0.9rem;
+        }
+
+        .footer strong {
+            color: #1a1a2e;
+        }
+
+        .footer .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px 32px;
+            margin: 10px 0 14px;
+        }
+
+        .footer .stats span {
+            background: #f0f4fe;
+            padding: 2px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 700px) {
+            .container { padding: 16px; }
+            .header h1 { font-size: 1.9rem; }
+            .module-grid { grid-template-columns: 1fr; }
+            .phase-header h2 { font-size: 1.3rem; }
+            .instructions-bar { flex-direction: column; gap: 6px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+        <h1>🏦 MACBan</h1>
+                <div class="sub">
+            Enterprise AI Automation for Network &amp; Security Engineers
+            <br/>
+            <span style="font-size:0.8rem; color:#6a7a8e; font-weight:400;">
+                ⚙️ System Architecture · 🤖 AI Engineering · 🏗️ Enterprise Design
+            </span>
+        </div>
+        <div class="badges">
+            <span class="badge blue">v2.0.0</span>
+            <span class="badge green">Active</span>
+            <span class="badge purple">AI Powered</span>
+            <span class="badge orange">51 Modules</span>
+            <span class="badge red">9 Phases</span>
+            <span class="badge">Windows · Linux</span>
+        </div>
+    </header>
+
+    <!-- ========== QUICK NAV ========== -->
+    <nav class="quick-nav">
+        <a href="#phase1">🏁 Foundation</a>
+        <a href="#phase2">🔒 Network Security</a>
+        <a href="#phase3">🤖 Advanced Automation</a>
+        <a href="#phase4">🧠 AI Intelligence</a>
+        <a href="#phase5">⚡ Langflow &amp; AI</a>
+        <a href="#phase6">🏢 Enterprise Scale</a>
+        <a href="#phase7">🎤 Voice AI</a>
+        <a href="#phase8">📊 Governance</a>
+        <a href="#phase9">🏛️ Architecture</a>
+    </nav>
+
+    <!-- ========== INSTRUCTIONS ========== -->
+    <div class="instructions-bar">
+        <a href="001_Instruction/Course_Outline.md">📘 Course Outline</a>
+        <a href="001_Instruction/Learning_Path.md">🗺️ Learning Path</a>
+        <a href="001_Instruction/Learning_Rules.md">📜 Learning Rules</a>
+        <a href="001_Instruction/MACBan%20Lab%20Environment.md">🖥️ Lab Setup</a>
+        <a href="001_Instruction/My_Profile.md">👤 My Profile</a>
+        <a href="001_Instruction/Bank_Device_Inventory.md">🏦 Device Inventory</a>
+        <a href="001_Instruction/README.md">📖 README</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- PHASE 1 — FOUNDATION                                          -->
+    <!-- ============================================================ -->
+    <section class="phase" id="phase1">
+        <div class="phase-header">
+            <span class="icon">🏁</span>
+            <h2>Phase 1 — Foundation</h2>
+            <span class="count">Modules 01–05</span>
+        </div>
+        <div class="module-grid">
+
+            <!-- Module 01 -->
+            <div class="module-card">
+                <div class="title"><span class="num">01</span> AI Strategy</div>
+                <div class="desc">Introduction to AI Automation &amp; Agents &amp; 3‑Year Banking AI Roadmap</div>
+                <div class="links">
+                    <a href="01-05_Module_Phase1_Foundation/Module_01_AI_Strategy/01_A_AI_Strategy.md">01_A</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_01_AI_Strategy/01_B_Banking_AI_Roadmap.md">01_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="01-05_Module_Phase1_Foundation/Module_01_Resources/Architecture_Principles_Checklist.md">Principles Checklist</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_01_Resources/Banking_AI_Use_Cases_Template.md">Use Cases Template</a>
+                </div>
+            </div>
+
+            <!-- Module 02 -->
+            <div class="module-card">
+                <div class="title"><span class="num">02</span> Tool Selection</div>
+                <div class="desc">n8n, Langflow, LangChain overview &amp; Enterprise Tool Evaluation Framework</div>
+                <div class="links">
+                    <a href="01-05_Module_Phase1_Foundation/Module_02_Tool_Selection/02_A_Tool_Overview.md">02_A</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_02_Tool_Selection/02_B_Enterprise_Tool_Evaluation.md">02_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="01-05_Module_Phase1_Foundation/Module_02_Resources/Security_Compliance_Assessment_Guide.md">Security Guide</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_02_Resources/Tool_Evaluation_Matrix_Template.xlsx">Evaluation Matrix</a>
+                </div>
+            </div>
+
+            <!-- Module 03 -->
+            <div class="module-card">
+                <div class="title"><span class="num">03</span> Environment Setup</div>
+                <div class="desc">n8n self‑hosted installation &amp; High‑Availability Banking Deployment</div>
+                <div class="links">
+                    <a href="01-05_Module_Phase1_Foundation/Module_03_Environment_Setup/03_A_Environment_Setup.md">03_A</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_03_Environment_Setup/03_B_Bank_Grade_Production_Architecture.md">03_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="01-05_Module_Phase1_Foundation/Module_03_Resources/Disaster_Recovery_Plan_Template.md">DR Plan</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_03_Resources/docker-compose-production.yml">docker-compose</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_03_Resources/HA_Deployment_Checklist.md">HA Checklist</a>
+                </div>
+            </div>
+
+            <!-- Module 04 -->
+            <div class="module-card">
+                <div class="title"><span class="num">04</span> API Integration</div>
+                <div class="desc">REST API &amp; Webhooks basics &amp; Core Banking API integration</div>
+                <div class="links">
+                    <a href="01-05_Module_Phase1_Foundation/Module_04_API_Integration/04_A_API_Webhooks.md">04_A</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_04_API_Integration/04_B_Banking_API_Architecture.md">04_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="01-05_Module_Phase1_Foundation/Module_04_Resources/API_Security_Checklist.md">Security Checklist</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_04_Resources/Banking_API_Specification_Document.md">API Spec</a>
+                </div>
+            </div>
+
+            <!-- Module 05 -->
+            <div class="module-card">
+                <div class="title"><span class="num">05</span> Mockoon Simulation</div>
+                <div class="desc">Build your first n8n workflow &amp; simulate 25+ Banking APIs</div>
+                <div class="links">
+                    <a href="01-05_Module_Phase1_Foundation/Module_05_Mockoon_Simulation/05_A_Mockoon_Setup.md">05_A</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_05_Mockoon_Simulation/05_B_Banking_API_Simulation.md">05_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="01-05_Module_Phase1_Foundation/Module_05_Resources/API_Testing_Checklist.md">Testing Checklist</a>
+                    <a href="01-05_Module_Phase1_Foundation/Module_05_Resources/mockoon-banking-collection.json">Mockoon Collection</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHASE 2 — NETWORK SECURITY                                    -->
+    <!-- ============================================================ -->
+    <section class="phase" id="phase2">
+        <div class="phase-header">
+            <span class="icon">🔒</span>
+            <h2>Phase 2 — Network Security</h2>
+            <span class="count">Modules 06–10</span>
+        </div>
+        <div class="module-grid">
+
+            <!-- Module 06 -->
+            <div class="module-card">
+                <div class="title"><span class="num">06</span> Network Health Monitoring</div>
+                <div class="desc">Basic Email Automation Agent &amp; Firewall Log Monitoring (SOAR)</div>
+                <div class="links">
+                    <a href="06-10_Module_Phase2_Network_Security/Module_06_Network_Health_Monitoring/06_A_First_Workflow.md">06_A</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_06_Network_Health_Monitoring/06_B_SOAR_Framework.md">06_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_06_Resources/email-alert-workflow.json">Email Workflow</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_06_Resources/SOAR_Framework_Document.md">SOAR Framework</a>
+                </div>
+            </div>
+
+            <!-- Module 07 -->
+            <div class="module-card">
+                <div class="title"><span class="num">07</span> LLM Troubleshooting</div>
+                <div class="desc">Integrating LLMs with n8n &amp; AI‑Powered Troubleshooting Architecture</div>
+                <div class="links">
+                    <a href="06-10_Module_Phase2_Network_Security/Module_07_LLM_Troubleshooting/07_A_LLM_Integration.md">07_A</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_07_LLM_Troubleshooting/07_B_AI_Troubleshooting_Architecture.md">07_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_07_Resources/llm-troubleshooting-workflow.json">LLM Workflow</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_07_Resources/prompt-engineering-guide.md">Prompt Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 08 -->
+            <div class="module-card">
+                <div class="title"><span class="num">08</span> Error Recovery</div>
+                <div class="desc">Error Handling in n8n &amp; Resiliency Framework with SLA compliance</div>
+                <div class="links">
+                    <a href="06-10_Module_Phase2_Network_Security/Module_08_Error_Recovery/08_A_Error_Handling.md">08_A</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_08_Error_Recovery/08_B_Resiliency_Framework.md">08_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_08_Resources/error-recovery-workflow.json">Recovery Workflow</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_08_Resources/SLA_Compliance_Checklist.md">SLA Checklist</a>
+                </div>
+            </div>
+
+            <!-- Module 08.1 -->
+            <div class="module-card">
+                <div class="title"><span class="num">08.1</span> GitOps Backup</div>
+                <div class="desc">SSH → FortiGate/Cisco &amp; GitOps for Network Configuration</div>
+                <div class="links">
+                    <a href="06-10_Module_Phase2_Network_Security/Module_08.1_GitOps_Backup/08.1_A_First.md">08.1_A</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_08.1_GitOps_Backup/08.1_B_GitOps_Network_Config.md">08.1_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_08.1_Resources/config-backup-workflow.json">Backup Workflow</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_08.1_Resources/gitops-strategy-guide.md">GitOps Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 09 -->
+            <div class="module-card">
+                <div class="title"><span class="num">09</span> Self‑Service Portal</div>
+                <div class="desc">n8n Visual Builder &amp; Self‑Service Portal Architecture (RBAC)</div>
+                <div class="links">
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09_Self_Service_Portal/09_A_Visual_Builder.md">09_A</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09_Self_Service_Portal/09_B_Self_Service_Portal_Architecture.md">09_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09_Resources/portal-ui-mockup.drawio">UI Mockup</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09_Resources/RBAC_Implementation_Guide.md">RBAC Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 09.1 -->
+            <div class="module-card">
+                <div class="title"><span class="num">09.1</span> Branch Provisioning</div>
+                <div class="desc">Webhook, Pagination, Schedule &amp; Zero‑Touch Branch Provisioning</div>
+                <div class="links">
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.1_Branch_Provisioning/09.1_A_Advanced_Features_Part1.md">09.1_A</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.1_Branch_Provisioning/09.1_B_Zero_Touch_Provisioning.md">09.1_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.1_Resources/branch-provisioning-workflow.json">Provisioning WF</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.1_Resources/cisco-config-templates.md">Cisco Templates</a>
+                </div>
+            </div>
+
+            <!-- Module 09.2 -->
+            <div class="module-card">
+                <div class="title"><span class="num">09.2</span> Compliance Automation</div>
+                <div class="desc">Code Node (Python/JS) &amp; PCI‑DSS / Regulatory Compliance</div>
+                <div class="links">
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.2_Compliance_Automation/09.2_A_Advanced_Features_Part2.md">09.2_A</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.2_Compliance_Automation/09.2_B_Compliance_Framework.md">09.2_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.2_Resources/compliance-workflow.json">Compliance WF</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.2_Resources/pci-dss-checklist.md">PCI‑DSS Checklist</a>
+                </div>
+            </div>
+
+            <!-- Module 09.3 -->
+            <div class="module-card">
+                <div class="title"><span class="num">09.3</span> CMDB Inventory</div>
+                <div class="desc">Data Transformation &amp; Aggregation + Centralized Asset Management</div>
+                <div class="links">
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.3_CMDB_Inventory/09.3_A_Advanced_Features_Part3.md">09.3_A</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.3_CMDB_Inventory/09.3_B_CMDB_Architecture.md">09.3_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.3_Resources/cmdb-workflow.json">CMDB WF</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_09.3_Resources/CMDB_Implementation_Guide.md">CMDB Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 10 -->
+            <div class="module-card">
+                <div class="title"><span class="num">10</span> Incident Reporting</div>
+                <div class="desc">Social Media Content Generator &amp; Automated Post‑Incident Report</div>
+                <div class="links">
+                    <a href="06-10_Module_Phase2_Network_Security/Module_10_Incident_Reporting/10_A_Social_Media_Generator.md">10_A</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_10_Incident_Reporting/10_B_Incident_Reporting_Architecture.md">10_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_10_Resources/incident-report-workflow.json">Report WF</a>
+                    <a href="06-10_Module_Phase2_Network_Security/Module_10_Resources/Incident_Reporting_Playbook.md">Playbook</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHASE 3 — ADVANCED AUTOMATION                                 -->
+    <!-- ============================================================ -->
+    <section class="phase" id="phase3">
+        <div class="phase-header">
+            <span class="icon">🤖</span>
+            <h2>Phase 3 — Advanced Automation</h2>
+            <span class="count">Modules 11–15</span>
+        </div>
+        <div class="module-grid">
+
+            <!-- Module 11 -->
+            <div class="module-card">
+                <div class="title"><span class="num">11</span> NOC AI Assistant</div>
+                <div class="desc">Building AI Agent Chatbot &amp; NOC Engineer AI Assistant</div>
+                <div class="links">
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_11_NOC_AI_Assistant/11_A_AI_Agent_Chatbot.md">11_A</a>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_11_NOC_AI_Assistant/11_B_NOC_AI_Assistant_Architecture.md">11_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_11_Resources/noc-assistant-workflow.json">NOC WF</a>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_11_Resources/NOC_Assistant_Integration_Guide.md">Integration Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 12 -->
+            <div class="module-card">
+                <div class="title"><span class="num">12</span> RAG Knowledge Base</div>
+                <div class="desc">Retrieval‑Augmented Generation Theory &amp; Enterprise RAG Architecture</div>
+                <div class="links">
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_12_RAG_Knowledge_Base/12_A_RAG_Theory.md">12_A</a>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_12_RAG_Knowledge_Base/12_B_Enterprise_RAG_Architecture.md">12_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_12_Resources/rag-workflow.json">RAG WF</a>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_12_Resources/vector-database-setup-guide.md">Vector DB Setup</a>
+                </div>
+            </div>
+
+            <!-- Module 13 -->
+            <div class="module-card">
+                <div class="title"><span class="num">13</span> Branch Support Bot</div>
+                <div class="desc">Customer Support Q&amp;A Bot &amp; Tier‑1 Support Automation</div>
+                <div class="links">
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_13_Branch_Support_Bot/13_A_Customer_Support_Bot.md">13_A</a>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_13_Branch_Support_Bot/13_B_Branch_Support_Architecture.md">13_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_13_Resources/branch-support-workflow.json">Support WF</a>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_13_Resources/ServiceNow_Integration_Guide.md">ServiceNow Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 14 -->
+            <div class="module-card">
+                <div class="title"><span class="num">14</span> Autonomous Ops</div>
+                <div class="desc">Multi‑Agent Systems in n8n &amp; Self‑Healing Infrastructure Design</div>
+                <div class="links">
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_14_Autonomous_Ops/14_A_Multi_Agent_Systems.md">14_A</a>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_14_Autonomous_Ops/14_B_Autonomous_Ops_Architecture.md">14_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_14_Resources/multi-agent-workflow.json">Multi‑Agent WF</a>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_14_Resources/Self_Healing_Infrastructure_Design.md">Self‑Healing Design</a>
+                </div>
+            </div>
+
+            <!-- Module 15 -->
+            <div class="module-card">
+                <div class="title"><span class="num">15</span> Threat Intelligence</div>
+                <div class="desc">Market Research Multi‑Agent System &amp; MITRE ATT&amp;CK Integration</div>
+                <div class="links">
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_15_Threat_Intelligence/15_A_Market_Research_Agent.md">15_A</a>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_15_Threat_Intelligence/15_B_Threat_Intelligence_Architecture.md">15_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_15_Resources/threat-intelligence-workflow.json">Threat WF</a>
+                    <a href="09-15_Module_Phase3_Advanced_Automation/Module_15_Resources/mitre-attck-mapping.md">MITRE Mapping</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHASE 4 — AI INTELLIGENCE                                     -->
+    <!-- ============================================================ -->
+    <section class="phase" id="phase4">
+        <div class="phase-header">
+            <span class="icon">🧠</span>
+            <h2>Phase 4 — AI Intelligence</h2>
+            <span class="count">Modules 16–16.3</span>
+        </div>
+        <div class="module-grid">
+
+            <!-- Module 16 -->
+            <div class="module-card">
+                <div class="title"><span class="num">16</span> Change Management</div>
+                <div class="desc">Human‑in‑the‑Loop Workflows &amp; Enterprise Change Management</div>
+                <div class="links">
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16_Change_Management/16_A_Human_In_Loop.md">16_A</a>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16_Change_Management/16_B_Change_Management_Architecture.md">16_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16_Resources/change-management-workflow.json">Change WF</a>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16_Resources/itil-change-management-template.md">ITIL Template</a>
+                </div>
+            </div>
+
+            <!-- Module 16.1 -->
+            <div class="module-card">
+                <div class="title"><span class="num">16.1</span> Production Excellence</div>
+                <div class="desc">12 Hidden Tricks &amp; Production Performance Optimization</div>
+                <div class="links">
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.1_Production_Excellence/16.1_A_Hidden_Tricks.md">16.1_A</a>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.1_Production_Excellence/16.1_B_Production_Excellence.md">16.1_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.1_Resources/Performance_Tuning_Guide.md">Tuning Guide</a>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.1_Resources/production-optimization-checklist.md">Optimization Checklist</a>
+                </div>
+            </div>
+
+            <!-- Module 16.2 -->
+            <div class="module-card">
+                <div class="title"><span class="num">16.2</span> AI Assistant RAG</div>
+                <div class="desc">AI Assistant RAG Agent &amp; AI‑Powered Network Design Assistant</div>
+                <div class="links">
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.2_AI_Assistant_RAG/16.2_A_AI_Assistant_RAG.md">16.2_A</a>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.2_AI_Assistant_RAG/16.2_B_Network_Architect_Assistant.md">16.2_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.2_Resources/network-architect-assistant-workflow.json">Architect WF</a>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.2_Resources/network-design-templates.md">Design Templates</a>
+                </div>
+            </div>
+
+            <!-- Module 16.3 -->
+            <div class="module-card">
+                <div class="title"><span class="num">16.3</span> Communication Automation</div>
+                <div class="desc">Facebook Messenger Automation &amp; Enterprise Communication Strategy</div>
+                <div class="links">
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.3_Communication_Automation/16.3_A_Facebook_Messenger.md">16.3_A</a>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.3_Communication_Automation/16.3_B_Enterprise_Communication_Architecture.md">16.3_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.3_Resources/communication-workflow.json">Comm WF</a>
+                    <a href="16-22_Module_Phase4_AI_Intelligence/Module_16.3_Resources/slack-teams-integration-guide.md">Slack/Teams Guide</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHASE 5 — LANGFLOW & ADVANCED AI                             -->
+    <!-- ============================================================ -->
+    <section class="phase" id="phase5">
+        <div class="phase-header">
+            <span class="icon">⚡</span>
+            <h2>Phase 5 — Langflow &amp; Advanced AI</h2>
+            <span class="count">Modules 17–21</span>
+        </div>
+        <div class="module-grid">
+
+            <!-- Module 17 -->
+            <div class="module-card">
+                <div class="title"><span class="num">17</span> Langflow Introduction</div>
+                <div class="desc">Introduction to Langflow &amp; AI Workflow Orchestration Framework</div>
+                <div class="links">
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_17_Langflow_Introduction/17_A_Langflow_Intro.md">17_A</a>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_17_Langflow_Introduction/17_B_AI_Workflow_Orchestration.md">17_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_17_Resources/langflow-banking-workflow.json">Langflow WF</a>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_17_Resources/langflow-installation-guide.md">Install Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 18 -->
+            <div class="module-card">
+                <div class="title"><span class="num">18</span> Advanced RAG</div>
+                <div class="desc">Building RAG Agents in Langflow &amp; Multi‑Source Knowledge Retrieval</div>
+                <div class="links">
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_18_Advanced_RAG/18_A_RAG_Langflow.md">18_A</a>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_18_Advanced_RAG/18_B_Enterprise_RAG_Architecture.md">18_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_18_Resources/advanced-rag-workflow.json">Advanced RAG WF</a>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_18_Resources/vector-database-configuration.md">Vector DB Config</a>
+                </div>
+            </div>
+
+            <!-- Module 19 -->
+            <div class="module-card">
+                <div class="title"><span class="num">19</span> Multi‑Agent Orchestration</div>
+                <div class="desc">Multi‑Agent Orchestration in Langflow &amp; Cross‑Domain Automation</div>
+                <div class="links">
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_19_Multi_Agent_Orchestration/19_A_Multi_Agent_Langflow.md">19_A</a>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_19_Multi_Agent_Orchestration/19_B_Enterprise_Orchestration.md">19_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_19_Resources/cross-domain-workflow.json">Cross‑Domain WF</a>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_19_Resources/agent-coordination-guide.md">Agent Coordination</a>
+                </div>
+            </div>
+
+            <!-- Module 20 -->
+            <div class="module-card">
+                <div class="title"><span class="num">20</span> Workflow Lifecycle</div>
+                <div class="desc">Exporting Langflow Workflows &amp; CI/CD for AI Workflows</div>
+                <div class="links">
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_20_Workflow_Lifecycle/20_A_Exporting_Langflow.md">20_A</a>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_20_Workflow_Lifecycle/20_B_Workflow_Lifecycle.md">20_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_20_Resources/ci-cd-pipeline-config.yml">CI/CD Config</a>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_20_Resources/versioning-strategy-guide.md">Versioning Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 21 -->
+            <div class="module-card">
+                <div class="title"><span class="num">21</span> AI Optimization</div>
+                <div class="desc">Debugging &amp; Optimizing Langflow + Banking‑Grade Performance Standards</div>
+                <div class="links">
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_21_AI_Optimization/21_A_Debugging_Langflow.md">21_A</a>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_21_AI_Optimization/21_B_AI_Quality_Assurance.md">21_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_21_Resources/performance-testing-checklist.md">Testing Checklist</a>
+                    <a href="17-21_Module_Phase5_Langflow_Advanced/Module_21_Resources/cost-optimization-guide.md">Cost Optimization</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHASE 6 — ENTERPRISE SCALE                                   -->
+    <!-- ============================================================ -->
+    <section class="phase" id="phase6">
+        <div class="phase-header">
+            <span class="icon">🏢</span>
+            <h2>Phase 6 — Enterprise Scale</h2>
+            <span class="count">Modules 22–35</span>
+        </div>
+        <div class="module-grid">
+
+            <!-- Module 22 -->
+            <div class="module-card">
+                <div class="title"><span class="num">22</span> Network Analytics</div>
+                <div class="desc">Network Performance Analysis Agent</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_22_Network_Analytics/22_A_Module.md">22_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_22_Network_Analytics/22_B_Architecture.md">22_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_22_Network_Analytics_Resources/workflow_22.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_22_Network_Analytics_Resources/implementation-guide_22.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 23 -->
+            <div class="module-card">
+                <div class="title"><span class="num">23</span> Multilingual Service Desk</div>
+                <div class="desc">Multilingual Enterprise Service Desk</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_23_Multilingual_Service_Desk/23_A_Module.md">23_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_23_Multilingual_Service_Desk/23_B_Architecture.md">23_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_23_Multilingual_Service_Desk_Resources/workflow_23.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_23_Multilingual_Service_Desk_Resources/implementation-guide_23.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 24 -->
+            <div class="module-card">
+                <div class="title"><span class="num">24</span> API Gateway</div>
+                <div class="desc">Enterprise API Gateway Platform</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_24_API_Gateway/24_A_Module.md">24_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_24_API_Gateway/24_B_Architecture.md">24_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_24_API_Gateway_Resources/workflow_24.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_24_API_Gateway_Resources/implementation-guide_24.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 25 -->
+            <div class="module-card">
+                <div class="title"><span class="num">25</span> Branch Onboarding</div>
+                <div class="desc">Branch Onboarding &amp; Provisioning Portal</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_25_Branch_Onboarding/25_A_Module.md">25_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_25_Branch_Onboarding/25_B_Architecture.md">25_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_25_Branch_Onboarding_Resources/workflow_25.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_25_Branch_Onboarding_Resources/implementation-guide_25.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 26 -->
+            <div class="module-card">
+                <div class="title"><span class="num">26</span> Asset Lifecycle</div>
+                <div class="desc">IT Asset Lifecycle Management</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_26_Asset_Lifecycle/26_A_Module.md">26_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_26_Asset_Lifecycle/26_B_Architecture.md">26_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_26_Asset_Lifecycle_Resources/workflow_26.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_26_Asset_Lifecycle_Resources/implementation-guide_26.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 27 -->
+            <div class="module-card">
+                <div class="title"><span class="num">27</span> Customer Service AI</div>
+                <div class="desc">Banking Customer Service AI</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_27_Customer_Service_AI/27_A_Module.md">27_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_27_Customer_Service_AI/27_B_Architecture.md">27_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_27_Customer_Service_AI_Resources/workflow_27.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_27_Customer_Service_AI_Resources/implementation-guide_27.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 28 -->
+            <div class="module-card">
+                <div class="title"><span class="num">28</span> Mobile NOC</div>
+                <div class="desc">Mobile NOC Operations</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_28_Mobile_NOC/28_A_Module.md">28_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_28_Mobile_NOC/28_B_Architecture.md">28_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_28_Mobile_NOC_Resources/workflow_28.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_28_Mobile_NOC_Resources/implementation-guide_28.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 29 -->
+            <div class="module-card">
+                <div class="title"><span class="num">29</span> Skills Management</div>
+                <div class="desc">Skills Management System</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_29_Skills_Management/29_A_Module.md">29_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_29_Skills_Management/29_B_Architecture.md">29_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_29_Skills_Management_Resources/workflow_29.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_29_Skills_Management_Resources/implementation-guide_29.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 30 -->
+            <div class="module-card">
+                <div class="title"><span class="num">30</span> IT Request Management</div>
+                <div class="desc">IT Request Management System (ITSM)</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_30_IT_Request_Management/30_A_Module.md">30_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_30_IT_Request_Management/30_B_Architecture.md">30_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_30_IT_Request_Management_Resources/workflow_30.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_30_IT_Request_Management_Resources/implementation-guide_30.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 31 -->
+            <div class="module-card">
+                <div class="title"><span class="num">31</span> Executive Dashboard</div>
+                <div class="desc">Executive Dashboard &amp; Reporting</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_31_Executive_Dashboard/31_A_Module.md">31_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_31_Executive_Dashboard/31_B_Architecture.md">31_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_31_Executive_Dashboard_Resources/workflow_31.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_31_Executive_Dashboard_Resources/implementation-guide_31.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 32 -->
+            <div class="module-card">
+                <div class="title"><span class="num">32</span> Knowledge Management</div>
+                <div class="desc">Enterprise Knowledge Management</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_32_Knowledge_Management/32_A_Module.md">32_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_32_Knowledge_Management/32_B_Architecture.md">32_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_32_Knowledge_Management_Resources/workflow_32.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_32_Knowledge_Management_Resources/implementation-guide_32.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 33 -->
+            <div class="module-card">
+                <div class="title"><span class="num">33</span> Vendor Management</div>
+                <div class="desc">Vendor &amp; Contract Management</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_33_Vendor_Management/33_A_Module.md">33_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_33_Vendor_Management/33_B_Architecture.md">33_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_33_Vendor_Management_Resources/workflow_33.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_33_Vendor_Management_Resources/implementation-guide_33.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 34 -->
+            <div class="module-card">
+                <div class="title"><span class="num">34</span> License Management</div>
+                <div class="desc">Software Asset Management</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_34_License_Management/34_A_Module.md">34_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_34_License_Management/34_B_Architecture.md">34_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_34_License_Management_Resources/workflow_34.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_34_License_Management_Resources/implementation-guide_34.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 35 -->
+            <div class="module-card">
+                <div class="title"><span class="num">35</span> Voice NOC</div>
+                <div class="desc">Voice‑Enabled NOC Operations</div>
+                <div class="links">
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_35_Voice_NOC/35_A_Module.md">35_A</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_35_Voice_NOC/35_B_Architecture.md">35_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_35_Voice_NOC_Resources/workflow_35.json">Workflow</a>
+                    <a href="22-35_Module_Phase6_Enterprise_Scale/Module_35_Voice_NOC_Resources/implementation-guide_35.md">Guide</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHASE 7 — VOICE AI                                           -->
+    <!-- ============================================================ -->
+    <section class="phase" id="phase7">
+        <div class="phase-header">
+            <span class="icon">🎤</span>
+            <h2>Phase 7 — Voice AI</h2>
+            <span class="count">Modules 36–38</span>
+        </div>
+        <div class="module-grid">
+
+            <!-- Module 36 -->
+            <div class="module-card">
+                <div class="title"><span class="num">36</span> Multilingual AI</div>
+                <div class="desc">Multilingual AI Agents</div>
+                <div class="links">
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_36_Multilingual_AI/36_A_Module.md">36_A</a>
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_36_Multilingual_AI/36_B_Architecture.md">36_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_36_Multilingual_AI_Resources/workflow_36.json">Workflow</a>
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_36_Multilingual_AI_Resources/implementation-guide_36.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 37 -->
+            <div class="module-card">
+                <div class="title"><span class="num">37</span> Advanced Voice NOC</div>
+                <div class="desc">Advanced Voice‑Enabled NOC</div>
+                <div class="links">
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_37_Advanced_Voice_NOC/37_A_Module.md">37_A</a>
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_37_Advanced_Voice_NOC/37_B_Architecture.md">37_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_37_Advanced_Voice_NOC_Resources/workflow_37.json">Workflow</a>
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_37_Advanced_Voice_NOC_Resources/implementation-guide_37.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 38 -->
+            <div class="module-card">
+                <div class="title"><span class="num">38</span> Emergency Response</div>
+                <div class="desc">Voice‑Enabled Live NOC Response</div>
+                <div class="links">
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_38_Emergency_Response/38_A_Module.md">38_A</a>
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_38_Emergency_Response/38_B_Architecture.md">38_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_38_Emergency_Response_Resources/workflow_38.json">Workflow</a>
+                    <a href="36-38_Module_Phase7_Voice_AI/Module_38_Emergency_Response_Resources/implementation-guide_38.md">Guide</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHASE 8 — BUSINESS GOVERNANCE                                -->
+    <!-- ============================================================ -->
+    <section class="phase" id="phase8">
+        <div class="phase-header">
+            <span class="icon">📊</span>
+            <h2>Phase 8 — Business Governance</h2>
+            <span class="count">Modules 39–45</span>
+        </div>
+        <div class="module-grid">
+
+            <!-- Module 39 -->
+            <div class="module-card">
+                <div class="title"><span class="num">39</span> CoE Architecture</div>
+                <div class="desc">Center of Excellence Architecture &amp; Governance</div>
+                <div class="links">
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_39_CoE_Architecture/39_A_Module.md">39_A</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_39_CoE_Architecture/39_B_Architecture.md">39_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_39_CoE_Architecture_Resources/workflow_39.json">Workflow</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_39_CoE_Architecture_Resources/implementation-guide_39.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 40 -->
+            <div class="module-card">
+                <div class="title"><span class="num">40</span> Career Consulting</div>
+                <div class="desc">Career Path &amp; Consulting Framework</div>
+                <div class="links">
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_40_Career_Consulting/40_A_Module.md">40_A</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_40_Career_Consulting/40_B_Architecture.md">40_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_40_Career_Consulting_Resources/workflow_40.json">Workflow</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_40_Career_Consulting_Resources/implementation-guide_40.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 41 -->
+            <div class="module-card">
+                <div class="title"><span class="num">41</span> Freelancing Consulting</div>
+                <div class="desc">Internal Consulting &amp; Advisory Framework</div>
+                <div class="links">
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_41_Freelancing_Consulting/41_A_Module.md">41_A</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_41_Freelancing_Consulting/41_B_Architecture.md">41_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_41_Freelancing_Consulting_Resources/workflow_41.json">Workflow</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_41_Freelancing_Consulting_Resources/implementation-guide_41.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 42 -->
+            <div class="module-card">
+                <div class="title"><span class="num">42</span> Code Standards</div>
+                <div class="desc">Code Standards &amp; Quality Assurance</div>
+                <div class="links">
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_42_Code_Standards/42_A_Module.md">42_A</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_42_Code_Standards/42_B_Architecture.md">42_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_42_Code_Standards_Resources/workflow_42.json">Workflow</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_42_Code_Standards_Resources/implementation-guide_42.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 43 -->
+            <div class="module-card">
+                <div class="title"><span class="num">43</span> Data Handling</div>
+                <div class="desc">Banking Data Handling &amp; Integration Architecture</div>
+                <div class="links">
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_43_Data_Handling/43_A_Module.md">43_A</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_43_Data_Handling/43_B_Architecture.md">43_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_43_Data_Handling_Resources/workflow_43.json">Workflow</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_43_Data_Handling_Resources/implementation-guide_43.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 44 -->
+            <div class="module-card">
+                <div class="title"><span class="num">44</span> GitOps</div>
+                <div class="desc">GitOps &amp; Infrastructure as Code</div>
+                <div class="links">
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_44_GitOps/44_A_Module.md">44_A</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_44_GitOps/44_B_Architecture.md">44_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_44_GitOps_Resources/workflow_44.json">Workflow</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_44_GitOps_Resources/implementation-guide_44.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 45 -->
+            <div class="module-card">
+                <div class="title"><span class="num">45</span> Service Integration</div>
+                <div class="desc">Enterprise Service Management Integration</div>
+                <div class="links">
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_45_Service_Integration/45_A_Module.md">45_A</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_45_Service_Integration/45_B_Architecture.md">45_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_45_Service_Integration_Resources/workflow_45.json">Workflow</a>
+                    <a href="39-45_Module_Phase8_Business_Governance/Module_45_Service_Integration_Resources/implementation-guide_45.md">Guide</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHASE 9 — ENTERPRISE ARCHITECTURE                            -->
+    <!-- ============================================================ -->
+    <section class="phase" id="phase9">
+        <div class="phase-header">
+            <span class="icon">🏛️</span>
+            <h2>Phase 9 — Enterprise Architecture</h2>
+            <span class="count">Modules 46–51</span>
+        </div>
+        <div class="module-grid">
+
+            <!-- Module 46 -->
+            <div class="module-card">
+                <div class="title"><span class="num">46</span> Enterprise Architecture</div>
+                <div class="desc">Enterprise Architecture Frameworks</div>
+                <div class="links">
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_46_Enterprise_Architecture/46_A_Module.md">46_A</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_46_Enterprise_Architecture/46_B_Architecture.md">46_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_46_Enterprise_Architecture_Resources/workflow_46.json">Workflow</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_46_Enterprise_Architecture_Resources/implementation-guide_46.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 47 -->
+            <div class="module-card">
+                <div class="title"><span class="num">47</span> Security Architecture</div>
+                <div class="desc">Security Architecture for Banking</div>
+                <div class="links">
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_47_Security_Architecture/47_A_Module.md">47_A</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_47_Security_Architecture/47_B_Architecture.md">47_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_47_Security_Architecture_Resources/workflow_47.json">Workflow</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_47_Security_Architecture_Resources/implementation-guide_47.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 48 -->
+            <div class="module-card">
+                <div class="title"><span class="num">48</span> Cloud Architecture</div>
+                <div class="desc">Cloud Architecture for Banking</div>
+                <div class="links">
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_48_Cloud_Architecture/48_A_Module.md">48_A</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_48_Cloud_Architecture/48_B_Architecture.md">48_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_48_Cloud_Architecture_Resources/workflow_48.json">Workflow</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_48_Cloud_Architecture_Resources/implementation-guide_48.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 49 -->
+            <div class="module-card">
+                <div class="title"><span class="num">49</span> Data Architecture</div>
+                <div class="desc">Data Architecture for Banking</div>
+                <div class="links">
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_49_Data_Architecture/49_A_Module.md">49_A</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_49_Data_Architecture/49_B_Architecture.md">49_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_49_Data_Architecture_Resources/workflow_49.json">Workflow</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_49_Data_Architecture_Resources/implementation-guide_49.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 50 -->
+            <div class="module-card">
+                <div class="title"><span class="num">50</span> Business Architecture</div>
+                <div class="desc">Business Architecture for Banking</div>
+                <div class="links">
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_50_Business_Architecture/50_A_Module.md">50_A</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_50_Business_Architecture/50_B_Architecture.md">50_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_50_Business_Architecture_Resources/workflow_50.json">Workflow</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_50_Business_Architecture_Resources/implementation-guide_50.md">Guide</a>
+                </div>
+            </div>
+
+            <!-- Module 51 -->
+            <div class="module-card">
+                <div class="title"><span class="num">51</span> Architecture Governance</div>
+                <div class="desc">Architecture Governance Framework</div>
+                <div class="links">
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_51_Architecture_Governance/51_A_Module.md">51_A</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_51_Architecture_Governance/51_B_Architecture.md">51_B</a>
+                </div>
+                <div class="resources">
+                    <span class="label">📂 Resources</span>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_51_Architecture_Governance_Resources/workflow_51.json">Workflow</a>
+                    <a href="46-51_Module_Phase9_Enterprise_Architecture/Module_51_Architecture_Governance_Resources/implementation-guide_51.md">Guide</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="stats">
+            <span>🏁 9 Phases</span>
+            <span>📚 51 Modules</span>
+            <span>✍️ 102 Assignments</span>
+            <span>📂 51 Resource Folders</span>
+        </div>
+        <p>
+            <strong>🎯 Goal:</strong> Enterprise AI Automation Engineer for Banking<br/>
+            <small>Built with ❤️ for the Banking Industry</small>
+        </p>
+        <p style="margin-top:10px; font-size:0.8rem; color:#8a9aaa;">
+            © 2026 MAC Matrix. All Rights Reserved. &nbsp;|&nbsp; 
+            <a href="mailto:support@macmatrix.io" style="color:#4a5a8a; text-decoration:none;">📧 support@macmatrix.io</a>
+        </p>
+    </footer>
+
+</div>
+<!-- end container -->
+
+</body>
+</html>

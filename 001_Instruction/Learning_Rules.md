@@ -289,8 +289,8 @@ Use one standard format for every module. Every module consists of **two separat
 
 ```
 Module_XX_[Topic_Name]/
-├── XX_A_Module_[Topic]_Assignment.md   ← Section A (general concept)
-└── XX_B_Module_[Topic]_Assignment.md   ← Section B (banking architecture)
+├── XX_A_[Topic].md   ← Section A (general concept)
+└── XX_B_[Topic].md   ← Section B (banking architecture)
 ```
 
 ### Section A Format (Course Content)
