@@ -141,15 +141,5 @@ Multi-Agent System কাজের গতি বাড়ায়।
 
 ### Question 1
 
-Data Collection Agent কোন কোন Source থেকে তথ্য সংগ্রহ করবে তা নির্ধারণ করতে একটি **Trusted Source List** তৈরি করতে হলে কী কী Criteria ব্যবহার করবেন?
-
----
-
-### Question 2
-
-যদি দুইটি Trusted Source একই Threat সম্পর্কে ভিন্ন তথ্য দেয়, যেমন—
-
-- Source A → Threat **Critical**
-- Source B → Threat **Low**
-
-তাহলে Data Analysis Agent-কে কীভাবে এই Conflict Handle করতে বলবেন?
+Data Collection Agent কোন Source থেকে তথ্য নেবে তার একটা "Trusted Source List" যদি বানাতে হয়, সেখানে কী কী Criteria দিয়ে একটা Source-কে "Trusted" বলে ধরবেন?
+যদি দুইটা ভিন্ন Source একই Topic-এ পরস্পরবিরোধী তথ্য দেয় (একটা বলছে Threat Critical, আরেকটা বলছে Low), Analysis Agent-কে কীভাবে এই Conflict Handle করতে বলবেন?
