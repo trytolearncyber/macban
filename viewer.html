@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>📄 Markdown Viewer</title>
-    <!-- Load Marked.js for rendering -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         body {
@@ -21,6 +20,7 @@
             padding: 40px 50px;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            min-height: 400px;
         }
         h1, h2, h3 { color: #1a1a2e; }
         h1 { border-bottom: 3px solid #4a00e0; padding-bottom: 10px; }
@@ -44,36 +44,69 @@
             font-weight: 600;
         }
         .back-btn:hover { background: #3a00b0; text-decoration: none; }
+        .loading { text-align: center; padding: 40px 0; color: #5a6a7e; }
+        .error { color: #d63031; background: #ffe8e8; padding: 20px; border-radius: 10px; border-left: 4px solid #d63031; }
+        .error code { background: #fff; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="back-btn">⬅ Back to Course</a>
-        <div id="content">Loading...</div>
+        <div id="content">
+            <div class="loading">📖 Loading document...</div>
+        </div>
     </div>
 
     <script>
         // Get filename from URL
         const params = new URLSearchParams(window.location.search);
-        const file = params.get('file');
+        let file = params.get('file');
 
         if (!file) {
-            document.getElementById('content').innerHTML = '<h2>❌ No file specified</h2><p>Please provide a ?file= parameter.</p>';
+            document.getElementById('content').innerHTML = `
+                <h2>❌ No file specified</h2>
+                <p>Please use: <code>?file=path/to/file.md</code></p>
+            `;
         } else {
-            fetch(file)
+            // Fix: Remove any leading slashes
+            file = file.replace(/^\//, '');
+            
+            // Try to fetch with absolute path from root
+            const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+            const fullUrl = baseUrl + file;
+            
+            console.log('Fetching:', fullUrl);
+            
+            fetch(fullUrl)
                 .then(response => {
-                    if (!response.ok) throw new Error('File not found (404)');
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
                     return response.text();
                 })
                 .then(markdown => {
+                    // Check if it's actually markdown or HTML
+                    if (markdown.trim().startsWith('<!DOCTYPE')) {
+                        throw new Error('File appears to be HTML, not markdown');
+                    }
                     document.getElementById('content').innerHTML = marked.parse(markdown);
                 })
                 .catch(error => {
                     document.getElementById('content').innerHTML = `
-                        <h2>❌ Error Loading File</h2>
-                        <p><strong>${error.message}</strong></p>
-                        <p>File: <code>${file}</code></p>
-                        <p>Make sure the file exists and is accessible.</p>
+                        <div class="error">
+                            <h2>❌ Error Loading File</h2>
+                            <p><strong>${error.message}</strong></p>
+                            <p><strong>File path:</strong> <code>${file}</code></p>
+                            <p><strong>Full URL:</strong> <code>${fullUrl}</code></p>
+                            <hr>
+                            <p><strong>💡 Possible fixes:</strong></p>
+                            <ul>
+                                <li>Make sure the file exists in your repository</li>
+                                <li>Check that the file is in the correct folder</li>
+                                <li>Wait 2-3 minutes after pushing changes</li>
+                                <li>Try the direct GitHub link instead</li>
+                            </ul>
+                        </div>
                     `;
                 });
         }
