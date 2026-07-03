@@ -1,89 +1,392 @@
-📘 Module 03 — Production Automation Environment Setup
-Section B: Bank-Grade Production Architecture (System Architect - Banking)
+# 📘 Module 03 — Production Automation Environment Setup (Section B)
 
-📌 S — Scenario
-
-Nord Bank-এর IT Risk Committee প্রশ্ন তুলেছে — "যদি n8n Server Crash করে, তাহলে কী হবে? Network Monitoring এবং Security Alert বন্ধ হয়ে যাবে?" একটি মাত্র Server-এর উপর নির্ভর করা Banking-এর জন্য গ্রহণযোগ্য নয়।
-
-🎯 T — Task
-
-একটি Bank-Grade Production Architecture ডিজাইন করা হবে, যেখানে নিচের বিষয়গুলো কাভার করা হবে:
-
-- High Availability (HA) Deployment Strategy
-- Load Balancing Architecture
-- Database Clustering
-- Backup ও Disaster Recovery
-- TLS/HTTPS Security
-- VPN Access ও RBAC
-- Audit Logging ও Monitoring
-
-👀 O — Output
-
-এই Section শেষে থাকবে:
-
-- একটি Single Point of Failure-মুক্ত n8n Architecture-এর ধারণা
-- HA, Backup, এবং Security-এর মধ্যে সম্পর্ক বোঝা
-- Production Architecture Blueprint তৈরি করার যোগ্যতা
-
-🤔 R — Reason
-
-Concept Explanation
-
-High Availability (HA) মানে হলো একটি Component Fail করলেও System চলতে থাকে, কারণ একাধিক Copy চালু থাকে।
-
-| Component | → | Simple Explanation |
-|---|---|---|
-| Multiple n8n Instances | → | একটি নয়, একাধিক n8n চালু থাকে — একটি বন্ধ হলে অন্যটি কাজ চালিয়ে যায় |
-| Load Balancer | → | কাজ একাধিক n8n Instance-এর মধ্যে ভাগ করে দেয়, যাতে কোনোটির উপর বেশি চাপ না পড়ে |
-| Database Cluster | → | একাধিক Database Copy — একটি Primary (Write করার জন্য) এবং কয়েকটি Replica (Read এবং Backup-এর জন্য) |
-
-Backup ও Disaster Recovery
-
-প্রতিদিন Automatic Backup নেওয়া হয় এবং একটি Copy দূরবর্তী জায়গায় (Off-site) রাখা হয়, যাতে পুরো Data Center নষ্ট হয়ে গেলেও Data উদ্ধার করা যায়।
-
-Security Layer
-
-| Security Item | → | Simple Explanation |
-|---|---|---|
-| HTTPS/TLS | → | n8n-এর সাথে যোগাযোগ Encrypted রাখা |
-| VPN Access | → | শুধুমাত্র Bank Network থেকেই n8n Access করা যাবে, Public Internet থেকে নয় |
-| RBAC | → | কে কী করতে পারবে তা নিয়ন্ত্রণ করা (Admin, Engineer, Viewer) |
-| Audit Logging | → | কে, কখন, কী করেছে তার সম্পূর্ণ History রাখা |
-
-কেন এই Architecture প্রয়োজন?
-
-Network Monitoring এবং Security Alert ২৪/৭ চালু থাকতে হবে। একটি Server Fail করলে যদি পুরো System বন্ধ হয়ে যায়, তাহলে সেই সময়ে কোনো Security Incident ধরা পড়বে না — যা Banking-এর জন্য বড় ঝুঁকি।
-
-📊 Simple Diagram
-
-VPN access only (no public internet)
-Load balancer
-n8n instance 1
-n8n instance 2
-n8n instance 3
-PostgreSQL cluster
-Primary plus replicas
-Daily backup, off-site copy
-
-
-🏦 Real-World Use Case
-
-Nord Bank-এর Core Banking System Daily Transaction Alert n8n-এর উপর নির্ভর করে। যদি একটি মাত্র n8n Server ব্যবহার করা হতো এবং সেটি Crash করতো, তাহলে Customer-রা Suspicious Transaction-এর Alert পেত না। তিনটি n8n Instance ও Load Balancer থাকলে একটি Fail করলেও বাকি দুটি কাজ চালিয়ে যায়, তাই Service কখনো বন্ধ হয় না।
-
-🧠 Memory Tip
-
-Production Architecture মনে রাখার সহজ উপায়:
-**L-H-D-S** = Load Balance → High Availability → Disaster Recovery → Security
-
-✋ Y — Your Turn
-
-নিজের ভাষায় ৩-৪ লাইনে ব্যাখ্যা করুন (Example কপি না করে):
-
-যদি Load Balancer না থাকতো এবং শুধুমাত্র একটি n8n Instance থাকতো, কিন্তু Database Cluster থাকতো — তাহলে কী সমস্যা হতো? Load Balancer আসলে কোন ঝুঁকি দূর করে?
-
-🎯 Deliverable: Production Architecture Blueprint with DR Strategy
+## 🏦 Nord Bank — Production Architecture Design
 
 ---
-ℹ️ Note: এই Default Mode-এ শুধু Architecture Concept আলোচনা করা হয়েছে। 
-docker-compose Configuration, HAProxy Setup, এবং PostgreSQL Cluster Configuration-এর জন্য 
-`/answer` Mode 
+
+# 📌 S — Scenario
+
+Nord Bank তাদের **Production Environment**-এ **n8n** Deploy করতে চায়।
+
+Production Environment-এ Automation চালানোর জন্য Bank-এর Security Policy এবং Compliance Requirements অবশ্যই মেনে চলতে হবে।
+
+## 🏢 Current Infrastructure
+
+| Item | Details |
+|------|---------|
+| Servers | 3 VMware ESXi Hosts |
+| Network | Internal Network + DMZ |
+| Security | Firewall + Zero Trust |
+| Compliance | GDPR, PCI-DSS, Bangladesh Bank |
+
+---
+
+## 🎯 Management Requirements
+
+| Requirement | Why Important? |
+|-------------|----------------|
+| 24/7 Availability | Banking Operation কখনো বন্ধ হওয়া যাবে না |
+| Data Security | Customer Data Bank-এর বাইরে যাবে না |
+| Compliance | সব Banking Regulation মানতে হবে |
+| Audit Logging | সব Activity Record রাখতে হবে |
+| Scalability | 1000+ Branch Support করতে হবে |
+| Disaster Recovery | Data Loss হলে দ্রুত Recovery করতে হবে |
+
+---
+
+## 🚨 Current Challenges
+
+| Challenge | Details |
+|-----------|---------|
+| High Availability | n8n Down হলে Automation বন্ধ হয়ে যাবে |
+| Data Security | Customer Data Encrypt করতে হবে |
+| Compliance | GDPR, PCI-DSS এবং Bangladesh Bank Policy মানতে হবে |
+| Backup | Data Recovery নিশ্চিত করতে হবে |
+| Multi-User Access | একাধিক Engineer একসাথে কাজ করবে |
+| Secure Communication | সব Traffic TLS দ্বারা Encrypt হতে হবে |
+
+---
+
+# ✅ Solution
+
+Production-Grade Architecture তৈরি করা হবে।
+
+| Component | Solution |
+|-----------|----------|
+| Container Platform | Docker + Docker Compose |
+| High Availability | 3 n8n Instances + HAProxy |
+| Database | PostgreSQL Cluster |
+| Queue & Cache | Redis |
+| Security | TLS + Authentication |
+| Backup | Daily Backup + Disaster Recovery |
+
+---
+
+# 🎯 T — Task
+
+এই Module-এ Nord Bank-এর জন্য একটি **Production-Ready n8n Architecture** Design করা হবে।
+
+শিখবেন:
+
+- Docker Deployment
+- High Availability (HA)
+- Load Balancing
+- PostgreSQL Cluster
+- Redis Queue
+- Backup Strategy
+- Disaster Recovery
+- Security Configuration
+- Monitoring
+
+---
+
+# 👀 O — Output
+
+Module শেষে নিচের Deliverables তৈরি করতে পারবেন।
+
+| Component | Output |
+|-----------|--------|
+| Architecture | Complete Production Design |
+| Docker | Production Deployment |
+| HA | Load Balancing + Failover |
+| Database | PostgreSQL Cluster |
+| Backup | Daily + Off-site Backup |
+| Security | TLS + Authentication |
+| Monitoring | Prometheus + Grafana |
+
+---
+
+# 🤔 R — Reason
+
+## কেন Production Architecture দরকার?
+
+| Reason | Explanation |
+|---------|-------------|
+| Zero Downtime | Banking Service সবসময় চালু রাখতে হবে |
+| Data Protection | Customer Data নিরাপদ রাখতে হবে |
+| Compliance | Banking Regulation মেনে চলতে হবে |
+| Audit | সব Activity Track করতে হবে |
+| Disaster Recovery | System Failure হলে দ্রুত Recovery করতে হবে |
+
+---
+
+# 📊 Production Architecture Diagram
+
+```text
+                 👨‍💻 Engineers (VPN Access)
+                         │
+                         ▼
+                🔒 Firewall (Port 443)
+                         │
+                         ▼
+                🛡 HAProxy Load Balancer
+                         │
+         ┌───────────────┼───────────────┐
+         ▼               ▼               ▼
+      n8n-1           n8n-2           n8n-3
+    (Active)        (Active)        (Active)
+         │               │               │
+         └───────────────┼───────────────┘
+                         ▼
+              🗄 PostgreSQL Cluster
+           ┌──────────┼──────────┐
+           ▼          ▼          ▼
+       Primary    Replica 1   Replica 2
+
+                         │
+                         ▼
+                📦 Redis Queue & Cache
+
+                         │
+                         ▼
+                 💾 Backup Server
+              ├── Daily Backup
+              ├── Workflow Backup
+              └── Off-site Backup
+
+                         │
+                         ▼
+          📊 Prometheus + Grafana Monitoring
+```
+
+---
+
+# 🧩 Components
+
+## 1️⃣ Docker
+
+| Service | Container | Purpose |
+|----------|-----------|---------|
+| n8n | n8nio/n8n | Workflow Engine |
+| PostgreSQL | postgres:15 | Database |
+| Redis | redis:7-alpine | Queue & Cache |
+| HAProxy | haproxy | Load Balancer |
+| Prometheus | prom/prometheus | Monitoring |
+| Grafana | grafana/grafana | Dashboard |
+
+---
+
+## 2️⃣ High Availability (HA)
+
+| Component | Configuration | Purpose |
+|-----------|--------------|---------|
+| n8n | 3 Active-Active Instances | No Single Point of Failure |
+| HAProxy | Load Balancer | Traffic Distribution |
+| Sticky Sessions | Enabled | Stable User Session |
+| Health Check | `/healthz` | Detect Failed Instance |
+
+### HA Flow
+
+```text
+Users
+   │
+   ▼
+HAProxy
+   │
+ ┌─┼───────────┐
+ ▼ ▼           ▼
+n8n-1      n8n-2      n8n-3
+
+If one instance fails,
+HAProxy automatically redirects traffic
+to healthy instances.
+```
+
+---
+
+## 3️⃣ PostgreSQL Cluster
+
+| Node | Role | Purpose |
+|------|------|---------|
+| Primary | Write | Insert & Update Data |
+| Replica 1 | Read | Reporting |
+| Replica 2 | Read + Backup | Analytics & Backup |
+
+---
+
+## 4️⃣ Redis
+
+| Feature | Purpose |
+|----------|---------|
+| Cache | Faster Response |
+| Queue | Workflow Queue |
+| Session Store | User Session Management |
+
+---
+
+## 5️⃣ Backup Strategy
+
+| Backup Type | Frequency | Retention | Location |
+|-------------|-----------|-----------|----------|
+| Database | Daily | 30 Days | Backup Server |
+| Workflows | Daily | 30 Days | Backup Server |
+| Configuration | On Change | 30 Days | Backup Server |
+| Off-site Backup | Weekly | 1 Year | AWS S3 |
+| Point-in-Time Recovery | Continuous | 7 Days | PostgreSQL WAL |
+
+---
+
+## 6️⃣ Security Configuration
+
+| Security Layer | Configuration |
+|----------------|--------------|
+| HTTPS | TLS 1.2 / TLS 1.3 |
+| Authentication | Basic Auth + LDAP/SSO |
+| Encryption | AES-256 (At Rest) |
+| Firewall | Only Port 443 Open |
+| VPN | Required |
+| Audit Logging | Enabled |
+
+---
+
+## 7️⃣ Monitoring
+
+| Tool | Purpose |
+|------|---------|
+| Prometheus | Metrics Collection |
+| Grafana | Dashboard |
+| Alertmanager | Notifications |
+
+### Monitor These Metrics
+
+| Dashboard | Metrics |
+|-----------|---------|
+| n8n | Workflow Status |
+| Server | CPU, Memory, Disk |
+| PostgreSQL | Connections |
+| Alerts | Critical Events |
+
+---
+
+# 🏦 Example Production Deployment
+
+| Component | Specification |
+|-----------|---------------|
+| n8n | 3 VMs (8 CPU, 16 GB RAM) |
+| PostgreSQL | 3 VMs (16 CPU, 32 GB RAM) |
+| Redis | 2 VMs (4 CPU, 8 GB RAM) |
+| HAProxy | 2 VMs (2 CPU, 4 GB RAM) |
+| Backup Server | 1 VM (4 CPU, 8 GB RAM) |
+
+**Total Infrastructure:** **11 Virtual Machines**
+
+---
+
+# 📅 Implementation Timeline
+
+| Phase | Duration | Activities |
+|--------|----------|------------|
+| Phase 1 | 2 Weeks | Docker + n8n Installation |
+| Phase 2 | 2 Weeks | HAProxy + Load Balancing |
+| Phase 3 | 2 Weeks | PostgreSQL Cluster |
+| Phase 4 | 1 Week | Redis Queue |
+| Phase 5 | 1 Week | TLS + Security |
+| Phase 6 | 1 Week | Backup + Disaster Recovery |
+| Phase 7 | 1 Week | Monitoring + Testing |
+
+---
+
+# ⚠️ L — Limitations
+
+| # | Limitation | Explanation |
+|---|------------|-------------|
+| 1 | High Cost | Multiple VM লাগবে |
+| 2 | Complex Setup | Experienced Team দরকার |
+| 3 | Maintenance | নিয়মিত Update ও Monitoring দরকার |
+| 4 | Database Cluster | PostgreSQL Cluster Manage করা কঠিন |
+
+---
+
+# ✋ Y — Your Turn
+
+## Scenario
+
+Nord Bank-এর জন্য একটি Production n8n Environment Design করুন।
+
+### Requirements
+
+- 24/7 Availability
+- 5 NOC Engineers
+- Data Backup + Disaster Recovery
+- Security + Compliance
+
+---
+
+### Task 1 — Draw the Architecture
+
+২–৩ লাইনে লিখুন অথবা Diagram আঁকুন।
+
+---
+
+### Task 2 — List the Components
+
+Production Environment-এ কী কী Components লাগবে?
+
+২–৩ লাইনে লিখুন।
+
+---
+
+### Task 3 — High Availability Strategy
+
+HA কীভাবে নিশ্চিত করবেন?
+
+২–৩ লাইনে লিখুন।
+
+---
+
+### Task 4 — Backup Strategy
+
+Backup এবং Disaster Recovery কীভাবে করবেন?
+
+২–৩ লাইনে লিখুন।
+
+---
+
+### Task 5 — Security Configuration
+
+Security কীভাবে Configure করবেন?
+
+২–৩ লাইনে লিখুন।
+
+---
+
+# 📚 Section Summary
+
+| Topic | Key Takeaway |
+|--------|--------------|
+| Architecture | 3 n8n + HAProxy + PostgreSQL Cluster |
+| High Availability | Active-Active Deployment |
+| Database | Primary + 2 Replicas |
+| Backup | Daily + Off-site Backup |
+| Security | TLS + VPN + Authentication |
+| Monitoring | Prometheus + Grafana |
+
+---
+
+# 🧠 Memory Tip
+
+```text
+Docker
+    ↓
+High Availability
+    ↓
+Security
+    ↓
+Backup
+    ↓
+Monitoring
+```
+
+## Easy Formula
+
+> **Production Architecture = Docker → High Availability → Security → Backup → Monitoring**
+
+### Shortcut
+
+**D → H → S → B → M**
+
+- **D** = Docker
+- **H** = High Availability
+- **S** = Security
+- **B** = Backup
+- **M** = Monitoring

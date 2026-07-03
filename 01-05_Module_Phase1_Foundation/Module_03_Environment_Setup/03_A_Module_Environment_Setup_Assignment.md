@@ -1,76 +1,305 @@
-📘 Module 03 — Production Automation Environment Setup
-Section A: Setting Up Your Automation Environment (n8n self-hosted/cloud)
+# 📘 Module 02A — Production n8n Architecture (Banking)
 
-📌 S — Scenario
-
-Nord Bank-এর Automation Engineer Concept বোঝার পর এখন প্রশ্ন করছে — "n8n আসলে কোথায় Install করবো? নিজের Server-এ, নাকি Cloud-এ?" কোনো স্পষ্ট ধারণা ছাড়া শুরু করলে ভুল Environment বেছে নেওয়ার ঝুঁকি থাকে।
-
-🎯 T — Task
-
-n8n চালানোর জন্য কোন কোন Environment Option আছে তা বোঝা হবে:
-
-- n8n Self-Hosted (Docker/NPM)
-- n8n Cloud
-- Docker ও Docker Compose-এর ভূমিকা
-- প্রথম Login ও Basic Setup ধারণা
-
-👀 O — Output
-
-এই Section শেষে থাকবে:
-
-- Self-Hosted vs Cloud-এর মধ্যে পার্থক্যের ধারণা
-- Docker কেন ব্যবহার করা হয় তার বোঝাপড়া
-- n8n Environment Setup Checklist সম্পন্ন করার যোগ্যতা
-
-🤔 R — Reason
-
-Concept Explanation
-
-n8n চালানোর দুটি প্রধান উপায় আছে।
-
-| Option | → | Simple Explanation |
-|---|---|---|
-| Self-Hosted | → | নিজের Server বা Computer-এ n8n Install করে চালানো, Data সম্পূর্ণ নিজের নিয়ন্ত্রণে থাকে |
-| n8n Cloud | → | n8n-এর নিজস্ব Cloud Server-এ Account খুলে ব্যবহার করা, Setup করতে হয় না কিন্তু Data বাইরে যায় |
-
-Docker কী এবং কেন প্রয়োজন
-
-Docker → Application-কে আলাদা Container-এ চালানোর Tool। n8n-কে Docker-এ চালালে এটি অন্য কোনো System-এর সাথে Conflict করে না এবং একটি Server থেকে আরেকটিতে সহজেই সরানো যায়।
-
-Docker Compose → একাধিক Container (যেমন n8n + Database) একসাথে পরিচালনা করার Tool।
-
-কেন Self-Hosted Banking-এর জন্য গুরুত্বপূর্ণ?
-
-Banking Data কখনোই বাইরের Server-এ যাওয়া উচিত নয় (Module 02-এ আলোচিত Data Sovereignty মনে আছে?)। তাই বেশিরভাগ Bank Self-Hosted Option বেছে নেয়, Docker ব্যবহার করে।
-
-📊 Simple Diagram
-n8n setup choice
-
-Self-hosted via Docker
-Data stays on bank servers
-Preferred for banking
-
-n8n cloud
-Data leaves bank servers
-Not preferred for banking
-
-
-🏦 Real-World Use Case
-
-Nord Bank-এর Network Team নিজেদের Data Center-এ একটি Ubuntu Server-এ Docker দিয়ে n8n চালায়। ফলে কোনো Transaction বা Network Log কখনোই বাইরের কোনো Server-এ যায় না, যা Bangladesh Bank-এর Compliance Requirement পূরণ করে।
-
-🧠 Memory Tip
-
-**Self-Hosted = নিজের ঘর** (Control নিজের হাতে)
-**Cloud = ভাড়া বাসা** (Setup সহজ, কিন্তু Control কম)
-
-✋ Y — Your Turn
-
-নিজের ভাষায় ৩-৪ লাইনে ব্যাখ্যা করুন (Example কপি না করে):
-
-একটি Bank যদি n8n Cloud ব্যবহার করে Customer Transaction Workflow চালায়, তাহলে কী কী ঝুঁকি তৈরি হতে পারে? Self-Hosted Option কীভাবে এই ঝুঁকি কমাতে পারে?
-
-🎯 Deliverable: Environment Setup Checklist সম্পন্ন করা
+## 🏦 Nord Bank Production Environment
 
 ---
-ℹ️ Note: এই Default Mode-এ শুধু Concept আলোচনা করা হয়েছে। Docker Installation Command, Configuration, এবং Step-by-Step Setup-এর জন্য `/answer` Mode ব্যবহার করতে পারেন।
+
+# 📌 S — Scenario
+
+Nord Bank তাদের **Production Environment**-এ **n8n** Deploy করতে চায়।
+
+Bank-এর Production Environment-এ Automation চালানোর জন্য Security, Availability এবং Compliance খুব গুরুত্বপূর্ণ।
+
+## Banking Requirements
+
+| Requirement | Why Important? |
+|-------------|----------------|
+| High Availability | 24/7 Banking Operation |
+| Data Security | Customer Data নিরাপদ রাখতে হবে |
+| Compliance | GDPR, PCI-DSS এবং Banking Policy মানতে হবে |
+| Backup | Data Loss হলে Recovery করতে হবে |
+| Audit Logging | সব Activity Record রাখতে হবে |
+| Scalability | 1000+ Branch Support করতে হবে |
+
+---
+
+# 🎯 T — Task
+
+এই Module-এ শিখবেন:
+
+- Production Environment কী
+- Docker দিয়ে n8n Deploy করা
+- High Availability (HA)
+- Load Balancer কীভাবে কাজ করে
+- PostgreSQL Cluster
+- Redis-এর ব্যবহার
+- Backup Strategy
+- TLS / HTTPS Configuration
+
+---
+
+# 👀 O — Output
+
+এই Module শেষে একটি **Production-Ready n8n Environment** Design করতে পারবেন।
+
+এতে থাকবে:
+
+- ✅ 24/7 Available
+- ✅ Secure
+- ✅ Backed Up
+- ✅ Scalable
+
+---
+
+# 🤔 R — Reason
+
+## কেন Production Setup আলাদা?
+
+| Reason | Explanation |
+|---------|-------------|
+| 24/7 Availability | Automation কখনো বন্ধ হওয়া যাবে না |
+| Data Safety | Real Customer Data ব্যবহৃত হয় |
+| Security | Production Server সবসময় Attack-এর Target |
+| Multi-User Access | অনেক Engineer একসাথে কাজ করবে |
+| Scalability | ভবিষ্যতে Workflow ও User বাড়বে |
+
+---
+
+# 📊 Production Architecture
+
+```text
+                👨‍💻 Users (Engineers)
+                        │
+                        ▼
+                 🔒 HTTPS / TLS
+                        │
+                        ▼
+          ⚖️ Load Balancer (Nginx / HAProxy)
+                        │
+              ┌─────────┴─────────┐
+              ▼                   ▼
+          n8n Instance 1      n8n Instance 2
+          (Active)            (Active)
+              │                   │
+              └─────────┬─────────┘
+                        ▼
+              🗄 PostgreSQL Cluster
+            ┌─────────┼─────────┐
+            ▼         ▼         ▼
+         Primary   Replica 1  Replica 2
+
+                        │
+                        ▼
+                📦 Redis Queue
+
+                        │
+                        ▼
+           💾 Daily Backup (S3 / Azure)
+```
+
+---
+
+# 🧩 Main Components
+
+## 1️⃣ Docker
+
+| What | Why |
+|------|-----|
+| Container Platform | Easy Deployment |
+| Docker Compose | Multiple Services একসাথে Run |
+
+---
+
+## 2️⃣ n8n
+
+| What | Why |
+|------|-----|
+| Workflow Engine | Automation Run করবে |
+| Multiple Instances | High Availability নিশ্চিত করবে |
+
+---
+
+## 3️⃣ PostgreSQL
+
+| What | Why |
+|------|-----|
+| Database | Workflow Data Store করবে |
+| Cluster | Database Failure Prevent করবে |
+
+---
+
+## 4️⃣ Redis
+
+| What | Why |
+|------|-----|
+| Cache | Faster Performance |
+| Queue | Workflow Queue Handle করবে |
+
+---
+
+## 5️⃣ Load Balancer
+
+| What | Why |
+|------|-----|
+| Nginx / HAProxy | Traffic Distribution |
+| SSL Termination | HTTPS Handle করবে |
+
+---
+
+## 6️⃣ Backup
+
+| What | Why |
+|------|-----|
+| Daily Backup | Data Recovery |
+| Off-site Backup | Disaster Recovery |
+
+---
+
+# 🔒 Security Configuration
+
+| Setting | Recommended Value | Purpose |
+|----------|-------------------|---------|
+| HTTPS | TLS 1.2 বা TLS 1.3 | Secure Communication |
+| Authentication | Basic Auth / SSO | Unauthorized Access Prevent |
+| Encryption Key | Strong Random Key | Workflow Data Protection |
+| Firewall | Only Port 443 Open | Reduce Attack Surface |
+| Audit Logging | Enabled | Track User Activities |
+
+---
+
+# 💾 Backup Strategy
+
+| Backup Type | Frequency | Retention |
+|-------------|-----------|-----------|
+| Database | Daily | 30 Days |
+| Workflows | Daily | 30 Days |
+| Configuration | On Change | 30 Days |
+| Off-site Backup | Weekly | 1 Year |
+
+---
+
+# 📦 Example Docker Compose
+
+```yaml
+services:
+
+  n8n:
+    image: n8nio/n8n:latest
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_ENCRYPTION_KEY=your-strong-key
+      - N8N_DATABASE_TYPE=postgresdb
+      - N8N_DATABASE_POSTGRESDB_HOST=postgres
+      - GENERIC_TIMEZONE=Asia/Dhaka
+    volumes:
+      - n8n_data:/home/node/.n8n
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=n8n
+      - POSTGRES_PASSWORD=strong-password
+      - POSTGRES_DB=n8n
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+```
+
+---
+
+# ⚠️ L — Limitations
+
+| # | Limitation | Explanation |
+|---|------------|-------------|
+| 1 | Higher Cost | HA-এর জন্য অতিরিক্ত Server দরকার |
+| 2 | Complex Setup | Deploy করতে Expertise লাগে |
+| 3 | Maintenance | নিয়মিত Update ও Monitoring দরকার |
+| 4 | Database Cluster | PostgreSQL Cluster Configure করা তুলনামূলক কঠিন |
+
+---
+
+# ✋ Y — Your Turn
+
+## Scenario
+
+Nord Bank একটি Production n8n Environment তৈরি করতে চায়।
+
+### Requirements
+
+- 24/7 Availability
+- 5 NOC Engineers Access
+- Daily Backup
+- Secure TLS Connection
+
+### Answer These Questions
+
+### 1. কোন Components লাগবে?
+
+২–৩ লাইনে লিখুন।
+
+---
+
+### 2. High Availability কীভাবে নিশ্চিত করবেন?
+
+২–৩ লাইনে লিখুন।
+
+---
+
+### 3. Backup Strategy কী হবে?
+
+২–৩ লাইনে লিখুন।
+
+---
+
+### 4. Security কীভাবে Configure করবেন?
+
+২–৩ লাইনে লিখুন।
+
+---
+
+# 📚 Section Summary
+
+| Topic | Key Takeaway |
+|--------|--------------|
+| Docker | Container-এ n8n Deploy |
+| High Availability | Multiple n8n Instances + Load Balancer |
+| Database | PostgreSQL Cluster |
+| Redis | Queue ও Cache |
+| Security | TLS + Authentication + Firewall |
+| Backup | Daily + Off-site Backup |
+
+---
+
+# 🧠 Memory Tip
+
+Remember:
+
+```text
+Docker
+    ↓
+High Availability
+    ↓
+Security
+    ↓
+Backup
+```
+
+## Easy Formula
+
+> **Production Setup = Docker → High Availability → Security → Backup**
