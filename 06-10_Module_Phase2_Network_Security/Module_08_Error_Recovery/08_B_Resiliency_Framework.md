@@ -1,80 +1,51 @@
-📘 Module 08_B — Resiliency Framework
-Section B (System Architect - Banking)
-📌 S — Scenario
-Nord Bank-এর একটি Core Banking Integration Workflow-এ একবার API Call Fail হওয়ার পর কোনো Retry Mechanism ছিল না। ফলে সেই একটি Failed Transaction চিরতরে হারিয়ে যায় — কোনো Log নেই, কোনো Trace নেই, এবং Audit-এর সময় কেউ ব্যাখ্যা দিতে পারেনি কী হয়েছিল।
+📘 Module 08 — Resiliency Framework (Section B)
+
+📌 S — Scenario (Nord Bank / Banking-Specific)
+
+Nord Bank-এর একটা Automation প্রতি রাতে সব Branch-এর Firewall Config Backup নিয়ে একটা Central Server-এ পাঠাত। একরাতে Central Server সাময়িকভাবে Full হয়ে যায় এবং Backup Save হয়নি। Automation কোনো Retry ছাড়াই ব্যর্থ হয়ে যায় এবং Silent-ভাবে থেমে যায়। প্রায় ২ সপ্তাহ পর যখন একটা Branch-এর Config Restore করার দরকার হয়, তখন জানা যায় যে গত ২ সপ্তাহের কোনো Backup আসলে হয়নি।
+
 🚨 Challenge
 
-একবার Fail হলে Transaction চিরতরে হারিয়ে যায়, কোনো Recovery Path নেই
-Critical Failure হলেও কেউ তৎক্ষণাৎ জানতে পারে না — Manual Intervention দরকার হলেও কোনো Mechanism নেই
-Compliance Audit-এর সময় কী হয়েছিল তার কোনো Trail (রেকর্ড) পাওয়া যায় না
+- একটা সাময়িক সমস্যা (Server Full) স্থায়ী Data Loss-এ পরিণত হয়েছিল, কারণ কোনো Retry ছিল না
+- Failed Backup সম্পর্কে কেউ জানত না, কারণ কোনো Alert System ছিল না
+- Failed Attempt-এর কোনো Record রাখা হয়নি, তাই পরে বোঝা যায়নি কবে থেকে সমস্যা শুরু হয়েছে
+- সমস্যা সমাধানের জন্য কোনো Human Escalation Path ছিল না — Automation ব্যর্থ হলে সেটা শুধু Log-এ থেকে যেত, কেউ দেখত না
 
 ✅ Solution
-একটি Complete Resiliency Framework Design করা যায়, যেখানে চারটি স্তরে সুরক্ষা থাকবে: Exponential Backoff Retry, Dead-Letter Queue, Human-in-the-Loop, এবং Audit Trail।
+
+Automation-এ একটা Resiliency Layer যোগ করতে হবে যা Retry (ক্রমান্বয়ে বাড়তে থাকা অপেক্ষা সময়সহ), Failed Task-এর জন্য একটা আলাদা Storage (Dead-Letter Queue), Critical Failure-এর জন্য Human Notification, এবং প্রতিটা ধাপের Audit Trail নিশ্চিত করবে।
 
 🎯 T — Task
-Design: Retry Logic with Exponential Backoff
-সাধারণ Retry-তে প্রতিবার একই সময় Wait করা হয়, কিন্তু Exponential Backoff-এ Wait Time প্রতিবার বাড়তে থাকে:
-AttemptWait TimeAttempt 12 সেকেন্ডAttempt 24 সেকেন্ডAttempt 38 সেকেন্ডAttempt 416 সেকেন্ডAttempt 532 সেকেন্ড5 বারের পরও FailAlert পাঠানো
-Design: Dead-Letter Queue
-যে Message বারবার চেষ্টা করেও Process করা যায়নি, সেটাকে সরাসরি বাতিল না করে একটি আলাদা জায়গায় (Dead-Letter Queue) সংরক্ষণ করা হয়:
 
-Failed Message → Dead-Letter Queue-তে যাবে
-Storage হিসেবে PostgreSQL বা Redis ব্যবহার করা যায়
-Admin-কে Notification পাঠিয়ে Manual Review করতে বলা হয়
-
-Design: Human-in-the-Loop for Critical Failures
-সাধারণ Failure Auto-Retry দিয়ে সামলানো যায়, কিন্তু Critical Failure-এর ক্ষেত্রে মানুষের Involvement প্রয়োজন হয়:
-
-Critical Failure হলে On-Call Engineer-কে Email পাঠানো হবে
-৩০ মিনিট অপেক্ষা করা হবে Manual Fix-এর জন্য
-৩০ মিনিটেও কোনো Action না হলে পরবর্তী Level-এ Escalate করা হবে
-
-Design: Audit Trail Implementation
-প্রতিটি Workflow Step Database-এ Log করা হয়, যাতে পরবর্তীতে Compliance Report তৈরি করা যায়:
-
-প্রতিটি ধাপের জন্য Timestamp, User, Action, Status রেকর্ড রাখা হয়
-Compliance Reporting-এর সময় এই Log Query করে ব্যবহার করা যায়
-
+Nord Bank-এর জন্য একটা Resiliency Framework ডিজাইন করতে হবে যা Automation ব্যর্থ হলে Data Loss প্রতিরোধ করবে এবং সঠিক সময়ে সঠিক মানুষকে জানাবে।
 
 👀 O — Output
-ComponentResultRetry Logicসাময়িক Failure নিজে থেকেই সমাধান হবেDead-Letter Queueকোনো Transaction চিরতরে হারাবে নাHuman-in-LoopCritical Issue সঠিক সময়ে সঠিক ব্যক্তির কাছে পৌঁছাবেAudit TrailCompliance Audit-এর সময় সম্পূর্ণ History পাওয়া যাবে
+
+একটা Resiliency Architecture Document যেখানে থাকবে:
+- Exponential Backoff Retry Strategy (ক্রমান্বয়ে বেশি সময় অপেক্ষা করে আবার চেষ্টা করা)
+- Dead-Letter Queue Design — ব্যর্থ Task কোথায় এবং কীভাবে সংরক্ষিত থাকবে
+- Human-in-the-Loop Escalation — কখন এবং কাকে জানানো হবে
+- Audit Trail Design — প্রতিটা ধাপ কীভাবে Log হবে Compliance-এর জন্য
+
 🤔 R — Reason
-এই Framework ব্যবহারের কারণ:
 
-Banking System-এ একটি Transaction হারিয়ে যাওয়া মানে সরাসরি আর্থিক ক্ষতি বা Compliance Violation
-Regulatory Body (Bangladesh Bank) Audit Trail ছাড়া কোনো System Approve করে না
-Human-in-the-Loop থাকলে Automation পুরোপুরি Uncontrolled হয়ে যায় না, Critical Decision-এ মানুষ জড়িত থাকে
+Banking-এ Backup এবং Config-এর মতো Critical কাজ ব্যর্থ হলে তা সাথে সাথে ধরা না পড়লে সমস্যাটা সময়ের সাথে আরও বড় হয়ে যায় — যেমন এই Scenario-তে ২ সপ্তাহের Data Loss। একটা ভালো Resiliency Framework শুধু ব্যর্থতা এড়ানোর চেষ্টা করে না, বরং ব্যর্থ হলে দ্রুত সেটা ধরতে এবং সঠিক মানুষকে জানাতে সাহায্য করে, যাতে সমস্যাটা ছোট থাকতেই সমাধান করা যায়।
 
-📊 Simple Diagram
-[Transaction Request]
-        │
-        ▼
-[Try: API Call] ──Success──→ [Complete + Audit Log]
-        │
-      Fail
-        │
-        ▼
-[Retry: 2s→4s→8s→16s→32s]
-        │
-      Still Fail
-        │
-        ▼
-[Dead-Letter Queue] + [Critical? → Human-in-Loop]
-        │
-        ▼
-[Audit Trail: সব ধাপ রেকর্ড]
 🏦 Real-World Use Case
-Nord Bank-এর SWIFT Payment Workflow-এ Resiliency Framework Implement করার পর, একটি Network Glitch-এর কারণে Fail হওয়া Payment Message Retry-তে ৩ বারের মধ্যেই Success হয়ে যায়। যেগুলো তাতেও Fail হয়, সেগুলো Dead-Letter Queue-তে জমা থেকে Payment Officer-এর Manual Review-এর অপেক্ষায় থাকে — কোনো Payment হারিয়ে যায় না।
+
+Nord Bank পরবর্তীতে এমন একটা System বসায় যেখানে Backup ব্যর্থ হলে প্রথমে ৫টা পর্যন্ত ক্রমান্বয়ে বাড়তে থাকা Wait Time দিয়ে Retry হয়। সবগুলো ব্যর্থ হলে সেই Task একটা Dead-Letter Table-এ Store হয় এবং On-Call Engineer-কে Email পাঠানো হয়। প্রতিটা Attempt (সফল বা ব্যর্থ) Database-এ Log হয়, যাতে পরে Audit-এর সময় দেখা যায় কবে কী হয়েছিল।
+
 🧠 Memory Tip
-Retry → Queue → Human → Audit — চারটি স্তর, প্রতিটি স্তর আগেরটা Fail করলে পরেরটা Activate হয়।
-🔒 Security Tip: Dead-Letter Queue-তে থাকা Data-তে যদি Sensitive Information (Account Number, Amount) থাকে, তাহলে সেটাও Encryption দিয়ে সুরক্ষিত রাখতে হবে — Failed Data মানে Unprotected Data নয়।
+
+Resiliency Framework-কে ভাবা যেতে পারে একটা "Smoke Detector + Fire Extinguisher + Emergency Call"-এর সমন্বয়ের মতো — শুধু আগুন প্রতিরোধ করার চেষ্টা না করে, আগুন লাগলে দ্রুত বোঝা, প্রাথমিকভাবে সামলানো, আর প্রয়োজনে মানুষকে জানানো — তিনটাই একসাথে থাকে।
+
+⚠️ L — Limitation
+
+- Retry এবং Dead-Letter Queue থাকলেও, যদি মূল সমস্যা (যেমন Server-এর Disk Full) দীর্ঘ সময় সমাধান না হয়, তাহলে সাময়িক ব্যবস্থা শেষ পর্যন্ত কাজ করবে না
+- Audit Trail বেশি বিস্তারিত রাখলে Storage এবং Performance Cost বেড়ে যায় — কতটা বিস্তারিত রাখা উচিত তা একটা Trade-off
+- Human-in-the-Loop Escalation থাকলেও, যদি নির্ধারিত ব্যক্তি সময়মতো সাড়া না দেয় (Phone বন্ধ, Vacation), তাহলে Escalation Chain-এ পরবর্তী ধাপ আগে থেকে ঠিক করা না থাকলে সমস্যা আটকেই থাকবে
+- Critical Production System-এ (যেমন সরাসরি Core Banking Config পরিবর্তন) স্বয়ংক্রিয় Retry কখনো কখনো বিপজ্জনক হতে পারে যদি একই Action দুইবার Apply হয়ে যায় — তাই Retry Logic-এ Idempotency নিশ্চিত করা জরুরি
 
 ✋ Y — Your Turn
-নিজের ভাষায় লিখুন (Copy না করে):
 
-আপনার মতে, কোন ধরনের Failure-কে "Critical" বলে Classify করা উচিত, যেখানে Human-in-the-Loop বাধ্যতামূলক হবে?
-Dead-Letter Queue-তে জমে থাকা Message কতদিন পর্যন্ত রাখা উচিত বলে মনে করেন, এবং কেন?
-
-
-🎯 Deliverable: Complete Error Handling & Resiliency Framework
-📝 n8n Deliverable: Error Recovery Workflow
+Nord Bank-এর একটা Automation চিন্তা করে লিখতে হবে (Backup ছাড়া অন্য কোনো কাজ) যেখানে Retry করা বিপজ্জনক হতে পারে যদি Idempotency নিশ্চিত না করা হয় — কেন বিপজ্জনক হতে পারে তা ২-৩ বাক্যে ব্যাখ্যা করতে হবে।

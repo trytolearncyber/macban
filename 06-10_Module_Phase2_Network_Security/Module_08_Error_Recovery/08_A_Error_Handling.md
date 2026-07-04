@@ -1,49 +1,42 @@
-📘 Module 08 — Error Handling in n8n
-📌 S — Scenario
-Nord Bank-এর একটি n8n Workflow প্রতিদিন Core Banking System থেকে Transaction Data নিয়ে আসে। একদিন Core Banking API হঠাৎ ৫ সেকেন্ডের জন্য Down ছিল — সেই মুহূর্তে Workflow Fail করে এবং কোনো Notification ছাড়াই থেমে যায়। পরের দিন জানা যায় সেই সময়ের Transaction Data Missing।
-🚨 Challenge
+📘 Module 08 — Error Handling Basics (Section A)
 
-API সাময়িকভাবে Unavailable হলে Workflow পুরোপুরি Fail করে যায়
-Workflow Fail হলেও কেউ জানতে পারে না — কোনো Alert নেই
-Data Format ভুল হলে বা Timeout হলে Workflow-এর পরের সব Step Skip হয়ে যায়
+📌 S — Scenario 1 (Non-Banking)
 
-✅ Solution
-n8n-এ Error Handling ব্যবহার করে Workflow-কে এমনভাবে Design করা যায়, যাতে Error এলে সেটা Gracefully Handle হয় — Workflow পুরোপুরি না থেমে বরং সঠিকভাবে Retry করে বা Alert পাঠায়।
+একজন Online Store Owner-এর Automation প্রতিদিন একটা External Shipping Service-কে জিজ্ঞেস করে Package কোথায় আছে। কিন্তু মাঝে মাঝে সেই Shipping Service-এর Website সাময়িকভাবে সাড়া দেয় না, আর তখন পুরো Automation থেমে যায়, কোনো Notification ছাড়াই। Owner পরে জানতে পারে যে সারাদিন ধরে কোনো Update Customer-দের কাছে যায়নি।
+
+📌 S — Scenario 2 (Banking, Non-Technical)
+
+Nord Bank-এর একটা Automation প্রতিদিন সকালে একটা External System-কে জিজ্ঞেস করে Exchange Rate নিয়ে আসে। একদিন সেই External System সাময়িকভাবে Slow ছিল, এবং Automation কোনো Response না পেয়ে থেমে যায়। কেউ খেয়াল না করা পর্যন্ত সারাদিন পুরনো Exchange Rate ব্যবহার হতে থাকে।
+
 🎯 T — Task
-আজকের Learning Objective হলো n8n-এর Error Handling-এর Basic ধারণা বুঝা।
-ছোট ছোট ধাপ:
 
-Error-এর ধরন বুঝা
-Error Node কীভাবে কাজ করে তা বুঝা
-Try-Catch Pattern-এর ধারণা বুঝা
-Retry Logic-এর ধারণা বুঝা
+আজকের লক্ষ্য:
+- Error কী এবং Automation-এ Error কখন হতে পারে তা বোঝা
+- একটা Automation Error হলে কী হওয়া উচিত তার সাধারণ ধারণা পাওয়া
+- Retry (আবার চেষ্টা করা) ধারণাটা বোঝা — কেন একবার ব্যর্থ হলেই সাথে সাথে হাল ছেড়ে দেওয়া ঠিক না
 
-Error Types:
-Error Type→ExampleHTTP Error→4xx (Client ভুল), 5xx (Server ভুল)Data Error→Invalid বা Missing FormatTimeout Error→নির্দিষ্ট সময়ের মধ্যে API Response না আসা
 👀 O — Output
-এই Module শেষে, একজন Learner বুঝতে পারবে:
-Concept→Simple ExplanationError Output→Node-এ Error এলে সেটা আলাদা Path-এ যায়Try-Catch→প্রথমে Action Try করা, না হলে Catch Path-এ Error Handle করাRetry→Fail হলে আবার চেষ্টা করা, নির্দিষ্ট সংখ্যক বার পর্যন্ত
+
+Module শেষে learner বলতে পারবে:
+- একটা Automation-এ Error কোথা থেকে আসতে পারে (যেমন External Service সাড়া না দেওয়া)
+- একটা Automation Error হলে চুপচাপ থেমে যাওয়া কেন সমস্যাজনক
+- Retry Logic বলতে কী বোঝায় — একবার ব্যর্থ হলে আবার চেষ্টা করার ধারণা
+
 🤔 R — Reason
-Error Handling ব্যবহার করার কারণ:
 
-Workflow হঠাৎ থেমে যাওয়া থেকে রক্ষা পায়
-সাময়িক Issue (যেমন Network Glitch) নিজে থেকেই Retry-তে Resolve হয়ে যায়
-Error হলে সাথে সাথে জানা যায়, Data Loss হয় না
+Automation প্রায়ই এমন External System-এর উপর নির্ভর করে যা সবসময় Available নাও থাকতে পারে। যদি একটা ছোট, সাময়িক সমস্যায় পুরো Automation চুপচাপ থেমে যায় এবং কেউ না জানে, তাহলে Automation-এর উপর নির্ভর করাই বিপজ্জনক হয়ে দাঁড়ায়। তাই Error হলে কী হবে তা আগে থেকে চিন্তা করে রাখা জরুরি — শুধু "সব ঠিক থাকলে কী হবে" তা চিন্তা করলেই চলে না।
 
-📊 Simple Diagram
-[Action Node] → Success? ──Yes──→ [Next Step]
-                    │
-                    No
-                    ↓
-              [Error Path] → [Retry / Alert]
-🏦 Real-World Use Case
-Nord Bank-এর Core Banking API Integration Workflow-এ Error Handling না থাকলে, একটি সাময়িক Network Issue-এর কারণে পুরো দিনের Transaction Sync বন্ধ হয়ে যেতে পারতো। Error Handling যোগ করার পর Workflow নিজে থেকেই ৩ বার Retry করে, এবং তাতেও ব্যর্থ হলে NOC Team-কে Alert পাঠায়।
 🧠 Memory Tip
-Try → Fail → Retry → Alert — এই চারটি ধাপ মনে রাখলেই Error Handling-এর Basic Flow স্পষ্ট হয়ে যায়।
-⚠️ Warning: সব Error-এর জন্য একই Retry Strategy ব্যবহার করা উচিত না — কিছু Error (যেমন Invalid Data Format) Retry করলেও ঠিক হবে না, সরাসরি Alert পাঠানোই ভালো।
+
+Error Handling-কে ভাবা যেতে পারে একটা "Backup Plan"-এর মতো — যেমন কেউ বাইরে যাওয়ার আগে ভাবে "যদি বৃষ্টি হয়, তাহলে কী করব", ঠিক তেমনি Automation তৈরি করার সময় ভাবতে হয় "যদি এই ধাপে ব্যর্থ হয়, তাহলে কী হবে"।
+
+⚠️ L — Limitation
+
+- Retry করলেই সব সমস্যার সমাধান হয় না — যদি External System দীর্ঘ সময় ধরে Down থাকে, তাহলে বারবার Retry করা লাভজনক না, বরং অতিরিক্ত চাপ তৈরি করতে পারে
+- কিছু Error আসলে Retry করার মতো না — যেমন ভুল তথ্য পাঠানোর কারণে হওয়া Error বারবার চেষ্টা করলেও ঠিক হবে না
+- Error Handling যোগ করলে Automation একটু জটিল হয়ে যায়, যা নতুনদের জন্য বোঝা কঠিন হতে পারে
+- এই ধারণা এখনও নির্দিষ্ট কতবার Retry করা উচিত, বা কতক্ষণ অপেক্ষা করা উচিত তা নিয়ে কিছু বলে না
 
 ✋ Y — Your Turn
-নিজের ভাষায় লিখুন (Copy না করে):
 
-আপনার বর্তমান কাজে এমন কোনো Workflow বা Script আছে কি, যেটা একবার Fail করলে পুরোপুরি বন্ধ হয়ে যায়?
-সেই Workflow-এ কোন ধরনের Error (HTTP/Data/Timeout) বেশি হওয়ার সম্ভাবনা থাকে বলে মনে করেন?
+একটা Automation চিন্তা করে লিখতে হবে যেটা কোনো External Service-এর উপর নির্ভর করে, এবং সেই External Service সাময়িকভাবে সাড়া না দিলে Automation-এর কী করা উচিত (থেমে যাওয়া, আবার চেষ্টা করা, নাকি কাউকে জানানো) তা ২-৩ বাক্যে ব্যাখ্যা করতে হবে।
