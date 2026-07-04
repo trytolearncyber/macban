@@ -1,43 +1,42 @@
-📘 Module 10 — Social Media Content Generator (n8n)
-📌 S — Scenario
-Nord Bank-এর Marketing Team প্রতি সপ্তাহে Manually Social Media Post লিখে, Design করে, এবং Schedule করে। একজন Employee এই কাজে সপ্তাহে প্রায় ১০ ঘণ্টা ব্যয় করে, অথচ Post-এর Engagement এখনো Low।
-🚨 Challenge
+📘 Module 10 — Security Incident Report Generator (Section A)
 
-প্রতিটি Post Manually লেখা সময়সাপেক্ষ
-Consistent Posting Schedule বজায় রাখা কঠিন — কখনো ভুলে যাওয়া হয়, কখনো দেরি হয়
-বিভিন্ন Platform (Facebook, LinkedIn, Twitter/X)-এর জন্য আলাদা Format-এ Content তৈরি করা Repetitive কাজ
+📌 S — Scenario 1 (Non-Banking)
 
-✅ Solution
-n8n-এর সাথে AI (LLM) এবং Social Media API Integrate করে একটি Automated Content Generator তৈরি করা যায়, যা নিজে থেকেই Content লেখে এবং Schedule অনুযায়ী Post করে।
+একজন Small Business Owner প্রতিদিন Facebook আর Instagram-এ আলাদা আলাদা করে Post লেখে, একই Product-এর জন্য দুইবার প্রায় একই লেখা টাইপ করতে হয়, শুধু ছোটখাটো পরিবর্তন করে। এই কাজে সময় লাগে এবং মাঝে মাঝে Post দিতে দিতে ভুলে যায়।
+
+📌 S — Scenario 2 (Banking, Non-Technical)
+
+Nord Bank-এর IT Team-কে একটা বড় সমস্যার পর (যেমন কয়েক ঘন্টার Network Downtime) একটা Report লিখতে হয় যেখানে কী ঘটেছিল, কতক্ষণ স্থায়ী হয়েছিল, এবং কী কারণে হয়েছিল তা বর্ণনা করতে হয়। প্রতিবার এই ধরনের Report প্রায় একই Format মেনে লিখতে হয়, কিন্তু তথ্য জোগাড় করে গুছিয়ে লেখা সময়সাপেক্ষ।
+
 🎯 T — Task
-আজকের Learning Objective হলো Social Media Automation-এর Basic Component বুঝা।
-ছোট ছোট ধাপ:
 
-Social Media API-এর ধারণা বুঝা (কীভাবে External Platform-এ Post পাঠানো যায়)
-AI দিয়ে Content Generation-এর ধারণা বুঝা
-Post Scheduling-এর ধারণা বুঝা
+আজকের লক্ষ্য:
+- Content Generation বলতে কী বোঝায় — একটা Template বা Structure অনুযায়ী স্বয়ংক্রিয়ভাবে লেখা তৈরি হওয়ার ধারণা
+- বিভিন্ন তথ্য থেকে কীভাবে একটা গোছানো Text তৈরি করা যায় তার প্রাথমিক ধারণা
+- একটা তৈরি Content Review বা Schedule করার ধারণা বোঝা
 
 👀 O — Output
-Concept→Simple ExplanationSocial Media API→Facebook/LinkedIn-এ Program দিয়ে Post পাঠানোর পদ্ধতিContent Generation with AI→LLM ব্যবহার করে Topic থেকে Post-এর Text তৈরি করাPost Scheduling→নির্দিষ্ট সময়ে Post Auto Publish হওয়ার ব্যবস্থা
+
+Module শেষে learner বলতে পারবে:
+- Automated Content Generation কীভাবে বারবার একই ধরনের লেখা তৈরি করার কাজ কমায়
+- একটা ভালো Report বা Content Template-এ কী কী অংশ থাকা উচিত (কী ঘটেছে, কখন, প্রভাব কী)
+- Generate হওয়া Content সরাসরি Publish করার আগে কেন Review করা গুরুত্বপূর্ণ হতে পারে
+
 🤔 R — Reason
-AI-Powered Content Generation ব্যবহারের কারণ:
 
-Content লেখার সময় কমে যায়
+একই ধরনের তথ্য বারবার Manually গুছিয়ে লেখা সময় নষ্ট করে এবং Consistency বজায় রাখা কঠিন করে তোলে। যদি একটা নির্দিষ্ট Structure বা Template অনুযায়ী তথ্য বসিয়ে দিলেই একটা গোছানো Draft তৈরি হয়ে যায়, তাহলে মানুষের কাজ শুধু Review এবং প্রয়োজনীয় Adjustment করাতেই সীমাবদ্ধ থাকে, যা অনেক দ্রুত।
 
-তবে এখানে একটি সরাসরি Trade-off আছে: AI-Generated Content সবসময় Brand Voice-এর সাথে Match নাও করতে পারে। প্রতিটি Post Publish করার আগে Human Review না রাখলে, ভুল বা Off-Brand Content সরাসরি Public-এ চলে যাওয়ার ঝুঁকি থাকে — বিশেষ করে Banking-এর মতো Regulated Sector-এ এটি Reputational Risk তৈরি করতে পারে।
-📊 Simple Diagram
-[Topic Input] → [n8n: LLM Node — Generate Content]
-                            │
-                  [Human Review? (Recommended)]
-                            │
-                  [Schedule Trigger] → [Social Media API → Post]
-🏦 Real-World Use Case
-n8n Workflow ব্যবহার করলে যে ধরনের Repetitive কাজ ৪ ঘণ্টার জায়গায় ৫ মিনিটে করা সম্ভব, একই Principle এখানে প্রযোজ্য — কিন্তু Social Media-র ক্ষেত্রে "দ্রুত" মানেই "নিরাপদ" নয়। Banking Sector-এ Content Publish হওয়ার আগে Compliance/Marketing Approval Step ছাড়া এই ধরনের Automation Deploy করা উচিত না।
 🧠 Memory Tip
-Generate → Review → Schedule → Post — এখানে "Review" ধাপটি Skip করা যাবে না, বিশেষ করে Regulated Industry-তে।
+
+Content Generation-কে ভাবা যেতে পারে একটা "Fill-in-the-Blank Report Form"-এর মতো — মূল Structure আগে থেকেই ঠিক করা থাকে, শুধু নির্দিষ্ট তথ্য বসালেই একটা সম্পূর্ণ Draft তৈরি হয়ে যায়।
+
+⚠️ L — Limitation
+
+- স্বয়ংক্রিয়ভাবে তৈরি হওয়া Content সবসময় সঠিক Tone বা প্রসঙ্গ বুঝে লেখে না — Sensitive বিষয়ে (যেমন একটা বড় Incident) ভুল Tone ক্ষতিকর হতে পারে
+- Template-Based Generation ভুল বা অসম্পূর্ণ তথ্য দিলে ভুল Content-ই তৈরি হয়ে যাবে, দেখতে গোছানো মনে হলেও
+- Automatically Generated Content সরাসরি Publish বা Share করে দিলে, ভুল থাকলে সেটা দ্রুত ছড়িয়ে পড়তে পারে
+- এই ধারণা এখনও কোনো নির্দিষ্ট AI Tool বা Prompt কীভাবে লেখা হয় তা নিয়ে কিছু বলে না
 
 ✋ Y — Your Turn
-নিজের ভাষায় লিখুন (Copy না করে):
 
-যদি AI ভুল বা Misleading তথ্য নিয়ে একটি Post Generate করে ফেলে এবং সেটা Auto-Publish হয়ে যায়, তাহলে দায় কার — Tool-এর, Workflow Designer-এর, নাকি যে Approve করেছে তার? যুক্তি সহ লিখুন।
-আপনার মতে, কোন ধরনের Content AI-কে দিয়ে Auto-Generate করানো উচিত, আর কোনটা সবসময় Human-Written রাখা উচিত?
+একটা Repetitive লেখার কাজ চিন্তা করে লিখতে হবে (Report, Email, বা Post যেকোনো কিছু হতে পারে) যেটা একটা নির্দিষ্ট Template দিয়ে Automate করা যেতে পারে, এবং সেই Template-এ কী কী অংশ থাকা উচিত তা ২-৩ বাক্যে লিখতে হবে।
