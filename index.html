@@ -1369,13 +1369,15 @@
 </html>
 
 <script>
-
-document.querySelectorAll('a[href$=".md"]').forEach(link=>{
-
-const file=link.getAttribute("href");
-
-link.href="viewer.html?file="+encodeURIComponent(file);
-
+// Convert all .md links to viewer.html with file parameter
+document.querySelectorAll('a[href$=".md"]').forEach(link => {
+    const file = link.getAttribute('href');
+    link.href = "viewer.html?file=" + encodeURIComponent(file);
 });
 
+// Add language indicator for visited pages (optional)
+document.addEventListener('DOMContentLoaded', function() {
+    // You can add any additional functionality here
+    console.log('📚 MACBan Course - Ready');
+});
 </script>
