@@ -61,8 +61,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
+            margin: 20px auto;
+            padding: 15px;
             background: var(--bg-body);
             color: var(--text-primary);
             line-height: 1.7;
@@ -71,92 +71,99 @@
 
         .container {
             background: var(--bg-container);
-            padding: 40px 50px;
-            border-radius: 16px;
+            padding: 25px 35px;
+            border-radius: 14px;
             box-shadow: var(--shadow);
             transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* ── Header ── */
+        /* ── Header with Small Buttons ── */
         .header-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 25px;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
         }
 
         .header-left {
             display: flex;
-            gap: 10px;
+            gap: 6px;
             align-items: center;
             flex-wrap: wrap;
         }
 
-        .back-btn {
-            display: inline-block;
-            background: var(--btn-bg);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 30px;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.2s;
+            font-size: 0.75rem;
+            transition: background 0.2s, transform 0.15s;
+            border: 1px solid transparent;
+            cursor: pointer;
             white-space: nowrap;
+            background: var(--btn-bg);
+            color: white;
+            line-height: 1.4;
         }
-        .back-btn:hover { background: var(--btn-hover); text-decoration: none; }
+        .btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
 
-        .lang-btn {
+        .btn-back {
+            background: var(--btn-bg);
+            color: white;
+        }
+        .btn-back:hover { background: var(--btn-hover); }
+
+        .btn-lang {
             background: var(--lang-btn-bg);
             color: var(--lang-btn-text);
-            border: 1px solid var(--border-color);
-            border-radius: 30px;
-            padding: 10px 20px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
+            border-color: var(--border-color);
         }
-        .lang-btn:hover {
-            opacity: 0.85;
-        }
-        .lang-btn.active {
+        .btn-lang:hover { opacity: 0.85; }
+        .btn-lang.active {
             background: var(--btn-bg);
             color: white;
             border-color: var(--btn-bg);
         }
 
-        .dark-toggle {
+        .btn-dark {
             background: var(--border-color);
-            border: none;
-            border-radius: 30px;
-            padding: 10px 20px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
             color: var(--text-primary);
-            transition: background 0.2s, color 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
+            border-color: var(--border-color);
         }
-        .dark-toggle:hover { background: var(--table-header); }
+        .btn-dark:hover { background: var(--table-header); }
+
+        /* ── Bottom Back Button ── */
+        .bottom-back {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+        }
 
         /* ── Translation Progress ── */
         .translation-progress {
             display: none;
             background: var(--code-bg);
-            padding: 12px 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
             border-left: 4px solid var(--btn-bg);
             font-weight: 500;
+            font-size: 0.9rem;
         }
         .translation-progress.show {
             display: block;
@@ -164,51 +171,51 @@
 
         .translation-notice {
             background: var(--code-bg);
-            padding: 10px 16px;
-            border-radius: 8px;
+            padding: 8px 14px;
+            border-radius: 6px;
             border-left: 4px solid var(--blockquote-border);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             font-style: italic;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         /* ── CONTENT STYLES ── */
         #content {
-            min-height: 300px;
+            min-height: 250px;
         }
 
         #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
             color: var(--text-primary);
-            margin-top: 1.8em;
-            margin-bottom: 0.6em;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
             line-height: 1.3;
         }
-        #content h1 { font-size: 2.2em; border-bottom: 3px solid var(--blockquote-border); padding-bottom: 10px; margin-top: 0; }
-        #content h2 { font-size: 1.8em; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
-        #content h3 { font-size: 1.4em; }
-        #content h4 { font-size: 1.2em; }
-        #content h5, #content h6 { font-size: 1.1em; }
+        #content h1 { font-size: 2em; border-bottom: 3px solid var(--blockquote-border); padding-bottom: 8px; margin-top: 0; }
+        #content h2 { font-size: 1.6em; border-bottom: 2px solid var(--border-color); padding-bottom: 6px; }
+        #content h3 { font-size: 1.3em; }
+        #content h4 { font-size: 1.1em; }
+        #content h5, #content h6 { font-size: 1em; }
 
         #content p {
             color: var(--text-primary);
-            margin-bottom: 1.2em;
+            margin-bottom: 1em;
             line-height: 1.8;
         }
 
         #content ul, #content ol {
-            margin: 0.8em 0 1.2em 1.8em;
+            margin: 0.6em 0 1em 1.6em;
             padding-left: 0.5em;
         }
         #content li {
-            margin-bottom: 0.3em;
+            margin-bottom: 0.2em;
             line-height: 1.7;
         }
         #content li:last-child { margin-bottom: 0; }
 
         #content code {
             background: var(--code-bg);
-            padding: 2px 8px;
+            padding: 2px 6px;
             border-radius: 4px;
             font-size: 0.9em;
             color: var(--text-primary);
@@ -216,10 +223,10 @@
         #content pre {
             background: var(--pre-bg);
             color: var(--pre-text);
-            padding: 16px 20px;
-            border-radius: 10px;
+            padding: 14px 18px;
+            border-radius: 8px;
             overflow-x: auto;
-            margin: 1.2em 0;
+            margin: 1em 0;
         }
         #content pre code {
             background: transparent;
@@ -228,19 +235,19 @@
 
         #content blockquote {
             border-left: 4px solid var(--blockquote-border);
-            margin: 1.2em 0;
-            padding-left: 20px;
+            margin: 1em 0;
+            padding-left: 16px;
             color: var(--text-secondary);
         }
 
         #content table {
             border-collapse: collapse;
             width: 100%;
-            margin: 1.2em 0;
+            margin: 1em 0;
         }
         #content th, #content td {
             border: 1px solid var(--table-border);
-            padding: 10px 14px;
+            padding: 8px 12px;
             text-align: left;
             vertical-align: top;
         }
@@ -260,48 +267,49 @@
         #content hr {
             border: none;
             border-top: 1px solid var(--border-color);
-            margin: 1.8em 0;
+            margin: 1.5em 0;
         }
 
         #content img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            margin: 1em 0;
+            margin: 0.8em 0;
         }
 
         /* ── Utility ── */
         .loading {
             text-align: center;
-            padding: 40px 0;
+            padding: 30px 0;
             color: var(--loading-color);
+            font-size: 0.95rem;
         }
 
         .error {
             color: var(--error-text);
             background: var(--error-bg);
-            padding: 20px;
-            border-radius: 10px;
+            padding: 16px 20px;
+            border-radius: 8px;
             border-left: 4px solid var(--error-text);
         }
         .error code { background: var(--bg-container); }
 
         .footer-info {
             color: var(--text-secondary);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 16px;
         }
 
         /* ── Responsive ── */
         @media (max-width: 600px) {
-            body { padding: 10px; margin: 10px auto; }
-            .container { padding: 20px; }
+            body { padding: 8px; margin: 5px auto; }
+            .container { padding: 15px; }
             .header-bar { flex-direction: column; align-items: stretch; }
             .header-left { flex-direction: column; align-items: stretch; }
-            .back-btn, .lang-btn, .dark-toggle { justify-content: center; width: 100%; }
-            #content table { font-size: 0.85rem; }
-            #content th, #content td { padding: 6px 8px; }
+            .btn { justify-content: center; width: 100%; font-size: 0.7rem; padding: 4px 10px; }
+            #content table { font-size: 0.8rem; }
+            #content th, #content td { padding: 4px 6px; }
         }
     </style>
 </head>
@@ -309,22 +317,23 @@
     <div class="container">
         <div class="header-bar">
             <div class="header-left">
-                <a href="index.html" class="back-btn">⬅ Back to Course</a>
-                <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">
-                    🌐 Translate to English
-                </button>
+                <a href="index.html" class="btn btn-back">⬅ Back</a>
+                <button class="btn btn-lang" id="langToggle" onclick="toggleLanguage()">🌐 Translate</button>
             </div>
-            <button class="dark-toggle" id="darkToggle" onclick="toggleDarkMode()">
-                🌙 Dark Mode
-            </button>
+            <button class="btn btn-dark" id="darkToggle" onclick="toggleDarkMode()">🌙 Dark</button>
         </div>
 
         <div id="translationProgress" class="translation-progress">
-            🔄 Translating to English... Please wait...
+            🔄 Translating... Please wait...
         </div>
 
         <div id="content">
             <div class="loading">📖 Loading document...</div>
+        </div>
+
+        <!-- Bottom Back Button -->
+        <div class="bottom-back">
+            <a href="index.html" class="btn btn-back">⬅ Back to Course</a>
         </div>
     </div>
 
@@ -337,11 +346,11 @@
             
             if (current === 'dark') {
                 html.removeAttribute('data-theme');
-                btn.innerHTML = '🌙 Dark Mode';
+                btn.innerHTML = '🌙 Dark';
                 localStorage.setItem('theme', 'light');
             } else {
                 html.setAttribute('data-theme', 'dark');
-                btn.innerHTML = '☀️ Light Mode';
+                btn.innerHTML = '☀️ Light';
                 localStorage.setItem('theme', 'dark');
             }
         }
@@ -351,7 +360,7 @@
             const btn = document.getElementById('darkToggle');
             if (saved === 'dark') {
                 document.documentElement.setAttribute('data-theme', 'dark');
-                if (btn) btn.innerHTML = '☀️ Light Mode';
+                if (btn) btn.innerHTML = '☀️ Light';
             }
         })();
 
@@ -368,22 +377,18 @@
             const contentDiv = document.getElementById('content');
             
             if (currentLanguage === 'original') {
-                // Switch to English
                 if (translatedHTML) {
-                    // Already translated, just switch
                     currentLanguage = 'english';
                     btn.innerHTML = '🔄 Original';
                     btn.classList.add('active');
                     contentDiv.innerHTML = translatedHTML;
-                    addTranslationNotice('🌐 Displaying in English (Google Translated)');
+                    addTranslationNotice('🌐 Displaying in English');
                 } else {
-                    // Need to translate
                     translateContent();
                 }
             } else {
-                // Switch to Original
                 currentLanguage = 'original';
-                btn.innerHTML = '🌐 Translate to English';
+                btn.innerHTML = '🌐 Translate';
                 btn.classList.remove('active');
                 if (originalHTML) {
                     contentDiv.innerHTML = originalHTML;
@@ -413,7 +418,7 @@
             if (existing) existing.remove();
         }
 
-        // ── Full Translation using Google Translate API ──
+        // ── FAST TRANSLATION - Only translate visible text ──
         async function translateContent() {
             const contentDiv = document.getElementById('content');
             const progressDiv = document.getElementById('translationProgress');
@@ -422,29 +427,27 @@
             if (isTranslating) return;
             isTranslating = true;
             
-            // Save original if not saved
             if (!originalHTML) {
                 originalHTML = contentDiv.innerHTML;
             }
 
-            // Show progress
             progressDiv.classList.add('show');
-            progressDiv.textContent = '🔄 Translating to English... Please wait...';
+            progressDiv.textContent = '🔄 Translating...';
             btn.disabled = true;
 
             try {
-                // Get all text nodes from the content
+                // Create a temporary container
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = originalHTML;
                 
-                // Remove footer and notices
+                // Remove footer and notice
                 const footer = tempDiv.querySelector('.footer-info');
                 if (footer) footer.remove();
                 const notice = tempDiv.querySelector('.translation-notice');
                 if (notice) notice.remove();
 
-                // Collect all text nodes that need translation
-                const textNodes = [];
+                // Get all text nodes (but skip code, pre, script, style)
+                const nodesToTranslate = [];
                 const walker = document.createTreeWalker(
                     tempDiv,
                     NodeFilter.SHOW_TEXT,
@@ -458,7 +461,12 @@
                                 }
                                 parent = parent.parentElement;
                             }
-                            if (node.textContent.trim().length === 0) {
+                            const text = node.textContent.trim();
+                            if (text.length === 0 || text.length < 3) {
+                                return NodeFilter.FILTER_REJECT;
+                            }
+                            // Skip if already English
+                            if (/^[a-zA-Z0-9\s\.,!?'"()\-]+$/.test(text)) {
                                 return NodeFilter.FILTER_REJECT;
                             }
                             return NodeFilter.FILTER_ACCEPT;
@@ -467,35 +475,49 @@
                 );
 
                 let node;
-                const nodesToTranslate = [];
                 while (node = walker.nextNode()) {
                     nodesToTranslate.push(node);
                 }
 
-                // Translate in batches (to avoid rate limiting)
-                const batchSize = 20;
-                let translatedCount = 0;
                 const totalNodes = nodesToTranslate.length;
+                
+                if (totalNodes === 0) {
+                    // No translation needed
+                    translatedHTML = tempDiv.innerHTML;
+                    currentLanguage = 'english';
+                    btn.innerHTML = '🔄 Original';
+                    btn.classList.add('active');
+                    contentDiv.innerHTML = translatedHTML;
+                    addTranslationNotice('🌐 All content is already in English');
+                    progressDiv.classList.remove('show');
+                    isTranslating = false;
+                    btn.disabled = false;
+                    return;
+                }
+
+                // Translate in larger batches (faster)
+                const batchSize = 50;
+                let translatedCount = 0;
 
                 for (let i = 0; i < nodesToTranslate.length; i += batchSize) {
                     const batch = nodesToTranslate.slice(i, i + batchSize);
                     
-                    // Translate each node in batch
-                    const promises = batch.map(async (node, index) => {
+                    // Translate all in batch using Promise.all
+                    const promises = batch.map(async (node) => {
                         const originalText = node.textContent;
                         try {
                             const translated = await translateText(originalText);
                             node.textContent = translated;
                         } catch (e) {
-                            console.warn('Failed to translate:', originalText);
-                            // Keep original if translation fails
+                            // Keep original if fails
                         }
                     });
 
                     await Promise.all(promises);
                     
                     translatedCount += batch.length;
-                    progressDiv.textContent = `🔄 Translating... ${Math.round((translatedCount / totalNodes) * 100)}%`;
+                    const percent = Math.round((translatedCount / totalNodes) * 100);
+                    progressDiv.textContent = `🔄 Translating... ${percent}%`;
                 }
 
                 translatedHTML = tempDiv.innerHTML;
@@ -505,35 +527,34 @@
                 currentLanguage = 'english';
                 btn.innerHTML = '🔄 Original';
                 btn.classList.add('active');
-                addTranslationNotice('🌐 Displaying in English (Google Translated)');
+                addTranslationNotice('🌐 Displaying in English');
                 
-                progressDiv.textContent = '✅ Translation complete!';
+                progressDiv.textContent = '✅ Done!';
                 setTimeout(() => {
                     progressDiv.classList.remove('show');
-                }, 2000);
+                }, 1500);
 
             } catch (error) {
                 console.error('Translation error:', error);
-                progressDiv.textContent = '❌ Translation failed. Please try again.';
+                progressDiv.textContent = '❌ Failed. Try again.';
                 setTimeout(() => {
                     progressDiv.classList.remove('show');
-                }, 3000);
+                }, 2000);
             } finally {
                 isTranslating = false;
                 btn.disabled = false;
             }
         }
 
-        // ── Google Translate API (Free, No API Key Required) ──
+        // ── Fast Google Translate API ──
         async function translateText(text) {
             try {
-                // Detect if text is already in English (simple check)
-                const englishPattern = /^[a-zA-Z0-9\s\.,!?'"()-]+$/;
-                if (englishPattern.test(text.trim())) {
-                    return text; // Already English
+                // Skip if already English
+                if (/^[a-zA-Z0-9\s\.,!?'"()\-]+$/.test(text.trim())) {
+                    return text;
                 }
 
-                // Use Google Translate API (unofficial, free)
+                // Use Google Translate API
                 const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=${encodeURIComponent(text)}`;
                 
                 const response = await fetch(url);
@@ -541,7 +562,6 @@
                 
                 const data = await response.json();
                 
-                // Parse the translation
                 if (data && data[0]) {
                     let translated = '';
                     for (const part of data[0]) {
@@ -553,7 +573,7 @@
                 }
                 return text;
             } catch (error) {
-                console.warn('Translate API error:', error);
+                console.warn('Translate error:', error);
                 return text;
             }
         }
@@ -597,13 +617,11 @@
                     `;
                     document.getElementById('content').innerHTML = originalHTML;
                     
-                    // Restore language preference
                     const savedLang = localStorage.getItem('language');
                     if (savedLang === 'english') {
-                        // Auto-translate after loading
                         setTimeout(() => {
                             translateContent();
-                        }, 500);
+                        }, 300);
                     }
                 })
                 .catch(error => {
@@ -626,12 +644,11 @@
                             `;
                             document.getElementById('content').innerHTML = originalHTML;
                             
-                            // Restore language preference
                             const savedLang = localStorage.getItem('language');
                             if (savedLang === 'english') {
                                 setTimeout(() => {
                                     translateContent();
-                                }, 500);
+                                }, 300);
                             }
                         })
                         .catch(finalError => {

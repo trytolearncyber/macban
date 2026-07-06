@@ -1382,3 +1382,141 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('📚 MACBan Course - Ready');
 });
 </script>
+
+<script>
+// সব A এবং B লিংককে ফুল নাম দেখান
+document.querySelectorAll('.module-card .links a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href.includes('_A_')) {
+        const name = href.split('_A_')[1].replace('.md', '').replace(/_/g, ' ');
+        link.textContent = `📘 ${name}`;
+    } else if (href.includes('_B_')) {
+        const name = href.split('_B_')[1].replace('.md', '').replace(/_/g, ' ');
+        link.textContent = `🗺️ ${name}`;
+    }
+});
+</script>
+
+<script>
+// ==========================================
+// 1. PAGE VISIT COUNTER (Shows in Footer)
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+    let visits = localStorage.getItem('macban_visits');
+    visits = visits ? parseInt(visits) + 1 : 1;
+    localStorage.setItem('macban_visits', visits);
+    
+    // Show badge in footer
+    const footer = document.querySelector('.footer .badges');
+    if (footer) {
+        const badge = document.createElement('span');
+        badge.className = 'badge';
+        badge.textContent = `👁️ ${visits} visits`;
+        footer.appendChild(badge);
+    }
+});
+
+// ==========================================
+// 2. MODULE CLICK TRACKER
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.module-card .links a').forEach(link => {
+        link.addEventListener('click', function() {
+            const module = this.closest('.module-card');
+            if (module) {
+                const title = module.querySelector('.title')?.textContent?.trim() || 'Unknown';
+                console.log(`📚 Module viewed: ${title}`);
+                
+                // Save to localStorage
+                let history = JSON.parse(localStorage.getItem('module_history') || '[]');
+                history.push({
+                    module: title,
+                    time: new Date().toLocaleString()
+                });
+                localStorage.setItem('module_history', JSON.stringify(history));
+            }
+        });
+    });
+});
+
+// ==========================================
+// 3. LIVE COUNTER IN PAGE CORNER
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Create counter div
+    const counterDiv = document.createElement('div');
+    counterDiv.id = 'live-visit-counter';
+    counterDiv.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #1a1a2e, #4a00e0);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(74, 0, 224, 0.3);
+        z-index: 9999;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        border: 2px solid rgba(255,255,255,0.1);
+    `;
+    
+    // Hover effect
+    counterDiv.onmouseover = function() {
+        this.style.transform = 'scale(1.05)';
+        this.style.boxShadow = '0 6px 25px rgba(74, 0, 224, 0.5)';
+    };
+    counterDiv.onmouseout = function() {
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = '0 4px 15px rgba(74, 0, 224, 0.3)';
+    };
+    
+    // Click to show details
+    counterDiv.onclick = function() {
+        const total = localStorage.getItem('macban_visits') || 0;
+        const history = JSON.parse(localStorage.getItem('module_history') || '[]');
+        alert(`📊 Statistics:\n\n👁️ Total Visits: ${total}\n📚 Modules Viewed: ${history.length} times\n\nLast Visit: ${history[history.length-1]?.time || 'N/A'}`);
+    };
+    
+    // Update counter function
+    function updateCounter() {
+        const visits = localStorage.getItem('macban_visits') || 0;
+        counterDiv.innerHTML = `👁️ ${visits} <span style="font-weight:300; opacity:0.6;">views</span>`;
+    }
+    
+    // Update on page load
+    updateCounter();
+    
+    // Add to DOM
+    document.body.appendChild(counterDiv);
+    
+    // Update every 5 seconds (if changed in another tab)
+    setInterval(updateCounter, 5000);
+});
+
+// ==========================================
+// 4. SHOW DETAILED STATS IN CONSOLE
+// ==========================================
+console.log('📊 MACBan Visit Statistics:');
+console.log(`👁️ Total Visits: ${localStorage.getItem('macban_visits') || 0}`);
+const stats = JSON.parse(localStorage.getItem('module_stats') || '{}');
+console.log('📚 Module Stats:', stats);
+
+// ==========================================
+// 5. OPTIONAL: MOBILE RESPONSIVE
+// ==========================================
+if (window.innerWidth < 768) {
+    const counter = document.getElementById('live-visit-counter');
+    if (counter) {
+        counter.style.cssText += `
+            bottom: 10px;
+            right: 10px;
+            padding: 6px 14px;
+            font-size: 12px;
+        `;
+    }
+}
+</script>
