@@ -473,16 +473,16 @@
         <!-- HEADER -->
         <div class="header">
             <div class="logo">🏦 Nord Bank</div>
-            <div class="subtitle">Complete Banking Inventory API</div>
+            <div class="subtitle">Complete Banking Inventory API — All Labs (11A - 15)</div>
             <div class="badge">⚡ Mockoon Simulation</div>
             <br />
-            <div class="base-url">🌐 http://192.168.0.101:3001</div>
+            <div class="base-url">🌐 http://192.168.10.1:3001</div>
         </div>
 
         <!-- STATS -->
         <div class="stats">
             <div class="stat-card">
-                <div class="number">12</div>
+                <div class="number">17</div>
                 <div class="label">📡 Endpoints</div>
             </div>
             <div class="stat-card green">
@@ -503,9 +503,9 @@
             </div>
         </div>
 
-        <!-- ENDPOINTS -->
-
-        <!-- 1. Inventory -->
+        <!-- ============================================================ -->
+        <!-- 1. INVENTORY -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">📊</span>
@@ -517,9 +517,9 @@
                     <span class="device-name">📋 Inventory Summary</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/v1/inventory" target="_blank">http://192.168.0.101:3001/api/v1/inventory</a>
+                        <a href="http://192.168.10.1:3001/api/v1/inventory" target="_blank">http://192.168.10.1:3001/api/v1/inventory</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/v1/inventory">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/inventory">📋 Copy</button>
                     <button class="toggle-details" data-target="inventory-details">📋 Details</button>
                 </div>
             </div>
@@ -549,7 +549,9 @@
             </div>
         </div>
 
-        <!-- 2. Routers -->
+        <!-- ============================================================ -->
+        <!-- 2. ROUTERS -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">🌐</span>
@@ -561,9 +563,9 @@
                     <span class="device-name">🔹 All Routers</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/routers" target="_blank">http://192.168.0.101:3001/api/routers</a>
+                        <a href="http://192.168.10.1:3001/api/routers" target="_blank">http://192.168.10.1:3001/api/routers</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/routers">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/routers">📋 Copy</button>
                     <button class="toggle-details" data-target="routers-details">📋 Details</button>
                 </div>
             </div>
@@ -575,7 +577,6 @@
                             <th>Name</th>
                             <th>Model</th>
                             <th>Vendor</th>
-                            <th>Version</th>
                             <th>Status</th>
                             <th>Location</th>
                             <th>IP</th>
@@ -589,7 +590,6 @@
                             <td>Cisco ASR 1000-Primary</td>
                             <td>ASR-1000</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 16.12.4</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.1</td>
@@ -601,7 +601,6 @@
                             <td>Cisco ASR 1000-Backup</td>
                             <td>ASR-1000</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 16.12.4</td>
                             <td><span class="status-badge standby">Standby</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.2</td>
@@ -613,7 +612,6 @@
                             <td>Cisco ISR 4451-Dhanmondi</td>
                             <td>ISR-4451</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 16.9.5</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Dhanmondi Branch</td>
                             <td>10.1.0.1</td>
@@ -625,7 +623,6 @@
                             <td>Cisco ISR 4331-Gulshan</td>
                             <td>ISR-4331</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 16.9.5</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Gulshan Branch</td>
                             <td>10.2.0.1</td>
@@ -637,7 +634,6 @@
                             <td>Cisco ISR 4321-Chittagong</td>
                             <td>ISR-4321</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 16.9.5</td>
                             <td><span class="status-badge degraded">Degraded</span></td>
                             <td>Chittagong Branch</td>
                             <td>10.3.0.1</td>
@@ -649,7 +645,6 @@
                             <td>Cisco ISR 4221-Khulna</td>
                             <td>ISR-4221</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 16.9.5</td>
                             <td><span class="status-badge offline">Offline</span></td>
                             <td>Khulna Branch</td>
                             <td>10.4.0.1</td>
@@ -661,7 +656,9 @@
             </div>
         </div>
 
-        <!-- 3. Switches -->
+        <!-- ============================================================ -->
+        <!-- 3. SWITCHES -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">🔌</span>
@@ -673,9 +670,9 @@
                     <span class="device-name">🔹 All Switches</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/switches" target="_blank">http://192.168.0.101:3001/api/switches</a>
+                        <a href="http://192.168.10.1:3001/api/switches" target="_blank">http://192.168.10.1:3001/api/switches</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/switches">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/switches">📋 Copy</button>
                     <button class="toggle-details" data-target="switches-details">📋 Details</button>
                 </div>
             </div>
@@ -687,7 +684,6 @@
                             <th>Name</th>
                             <th>Model</th>
                             <th>Vendor</th>
-                            <th>Version</th>
                             <th>Status</th>
                             <th>Location</th>
                             <th>IP</th>
@@ -701,7 +697,6 @@
                             <td>Cisco Catalyst 9500-Primary</td>
                             <td>C9500-48Y4C</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 17.3.4</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.10</td>
@@ -713,7 +708,6 @@
                             <td>Cisco Catalyst 9500-Backup</td>
                             <td>C9500-48Y4C</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 17.3.4</td>
                             <td><span class="status-badge standby">Standby</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.11</td>
@@ -725,7 +719,6 @@
                             <td>Cisco Catalyst 9300-1</td>
                             <td>C9300-48UXM</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 17.3.4</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.12</td>
@@ -737,7 +730,6 @@
                             <td>Cisco Catalyst 9300-2</td>
                             <td>C9300-48UXM</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 17.3.4</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.13</td>
@@ -749,7 +741,6 @@
                             <td>Cisco Catalyst 9200-Floor-1</td>
                             <td>C9200-48P</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 17.3.4</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.14</td>
@@ -761,7 +752,6 @@
                             <td>Cisco Catalyst 9200-Floor-2</td>
                             <td>C9200-48P</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 17.3.4</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.15</td>
@@ -773,7 +763,6 @@
                             <td>Cisco Catalyst 9200-Floor-3</td>
                             <td>C9200-48P</td>
                             <td>Cisco Systems</td>
-                            <td>IOS XE 17.3.4</td>
                             <td><span class="status-badge degraded">Degraded</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.16</td>
@@ -785,7 +774,6 @@
                             <td>Cisco Catalyst 2960-X-Khulna</td>
                             <td>2960-X-48PS</td>
                             <td>Cisco Systems</td>
-                            <td>IOS 15.2.7</td>
                             <td><span class="status-badge offline">Offline</span></td>
                             <td>Khulna Branch</td>
                             <td>10.4.0.10</td>
@@ -797,7 +785,9 @@
             </div>
         </div>
 
-        <!-- 4. Firewalls -->
+        <!-- ============================================================ -->
+        <!-- 4. FIREWALLS -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">🔥</span>
@@ -809,9 +799,9 @@
                     <span class="device-name">🔹 All Firewalls</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/firewalls" target="_blank">http://192.168.0.101:3001/api/firewalls</a>
+                        <a href="http://192.168.10.1:3001/api/firewalls" target="_blank">http://192.168.10.1:3001/api/firewalls</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/firewalls">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/firewalls">📋 Copy</button>
                     <button class="toggle-details" data-target="firewalls-details">📋 Details</button>
                 </div>
             </div>
@@ -823,7 +813,6 @@
                             <th>Name</th>
                             <th>Model</th>
                             <th>Vendor</th>
-                            <th>Version</th>
                             <th>Status</th>
                             <th>Location</th>
                             <th>IP</th>
@@ -837,7 +826,6 @@
                             <td>FortiGate-3000D-Primary</td>
                             <td>FortiGate-3000D</td>
                             <td>Fortinet</td>
-                            <td>FortiOS v7.2.5</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.254</td>
@@ -849,7 +837,6 @@
                             <td>FortiGate-3000D-Backup</td>
                             <td>FortiGate-3000D</td>
                             <td>Fortinet</td>
-                            <td>FortiOS v7.2.5</td>
                             <td><span class="status-badge standby">Standby</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.253</td>
@@ -861,7 +848,6 @@
                             <td>Cisco Firepower 2130</td>
                             <td>Firepower 2130</td>
                             <td>Cisco Systems</td>
-                            <td>Firepower 6.6.5</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.252</td>
@@ -873,7 +859,6 @@
                             <td>FortiGate-200E-Dhanmondi</td>
                             <td>FortiGate-200E</td>
                             <td>Fortinet</td>
-                            <td>FortiOS v7.0.12</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Dhanmondi Branch</td>
                             <td>10.1.0.254</td>
@@ -885,7 +870,6 @@
                             <td>FortiGate-200E-Gulshan</td>
                             <td>FortiGate-200E</td>
                             <td>Fortinet</td>
-                            <td>FortiOS v7.0.12</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Gulshan Branch</td>
                             <td>10.2.0.254</td>
@@ -897,7 +881,6 @@
                             <td>FortiGate-100E-Chittagong</td>
                             <td>FortiGate-100E</td>
                             <td>Fortinet</td>
-                            <td>FortiOS v7.0.12</td>
                             <td><span class="status-badge degraded">Degraded</span></td>
                             <td>Chittagong Branch</td>
                             <td>10.3.0.254</td>
@@ -909,7 +892,6 @@
                             <td>Palo Alto PA-3250</td>
                             <td>PA-3250</td>
                             <td>Palo Alto Networks</td>
-                            <td>PAN-OS 10.2.5</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.251</td>
@@ -921,7 +903,6 @@
                             <td>FortiGate-60F-Khulna</td>
                             <td>FortiGate-60F</td>
                             <td>Fortinet</td>
-                            <td>FortiOS v7.0.12</td>
                             <td><span class="status-badge offline">Offline</span></td>
                             <td>Khulna Branch</td>
                             <td>10.4.0.254</td>
@@ -933,7 +914,9 @@
             </div>
         </div>
 
-        <!-- 5. Servers -->
+        <!-- ============================================================ -->
+        <!-- 5. SERVERS -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">🖥️</span>
@@ -945,9 +928,9 @@
                     <span class="device-name">🔹 All Servers</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/servers" target="_blank">http://192.168.0.101:3001/api/servers</a>
+                        <a href="http://192.168.10.1:3001/api/servers" target="_blank">http://192.168.10.1:3001/api/servers</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/servers">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/servers">📋 Copy</button>
                     <button class="toggle-details" data-target="servers-details">📋 Details</button>
                 </div>
             </div>
@@ -959,7 +942,6 @@
                             <th>Name</th>
                             <th>Model</th>
                             <th>Vendor</th>
-                            <th>OS</th>
                             <th>Status</th>
                             <th>Location</th>
                             <th>IP</th>
@@ -973,7 +955,6 @@
                             <td>T24-Core-Primary</td>
                             <td>Dell PowerEdge R740</td>
                             <td>Dell Technologies</td>
-                            <td>RHEL 8.6</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.100</td>
@@ -985,7 +966,6 @@
                             <td>T24-Core-Backup</td>
                             <td>Dell PowerEdge R740</td>
                             <td>Dell Technologies</td>
-                            <td>RHEL 8.6</td>
                             <td><span class="status-badge standby">Standby</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.101</td>
@@ -997,7 +977,6 @@
                             <td>Oracle-DB-Primary</td>
                             <td>Oracle Exadata X8-2</td>
                             <td>Oracle Corporation</td>
-                            <td>Oracle Linux 8.6</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10.0.0.102</td>
@@ -1009,7 +988,9 @@
             </div>
         </div>
 
-        <!-- 6. Security Tools -->
+        <!-- ============================================================ -->
+        <!-- 6. SECURITY TOOLS -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">🔒</span>
@@ -1021,9 +1002,9 @@
                     <span class="device-name">🔹 Security Tools</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/security-tools" target="_blank">http://192.168.0.101:3001/api/security-tools</a>
+                        <a href="http://192.168.10.1:3001/api/security-tools" target="_blank">http://192.168.10.1:3001/api/security-tools</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/security-tools">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/security-tools">📋 Copy</button>
                     <button class="toggle-details" data-target="security-details">📋 Details</button>
                 </div>
             </div>
@@ -1035,7 +1016,6 @@
                             <th>Name</th>
                             <th>Type</th>
                             <th>Vendor</th>
-                            <th>Version</th>
                             <th>Status</th>
                             <th>Location</th>
                             <th>Details</th>
@@ -1047,7 +1027,6 @@
                             <td>Cisco ISE</td>
                             <td>NAC</td>
                             <td>Cisco Systems</td>
-                            <td>3.2</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>250 Users, 350 Endpoints</td>
@@ -1057,7 +1036,6 @@
                             <td>Snort IPS</td>
                             <td>Intrusion Prevention</td>
                             <td>Cisco Systems</td>
-                            <td>3.0</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>12,000 Rules</td>
@@ -1067,7 +1045,6 @@
                             <td>Suricata</td>
                             <td>IDS/IPS</td>
                             <td>OISF</td>
-                            <td>6.0.10</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>15,000 Rules</td>
@@ -1077,27 +1054,24 @@
                             <td>Splunk SIEM</td>
                             <td>SIEM</td>
                             <td>Splunk Inc.</td>
-                            <td>9.0.5</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Head Office-Dhaka</td>
-                            <td>100 GB/Day, 365 Days Retention</td>
+                            <td>100 GB/Day</td>
                         </tr>
                         <tr>
                             <td>SEC-005</td>
                             <td>QRadar SIEM</td>
                             <td>SIEM</td>
                             <td>IBM</td>
-                            <td>7.5.0</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Head Office-Dhaka</td>
-                            <td>80 GB/Day, 365 Days Retention</td>
+                            <td>80 GB/Day</td>
                         </tr>
                         <tr>
                             <td>SEC-006</td>
                             <td>WAF-CloudFlare</td>
                             <td>Web Application Firewall</td>
                             <td>CloudFlare Inc.</td>
-                            <td>Enterprise</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>Cloud</td>
                             <td>15 Gbps Traffic</td>
@@ -1107,37 +1081,33 @@
                             <td>CrowdStrike Falcon</td>
                             <td>EDR</td>
                             <td>CrowdStrike</td>
-                            <td>6.0.0</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>All Locations</td>
-                            <td>350 Endpoints, NGAV+EDR</td>
+                            <td>350 Endpoints</td>
                         </tr>
                         <tr>
                             <td>SEC-008</td>
                             <td>Symantec Endpoint</td>
                             <td>Anti-Virus</td>
                             <td>Broadcom</td>
-                            <td>14.3.0</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>All Locations</td>
-                            <td>350 Endpoints, Hourly Updates</td>
+                            <td>350 Endpoints</td>
                         </tr>
                         <tr>
                             <td>SEC-009</td>
                             <td>RSA SecurID</td>
                             <td>MFA</td>
                             <td>RSA Security</td>
-                            <td>8.0.0</td>
                             <td><span class="status-badge active">Active</span></td>
                             <td>All Locations</td>
-                            <td>250 Users, Two-Factor</td>
+                            <td>250 Users</td>
                         </tr>
                         <tr>
                             <td>SEC-010</td>
                             <td>Zscaler ZIA</td>
                             <td>Cloud Security</td>
                             <td>Zscaler</td>
-                            <td>6.0.0</td>
                             <td><span class="status-badge degraded">Degraded</span></td>
                             <td>Cloud</td>
                             <td>250 Users, 2.5 Gbps</td>
@@ -1147,7 +1117,9 @@
             </div>
         </div>
 
-        <!-- 7. Network Tools -->
+        <!-- ============================================================ -->
+        <!-- 7. NETWORK TOOLS -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">📊</span>
@@ -1159,9 +1131,9 @@
                     <span class="device-name">🔹 Network Tools</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/network-tools" target="_blank">http://192.168.0.101:3001/api/network-tools</a>
+                        <a href="http://192.168.10.1:3001/api/network-tools" target="_blank">http://192.168.10.1:3001/api/network-tools</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/network-tools">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/network-tools">📋 Copy</button>
                     <button class="toggle-details" data-target="network-tools-details">📋 Details</button>
                 </div>
             </div>
@@ -1173,7 +1145,6 @@
                             <th>Name</th>
                             <th>Type</th>
                             <th>Vendor</th>
-                            <th>Version</th>
                             <th>Status</th>
                             <th>Location</th>
                             <th>Details</th>
@@ -1185,27 +1156,24 @@
                             <td>Zabbix</td>
                             <td>Network Monitoring</td>
                             <td>Open Source</td>
-                            <td>6.0.0</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
-                            <td>85 Devices, 50 Templates</td>
+                            <td>85 Devices</td>
                         </tr>
                         <tr>
                             <td>MON-002</td>
                             <td>PRTG</td>
                             <td>Network Monitoring</td>
                             <td>Paessler</td>
-                            <td>23.1.0</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
-                            <td>500 Sensors, 85 Devices</td>
+                            <td>500 Sensors</td>
                         </tr>
                         <tr>
                             <td>MON-003</td>
                             <td>SolarWinds</td>
                             <td>Network Monitoring</td>
                             <td>SolarWinds</td>
-                            <td>2023.1.0</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>85 Devices</td>
@@ -1215,7 +1183,6 @@
                             <td>Nagios Core</td>
                             <td>Network Monitoring</td>
                             <td>Open Source</td>
-                            <td>4.4.0</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>200 Services</td>
@@ -1225,17 +1192,15 @@
                             <td>Graylog</td>
                             <td>Log Management</td>
                             <td>Open Source</td>
-                            <td>5.0.0</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
-                            <td>50 GB/Day, 90 Days Retention</td>
+                            <td>50 GB/Day</td>
                         </tr>
                         <tr>
                             <td>MON-006</td>
                             <td>Elasticsearch</td>
                             <td>Log Storage</td>
                             <td>Elastic</td>
-                            <td>8.6.0</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>10 TB Storage</td>
@@ -1245,7 +1210,6 @@
                             <td>Kibana</td>
                             <td>Log Visualization</td>
                             <td>Elastic</td>
-                            <td>8.6.0</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>15 Dashboards</td>
@@ -1255,7 +1219,6 @@
                             <td>Grafana</td>
                             <td>Dashboard</td>
                             <td>Open Source</td>
-                            <td>9.3.0</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>20 Dashboards</td>
@@ -1265,7 +1228,6 @@
                             <td>Prometheus</td>
                             <td>Metrics Collection</td>
                             <td>Open Source</td>
-                            <td>2.42.0</td>
                             <td><span class="status-badge online">Online</span></td>
                             <td>Head Office-Dhaka</td>
                             <td>5,000 Metrics</td>
@@ -1275,7 +1237,6 @@
                             <td>Graylog-Secondary</td>
                             <td>Log Management</td>
                             <td>Open Source</td>
-                            <td>5.0.0</td>
                             <td><span class="status-badge offline">Offline</span></td>
                             <td>DR Site</td>
                             <td>Server Down</td>
@@ -1285,7 +1246,30 @@
             </div>
         </div>
 
-        <!-- 8. VoIP -->
+        <!-- ============================================================ -->
+        <!-- 8. DATABASES -->
+        <!-- ============================================================ -->
+        <div class="category">
+            <div class="category-header">
+                <span class="icon">🗄️</span>
+                <h2>Databases</h2>
+                <span class="count">1 Endpoint</span>
+            </div>
+            <div class="endpoint-list">
+                <div class="endpoint-item">
+                    <span class="device-name">🔹 All Databases</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/databases" target="_blank">http://192.168.10.1:3001/api/databases</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/databases">📋 Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9. VOIP -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">📞</span>
@@ -1297,14 +1281,16 @@
                     <span class="device-name">🔹 VoIP Devices</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/voip" target="_blank">http://192.168.0.101:3001/api/voip</a>
+                        <a href="http://192.168.10.1:3001/api/voip" target="_blank">http://192.168.10.1:3001/api/voip</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/voip">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/voip">📋 Copy</button>
                 </div>
             </div>
         </div>
 
-        <!-- 9. ATM & POS -->
+        <!-- ============================================================ -->
+        <!-- 10. ATM & POS -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">💳</span>
@@ -1316,14 +1302,16 @@
                     <span class="device-name">🔹 ATM & POS Devices</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/atm-pos" target="_blank">http://192.168.0.101:3001/api/atm-pos</a>
+                        <a href="http://192.168.10.1:3001/api/atm-pos" target="_blank">http://192.168.10.1:3001/api/atm-pos</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/atm-pos">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/atm-pos">📋 Copy</button>
                 </div>
             </div>
         </div>
 
-        <!-- 10. VPN -->
+        <!-- ============================================================ -->
+        <!-- 11. VPN -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">🔗</span>
@@ -1335,14 +1323,16 @@
                     <span class="device-name">🔹 VPN Tunnels</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/vpn" target="_blank">http://192.168.0.101:3001/api/vpn</a>
+                        <a href="http://192.168.10.1:3001/api/vpn" target="_blank">http://192.168.10.1:3001/api/vpn</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/vpn">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/vpn">📋 Copy</button>
                 </div>
             </div>
         </div>
 
-        <!-- 11. Branches -->
+        <!-- ============================================================ -->
+        <!-- 12. BRANCHES -->
+        <!-- ============================================================ -->
         <div class="category">
             <div class="category-header">
                 <span class="icon">🏢</span>
@@ -1354,116 +1344,250 @@
                     <span class="device-name">🔹 All Branches</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/v1/branches" target="_blank">http://192.168.0.101:3001/api/v1/branches</a>
+                        <a href="http://192.168.10.1:3001/api/v1/branches" target="_blank">http://192.168.10.1:3001/api/v1/branches</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/v1/branches">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/branches">📋 Copy</button>
                 </div>
             </div>
         </div>
 
+        <!-- ============================================================ -->
+        <!-- 13. KNOWLEDGE BASE (RAG) — LAB 12 -->
+        <!-- ============================================================ -->
+        <div class="category" style="border-color: rgba(167, 139, 250, 0.3);">
+            <div class="category-header">
+                <span class="icon">📚</span>
+                <h2>Knowledge Base (RAG) — Lab 12</h2>
+                <span class="count">1 Endpoint</span>
+            </div>
+            <div class="endpoint-list">
+                <div class="endpoint-item">
+                    <span class="device-name">🔹 Knowledge Base</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/v1/knowledge-base" target="_blank">http://192.168.10.1:3001/api/v1/knowledge-base</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/knowledge-base">📋 Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 14. FAQ DATABASE — LAB 13 -->
+        <!-- ============================================================ -->
+        <div class="category" style="border-color: rgba(251, 191, 36, 0.3);">
+            <div class="category-header">
+                <span class="icon">❓</span>
+                <h2>FAQ Database — Lab 13</h2>
+                <span class="count">1 Endpoint</span>
+            </div>
+            <div class="endpoint-list">
+                <div class="endpoint-item">
+                    <span class="device-name">🔹 All FAQs</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/v1/faq" target="_blank">http://192.168.10.1:3001/api/v1/faq</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/faq">📋 Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 15. ALERTS & INCIDENTS — LAB 14 -->
+        <!-- ============================================================ -->
+        <div class="category" style="border-color: rgba(244, 114, 182, 0.3);">
+            <div class="category-header">
+                <span class="icon">🚨</span>
+                <h2>Alerts & Incidents — Lab 14</h2>
+                <span class="count">2 Endpoints</span>
+            </div>
+            <div class="endpoint-list">
+                <div class="endpoint-item">
+                    <span class="device-name">🔹 Real-time Alerts</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/v1/alerts" target="_blank">http://192.168.10.1:3001/api/v1/alerts</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/alerts">📋 Copy</button>
+                </div>
+                <div class="endpoint-item">
+                    <span class="device-name">🔹 Incident History</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/v1/incidents" target="_blank">http://192.168.10.1:3001/api/v1/incidents</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/incidents">📋 Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 16. THREAT INTELLIGENCE — LAB 15 -->
+        <!-- ============================================================ -->
+        <div class="category" style="border-color: rgba(251, 146, 60, 0.3);">
+            <div class="category-header">
+                <span class="icon">🛡️</span>
+                <h2>Threat Intelligence — Lab 15</h2>
+                <span class="count">1 Endpoint</span>
+            </div>
+            <div class="endpoint-list">
+                <div class="endpoint-item">
+                    <span class="device-name">🔹 Global Threat Feeds</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/v1/threat-feeds" target="_blank">http://192.168.10.1:3001/api/v1/threat-feeds</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/threat-feeds">📋 Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
         <!-- QUICK COPY SECTION -->
+        <!-- ============================================================ -->
         <div class="category" style="border-color: rgba(251, 191, 36, 0.2);">
             <div class="category-header">
                 <span class="icon">📋</span>
-                <h2>Quick Copy (All Links)</h2>
-                <span class="count">12 Links</span>
+                <h2>Quick Copy (All 17 Links)</h2>
+                <span class="count">17 Links</span>
             </div>
             <div class="endpoint-list">
                 <div class="endpoint-item" style="background: rgba(251, 191, 36, 0.05);">
                     <span class="device-name" style="color: #fbbf24;">📋 Inventory Summary</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/v1/inventory" target="_blank">http://192.168.0.101:3001/api/v1/inventory</a>
+                        <a href="http://192.168.10.1:3001/api/v1/inventory" target="_blank">http://192.168.10.1:3001/api/v1/inventory</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/v1/inventory">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/inventory">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(96, 165, 250, 0.05);">
                     <span class="device-name" style="color: #60a5fa;">🌐 All Routers</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/routers" target="_blank">http://192.168.0.101:3001/api/routers</a>
+                        <a href="http://192.168.10.1:3001/api/routers" target="_blank">http://192.168.10.1:3001/api/routers</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/routers">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/routers">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(96, 165, 250, 0.05);">
                     <span class="device-name" style="color: #60a5fa;">🔌 All Switches</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/switches" target="_blank">http://192.168.0.101:3001/api/switches</a>
+                        <a href="http://192.168.10.1:3001/api/switches" target="_blank">http://192.168.10.1:3001/api/switches</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/switches">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/switches">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(96, 165, 250, 0.05);">
                     <span class="device-name" style="color: #60a5fa;">🔥 All Firewalls</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/firewalls" target="_blank">http://192.168.0.101:3001/api/firewalls</a>
+                        <a href="http://192.168.10.1:3001/api/firewalls" target="_blank">http://192.168.10.1:3001/api/firewalls</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/firewalls">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/firewalls">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(167, 139, 250, 0.05);">
                     <span class="device-name" style="color: #a78bfa;">🖥️ All Servers</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/servers" target="_blank">http://192.168.0.101:3001/api/servers</a>
+                        <a href="http://192.168.10.1:3001/api/servers" target="_blank">http://192.168.10.1:3001/api/servers</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/servers">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/servers">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(167, 139, 250, 0.05);">
                     <span class="device-name" style="color: #a78bfa;">🗄️ All Databases</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/databases" target="_blank">http://192.168.0.101:3001/api/databases</a>
+                        <a href="http://192.168.10.1:3001/api/databases" target="_blank">http://192.168.10.1:3001/api/databases</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/databases">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/databases">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(244, 114, 182, 0.05);">
                     <span class="device-name" style="color: #f472b6;">🔒 Security Tools</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/security-tools" target="_blank">http://192.168.0.101:3001/api/security-tools</a>
+                        <a href="http://192.168.10.1:3001/api/security-tools" target="_blank">http://192.168.10.1:3001/api/security-tools</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/security-tools">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/security-tools">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(244, 114, 182, 0.05);">
                     <span class="device-name" style="color: #f472b6;">📊 Network Tools</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/network-tools" target="_blank">http://192.168.0.101:3001/api/network-tools</a>
+                        <a href="http://192.168.10.1:3001/api/network-tools" target="_blank">http://192.168.10.1:3001/api/network-tools</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/network-tools">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/network-tools">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(251, 146, 60, 0.05);">
                     <span class="device-name" style="color: #fb923c;">📞 VoIP Devices</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/voip" target="_blank">http://192.168.0.101:3001/api/voip</a>
+                        <a href="http://192.168.10.1:3001/api/voip" target="_blank">http://192.168.10.1:3001/api/voip</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/voip">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/voip">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(251, 146, 60, 0.05);">
                     <span class="device-name" style="color: #fb923c;">💳 ATM & POS</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/atm-pos" target="_blank">http://192.168.0.101:3001/api/atm-pos</a>
+                        <a href="http://192.168.10.1:3001/api/atm-pos" target="_blank">http://192.168.10.1:3001/api/atm-pos</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/atm-pos">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/atm-pos">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(251, 146, 60, 0.05);">
                     <span class="device-name" style="color: #fb923c;">🔗 VPN Tunnels</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/vpn" target="_blank">http://192.168.0.101:3001/api/vpn</a>
+                        <a href="http://192.168.10.1:3001/api/vpn" target="_blank">http://192.168.10.1:3001/api/vpn</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/vpn">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/vpn">📋 Copy</button>
                 </div>
                 <div class="endpoint-item" style="background: rgba(251, 146, 60, 0.05);">
                     <span class="device-name" style="color: #fb923c;">🏢 All Branches</span>
                     <div class="link-wrapper">
                         <span class="method">GET</span>
-                        <a href="http://192.168.0.101:3001/api/v1/branches" target="_blank">http://192.168.0.101:3001/api/v1/branches</a>
+                        <a href="http://192.168.10.1:3001/api/v1/branches" target="_blank">http://192.168.10.1:3001/api/v1/branches</a>
                     </div>
-                    <button class="copy-btn" data-url="http://192.168.0.101:3001/api/v1/branches">📋 Copy</button>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/branches">📋 Copy</button>
+                </div>
+                <div class="endpoint-item" style="background: rgba(167, 139, 250, 0.1);">
+                    <span class="device-name" style="color: #a78bfa;">📚 Knowledge Base (RAG)</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/v1/knowledge-base" target="_blank">http://192.168.10.1:3001/api/v1/knowledge-base</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/knowledge-base">📋 Copy</button>
+                </div>
+                <div class="endpoint-item" style="background: rgba(251, 191, 36, 0.1);">
+                    <span class="device-name" style="color: #fbbf24;">❓ FAQ Database</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/v1/faq" target="_blank">http://192.168.10.1:3001/api/v1/faq</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/faq">📋 Copy</button>
+                </div>
+                <div class="endpoint-item" style="background: rgba(244, 114, 182, 0.1);">
+                    <span class="device-name" style="color: #f472b6;">🚨 Real-time Alerts</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/v1/alerts" target="_blank">http://192.168.10.1:3001/api/v1/alerts</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/alerts">📋 Copy</button>
+                </div>
+                <div class="endpoint-item" style="background: rgba(244, 114, 182, 0.1);">
+                    <span class="device-name" style="color: #f472b6;">📋 Incident History</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/v1/incidents" target="_blank">http://192.168.10.1:3001/api/v1/incidents</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/incidents">📋 Copy</button>
+                </div>
+                <div class="endpoint-item" style="background: rgba(251, 146, 60, 0.1);">
+                    <span class="device-name" style="color: #fb923c;">🛡️ Threat Intelligence</span>
+                    <div class="link-wrapper">
+                        <span class="method">GET</span>
+                        <a href="http://192.168.10.1:3001/api/v1/threat-feeds" target="_blank">http://192.168.10.1:3001/api/v1/threat-feeds</a>
+                    </div>
+                    <button class="copy-btn" data-url="http://192.168.10.1:3001/api/v1/threat-feeds">📋 Copy</button>
                 </div>
             </div>
         </div>
@@ -1472,10 +1596,13 @@
         <div class="footer">
             <p>
                 🏦 <strong>Nord Bank</strong> &bull; Mockoon API Simulation &bull;
-                <a href="http://192.168.0.101:3001" target="_blank">http://192.168.0.101:3001</a>
+                <a href="http://192.168.10.1:3001" target="_blank">http://192.168.10.1:3001</a>
             </p>
             <p style="margin-top: 6px; font-size: 13px; color: #475569;">
                 Built with ❤️ for MACBan &bull; Enterprise AI Automation for Banking
+            </p>
+            <p style="margin-top: 4px; font-size: 12px; color: #334155;">
+                📡 17 Endpoints &bull; Lab 11A &bull; Lab 11B &bull; Lab 12 &bull; Lab 13 &bull; Lab 14 &bull; Lab 15
             </p>
         </div>
 

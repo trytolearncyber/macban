@@ -1,0 +1,226 @@
+{
+  "name": "Lab 11A — Intent Recognition for NOC AI Assistant",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chat",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -5264,
+        2624
+      ],
+      "id": "00db0e84-f079-4a30-95e6-0ad9f6078574",
+      "name": "Webhook",
+      "webhookId": "3efcc54b-9563-4bd9-8791-72672cefa5e2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.query }}",
+        "options": {
+          "systemMessage": "=You are an AI assistant for Nord Bank's NOC team.\n\nYour job is to help engineers get network device status information quickly.\n\nIf a user asks:\n- \"how many\" or \"count\" → Use the Inventory Tool (Cisco ASR 1000-Primary)\n- \"which\" or \"list\" → Use the Branches Tool (Cisco Catalyst 9500-Primary)\n\nAlways include the real device name as the data source in your response.\n\nIf the question is unclear, ask a clarifying question.\n\nFORMATTING RULES:\n- Use plain text only\n- NO **bold**, NO markdown, NO bullet points\n- Each field on a new line\n- Format: \"Field: Value\"\n- Device name in plain text (not bold)\n- Simple and clean\n\nExample format:\nHere is the status from Cisco ASR 1000-Primary:\nTotal Devices: 85\nOnline: 72\nOffline: 4\n\nBe helpful and concise."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -4912,
+        2624
+      ],
+      "id": "29714136-0528-4118-9edb-00a8e0790452",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "url": "=http://192.168.10.1:3001/api/v1/branches\n",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.4,
+      "position": [
+        -4784,
+        2848
+      ],
+      "id": "fc57f540-c694-40b4-bb2e-e470342fc425",
+      "name": "HTTP Request (Branches)"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.body.query }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        -4912,
+        2848
+      ],
+      "id": "0a455189-c911-44fb-a1a0-d0a156fb325b",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -4224,
+        2624
+      ],
+      "id": "e7449318-2cc5-43e2-afa2-99c3f0c526c7",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        -5040,
+        2848
+      ],
+      "id": "d7f0e0cc-d6e8-4137-8821-a96201470d1c",
+      "name": "Mistral Cloud Chat Model",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "X4A47yqjr210q8Ee",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "http://192.168.10.1:3001/api/v1/inventory",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.4,
+      "position": [
+        -4656,
+        2848
+      ],
+      "id": "f3deb452-cf37-47cb-8227-0e76d246f876",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = $input.first().json.output || '';\n\n// Clean the output\nlet cleanOutput = output\n  .replace(/\\*\\*/g, '')           // Remove **bold**\n  .replace(/- /g, '')             // Remove bullet points\n  .replace(/\\|/g, '')             // Remove table characters\n  .replace(/#/g, '')              // Remove markdown headings\n  .replace(/\\\\n/g, '\\n')          // Fix new lines\n  .replace(/\\n{3,}/g, '\\n\\n')     // Remove extra empty lines\n  .replace(/\\s+/g, ' ')           // Remove extra spaces\n  .trim();                        // Remove leading/trailing spaces\n\n// Format: Field: Value on each line\nconst lines = cleanOutput.split('\\n');\nconst formattedLines = lines.map(line => line.trim()).filter(line => line.length > 0);\nconst finalOutput = formattedLines.join('\\n');\n\nreturn {\n  output: finalOutput\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4448,
+        2624
+      ],
+      "id": "389adda9-9cc6-483f-825d-2debd7a74d57",
+      "name": "Clean Output"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (Branches)": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Clean Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Cloud Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Output": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "dd7b6334-ae8e-474b-b0a3-4cf7ef3e1e36",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "374f2ffa395a6790c37ed2acb401468ec688f724daf62e6c3ba5a9e43b342584"
+  },
+  "nodeGroups": [],
+  "id": "yhPm29MT6ZqCatgy",
+  "tags": []
+}

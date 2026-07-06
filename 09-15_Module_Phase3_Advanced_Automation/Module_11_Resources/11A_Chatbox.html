@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOC AI Assistant · Data Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f4f9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            color: #1a2b3c;
+        }
+
+        .card {
+            max-width: 860px;
+            width: 100%;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.25);
+            overflow: hidden;
+            border: 1px solid rgba(0, 40, 80, 0.08);
+        }
+
+        /* header */
+        .header {
+            background: #0b1e33;
+            padding: 1.25rem 2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            border-bottom: 1px solid #1f3b5a;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-icon {
+            background: #2f6f9f;
+            width: 38px;
+            height: 38px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .header h1 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: -0.2px;
+        }
+
+        .header h1 small {
+            font-weight: 400;
+            font-size: 0.75rem;
+            opacity: 0.65;
+            margin-left: 0.3rem;
+        }
+
+        .status-badge {
+            background: #1f4c74;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #d6e7f7;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            border: 1px solid #2f6f9f;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 10px;
+            background: #4caf50;
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { opacity: 0.5; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.5; transform: scale(0.9); }
+        }
+
+        /* conversation */
+        .chat-area {
+            padding: 1.6rem 2rem 0.5rem 2rem;
+            background: #fafdff;
+            min-height: 280px;
+            max-height: 440px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            scroll-behavior: smooth;
+        }
+
+        .message {
+            display: flex;
+            flex-direction: column;
+            max-width: 88%;
+            animation: fadeSlide 0.25s ease;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            align-items: flex-end;
+        }
+
+        .message.assistant {
+            align-self: flex-start;
+            align-items: flex-start;
+        }
+
+        .bubble {
+            padding: 0.85rem 1.3rem;
+            border-radius: 1.4rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            word-break: break-word;
+            background: white;
+            border: 1px solid #e4edf5;
+        }
+
+        .user .bubble {
+            background: #0b1e33;
+            color: white;
+            border: 1px solid #1f3b5a;
+            border-bottom-right-radius: 0.3rem;
+        }
+
+        .assistant .bubble {
+            background: white;
+            border-bottom-left-radius: 0.3rem;
+            border-color: #d4e0ec;
+        }
+
+        .bubble .source-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #eaf0f6;
+        }
+
+        .source-tag {
+            display: inline-block;
+            background: #e6f0fa;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.8rem;
+            color: #0b3b5e;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .intent-chip {
+            display: inline-block;
+            background: #eef3f9;
+            border-radius: 40px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.15rem 0.9rem;
+            letter-spacing: 0.2px;
+            color: #1f4c74;
+            border: 1px solid #d2e1f0;
+        }
+
+        .timestamp {
+            font-size: 0.7rem;
+            opacity: 0.5;
+            margin: 0.2rem 0.5rem 0.1rem;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 0.3rem;
+            padding: 0.3rem 0.6rem;
+            background: #eef3f9;
+            border-radius: 30px;
+            width: fit-content;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #5b7f9e;
+            border-radius: 20px;
+            animation: pulse 1.2s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes pulse {
+            0%, 60% { opacity: 0.25; transform: scale(0.9); }
+            30% { opacity: 1; transform: scale(1.1); }
+        }
+
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* suggestions */
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+        }
+
+        .suggestion-chip {
+            background: #eef3f9;
+            border-radius: 40px;
+            padding: 0.25rem 1rem;
+            font-size: 0.75rem;
+            color: #1a3b5a;
+            border: 1px solid #d2e1f0;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .suggestion-chip:hover {
+            background: #dce8f5;
+            border-color: #a0bcd9;
+        }
+
+        /* input */
+        .input-area {
+            padding: 1rem 2rem 1.8rem 2rem;
+            background: #fafdff;
+            border-top: 1px solid #e4edf5;
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 0.85rem 1.2rem;
+            border-radius: 60px;
+            border: 1px solid #d4e0ec;
+            background: white;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .input-area input:focus {
+            border-color: #2f6f9f;
+            box-shadow: 0 0 0 3px rgba(47, 111, 159, 0.12);
+        }
+
+        .input-area button {
+            background: #0b1e33;
+            border: none;
+            color: white;
+            padding: 0 1.8rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            letter-spacing: 0.2px;
+            font-family: 'Inter', sans-serif;
+            border: 1px solid #1f3b5a;
+        }
+
+        .input-area button:hover {
+            background: #1f3b5a;
+        }
+
+        .input-area button:active {
+            transform: scale(0.97);
+        }
+
+        .input-area button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .footer {
+            padding: 0.2rem 2rem 0.8rem 2rem;
+            font-size: 0.68rem;
+            color: #7f96af;
+            background: #fafdff;
+            border-top: 1px solid #edf3f9;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .footer span {
+            background: #eef3f9;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+        }
+
+        .reset-btn {
+            background: none;
+            border: none;
+            color: #5b7f9e;
+            text-decoration: underline dotted;
+            font-size: 0.68rem;
+            cursor: pointer;
+            padding: 0.1rem 0.3rem;
+        }
+
+        .reset-btn:hover { color: #0b1e33; }
+
+        .error-banner {
+            background: #fef0ef;
+            border: 1px solid #f5c6cb;
+            color: #842029;
+            padding: 0.6rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.3rem;
+        }
+
+        /* scrollbar */
+        .chat-area::-webkit-scrollbar {
+            width: 5px;
+        }
+        .chat-area::-webkit-scrollbar-track {
+            background: #f0f4f9;
+            border-radius: 10px;
+        }
+        .chat-area::-webkit-scrollbar-thumb {
+            background: #cbd8e8;
+            border-radius: 10px;
+        }
+        .chat-area::-webkit-scrollbar-thumb:hover {
+            background: #b0c2d6;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="header-icon">📡</div>
+                <h1>NOC AI Assistant <small>· data interface</small></h1>
+            </div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span id="statusText">live</span>
+                <span id="endpointIndicator" style="opacity:0.6;margin-left:0.2rem;">· webhook</span>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div class="chat-area" id="chatMessages">
+            <!-- welcome message -->
+            <div class="message assistant">
+                <div class="bubble">
+                    <strong>I am NOC AI Assistant</strong><br>
+                    Ask me about branch status — data is fetched from the configured webhook.
+                    <div class="suggestions">
+                        <span class="suggestion-chip" data-question="How many branches are offline?">📊 How many branches offline?</span>
+                        <span class="suggestion-chip" data-question="Which branch has the most alerts?">⚠️ Most alerts branch?</span>
+                        <span class="suggestion-chip" data-question="What is the overall network status?">🌐 Overall status</span>
+                    </div>
+                    <div class="source-meta">
+                        <span class="intent-chip">🤖 intent: greeting / info</span>
+                        <span class="source-tag">📦 source: webhook · real‑time</span>
+                    </div>
+                </div>
+                <span class="timestamp">now</span>
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Ask about branch status..." autofocus>
+            <button id="sendBtn">➤ Send</button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>🧠 intent · source mapping</span>
+            <button class="reset-btn" id="resetChat">🔄 Reset</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ----- DOM refs -----
+            const chatMessages = document.getElementById('chatMessages');
+            const userInput = document.getElementById('userInput');
+            const sendBtn = document.getElementById('sendBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const statusText = document.getElementById('statusText');
+            const endpointIndicator = document.getElementById('endpointIndicator');
+
+            // ----- webhook endpoint (exactly as provided) -----
+            const WEBHOOK_URL = 'https://subheader-agreeable-coffee.ngrok-free.dev/webhook-test/chat';
+
+            // ----- helper: add message -----
+            function addMessage(text, sender, intentLabel = null, sourceLabel = null, extraClass = '') {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `message ${sender} ${extraClass}`;
+
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                bubble.innerHTML = text;
+
+                // meta row
+                if (intentLabel || sourceLabel) {
+                    const meta = document.createElement('div');
+                    meta.className = 'source-meta';
+                    if (intentLabel) {
+                        const chip = document.createElement('span');
+                        chip.className = 'intent-chip';
+                        chip.textContent = `🎯 intent: ${intentLabel}`;
+                        meta.appendChild(chip);
+                    }
+                    if (sourceLabel) {
+                        const src = document.createElement('span');
+                        src.className = 'source-tag';
+                        src.textContent = `📦 source: ${sourceLabel}`;
+                        meta.appendChild(src);
+                    }
+                    bubble.appendChild(meta);
+                }
+
+                msgDiv.appendChild(bubble);
+
+                const ts = document.createElement('span');
+                ts.className = 'timestamp';
+                const now = new Date();
+                ts.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                msgDiv.appendChild(ts);
+
+                chatMessages.appendChild(msgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // ----- typing indicator -----
+            function showTyping() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message assistant';
+                typingDiv.id = 'typingIndicator';
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                bubble.style.background = '#f0f5fc';
+                bubble.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
+                typingDiv.appendChild(bubble);
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function removeTyping() {
+                const typing = document.getElementById('typingIndicator');
+                if (typing) typing.remove();
+            }
+
+            // ----- show error in chat -----
+            function showError(message) {
+                const errDiv = document.createElement('div');
+                errDiv.className = 'message assistant';
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble error-banner';
+                bubble.innerHTML = `⚠️ ${message}`;
+                errDiv.appendChild(bubble);
+                chatMessages.appendChild(errDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // ----- call webhook -----
+            async function callWebhook(query) {
+                const payload = {
+                    query: query,
+                    timestamp: new Date().toISOString()
+                };
+
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'ngrok-skip-browser-warning': 'true'  // bypass ngrok warning page
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    let errorMsg = `Server responded with ${response.status}`;
+                    try {
+                        const errText = await response.text();
+                        if (errText) errorMsg += `: ${errText.substring(0, 120)}`;
+                    } catch (_) {}
+                    throw new Error(errorMsg);
+                }
+
+                const data = await response.json();
+                return data;
+            }
+
+            // ----- process query (with webhook) -----
+            async function processUserQuery(query) {
+                const trimmed = query.trim();
+                if (!trimmed) return;
+
+                // show user message
+                addMessage(trimmed, 'user');
+
+                // clear input & disable
+                userInput.value = '';
+                sendBtn.disabled = true;
+                sendBtn.textContent = '⏳';
+
+                // typing
+                showTyping();
+
+                try {
+                    // call webhook
+                    const result = await callWebhook(trimmed);
+
+                    // remove typing
+                    removeTyping();
+
+                    // extract fields from webhook response (flexible)
+                    const answer = result.answer || result.response || result.reply || JSON.stringify(result, null, 2);
+                    const intent = result.intent || result.category || 'inferred';
+                    const source = result.source || result.data_source || 'webhook response';
+
+                    // display assistant message
+                    addMessage(answer, 'assistant', intent, source);
+
+                } catch (error) {
+                    removeTyping();
+                    console.error('Webhook error:', error);
+                    showError(`Could not fetch data: ${error.message || 'unknown error'}`);
+                    // also show fallback
+                    addMessage(
+                        '⚠️ The webhook is not responding. Please check the endpoint or try again later.',
+                        'assistant',
+                        'error',
+                        'webhook'
+                    );
+                } finally {
+                    sendBtn.disabled = false;
+                    sendBtn.textContent = '➤ Send';
+                    userInput.focus();
+                }
+            }
+
+            // ----- reset chat (keep only welcome) -----
+            function resetChat() {
+                // remove all except first child (welcome)
+                while (chatMessages.children.length > 1) {
+                    chatMessages.removeChild(chatMessages.lastChild);
+                }
+                // ensure welcome exists
+                if (chatMessages.children.length === 0) {
+                    const welcome = document.createElement('div');
+                    welcome.className = 'message assistant';
+                    welcome.innerHTML = `
+                        <div class="bubble">
+                            <strong>I am NOC AI Assistant</strong><br>
+                            Ask me about branch status — data is fetched from the configured webhook.
+                            <div class="suggestions">
+                                <span class="suggestion-chip" data-question="How many branches are offline?">📊 How many branches offline?</span>
+                                <span class="suggestion-chip" data-question="Which branch has the most alerts?">⚠️ Most alerts branch?</span>
+                                <span class="suggestion-chip" data-question="What is the overall network status?">🌐 Overall status</span>
+                            </div>
+                            <div class="source-meta">
+                                <span class="intent-chip">🤖 intent: greeting / info</span>
+                                <span class="source-tag">📦 source: webhook · real‑time</span>
+                            </div>
+                        </div>
+                        <span class="timestamp">now</span>
+                    `;
+                    chatMessages.appendChild(welcome);
+                }
+                removeTyping();
+                sendBtn.disabled = false;
+                sendBtn.textContent = '➤ Send';
+                chatMessages.scrollTop = 0;
+                userInput.focus();
+            }
+
+            // ----- event listeners -----
+            sendBtn.addEventListener('click', () => {
+                processUserQuery(userInput.value);
+            });
+
+            userInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    processUserQuery(userInput.value);
+                }
+            });
+
+            resetBtn.addEventListener('click', resetChat);
+
+            // suggestion chips (delegated)
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('suggestion-chip')) {
+                    const question = e.target.dataset.question;
+                    if (question) {
+                        userInput.value = question;
+                        processUserQuery(question);
+                    }
+                }
+            });
+
+            // ----- update endpoint indicator -----
+            function updateEndpointInfo() {
+                try {
+                    const url = new URL(WEBHOOK_URL);
+                    endpointIndicator.textContent = `· ${url.hostname}`;
+                } catch (_) {
+                    endpointIndicator.textContent = '· webhook';
+                }
+            }
+            updateEndpointInfo();
+
+            // focus on load
+            window.addEventListener('load', () => {
+                userInput.focus();
+            });
+
+        })();
+    </script>
+</body>
+</html>

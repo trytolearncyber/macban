@@ -25,7 +25,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"timestamp\": \"2026-07-01T10:30:00Z\",\n  \"summary\": {\n    \"total_devices\": 85,\n    \"online\": 72,\n    \"offline\": 4,\n    \"degraded\": 5,\n    \"standby\": 4,\n    \"uptime\": \"99.87%\"\n  },\n  \"by_type\": {\n    \"routers\": {\"total\": 6, \"online\": 4, \"offline\": 1, \"degraded\": 1},\n    \"switches\": {\"total\": 8, \"online\": 6, \"offline\": 1, \"degraded\": 1},\n    \"firewalls\": {\"total\": 8, \"online\": 7, \"offline\": 0, \"degraded\": 1},\n    \"servers\": {\"total\": 18, \"online\": 15, \"offline\": 0, \"degraded\": 1},\n    \"security_tools\": {\"total\": 10, \"online\": 9, \"offline\": 0, \"degraded\": 1},\n    \"network_tools\": {\"total\": 10, \"online\": 9, \"offline\": 1, \"degraded\": 0},\n    \"voip_devices\": {\"total\": 10, \"online\": 8, \"offline\": 1, \"degraded\": 1},\n    \"atm_pos\": {\"total\": 8, \"online\": 7, \"offline\": 1, \"degraded\": 0},\n    \"vpn_tunnels\": {\"total\": 8, \"online\": 6, \"offline\": 1, \"degraded\": 1},\n    \"databases\": {\"total\": 7, \"online\": 7, \"offline\": 0, \"degraded\": 0}\n  }\n}",
+          "body": "{\n  \"timestamp\": \"2026-07-04T10:30:00Z\",\n  \"summary\": {\n    \"total_devices\": 85,\n    \"online\": 72,\n    \"offline\": 4,\n    \"degraded\": 5,\n    \"standby\": 4,\n    \"uptime\": \"99.87%\"\n  },\n  \"by_type\": {\n    \"routers\": {\"total\": 6, \"online\": 4, \"offline\": 1, \"degraded\": 1},\n    \"switches\": {\"total\": 8, \"online\": 6, \"offline\": 1, \"degraded\": 1},\n    \"firewalls\": {\"total\": 8, \"online\": 7, \"offline\": 1, \"degraded\": 1},\n    \"servers\": {\"total\": 18, \"online\": 15, \"offline\": 0, \"degraded\": 1},\n    \"security_tools\": {\"total\": 10, \"online\": 9, \"offline\": 0, \"degraded\": 1},\n    \"network_tools\": {\"total\": 10, \"online\": 9, \"offline\": 1, \"degraded\": 0},\n    \"voip_devices\": {\"total\": 10, \"online\": 8, \"offline\": 1, \"degraded\": 1},\n    \"atm_pos\": {\"total\": 8, \"online\": 7, \"offline\": 1, \"degraded\": 0},\n    \"vpn_tunnels\": {\"total\": 8, \"online\": 6, \"offline\": 1, \"degraded\": 1},\n    \"databases\": {\"total\": 7, \"online\": 7, \"offline\": 0, \"degraded\": 0}\n  }\n}",
           "rules": [],
           "disableTemplating": false,
           "rulesOperator": "OR",
@@ -421,7 +421,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"branches\": [\n    {\n      \"id\": \"BR-001\",\n      \"name\": \"Head Office\",\n      \"location\": \"Dhaka\",\n      \"status\": \"online\",\n      \"employees\": 250,\n      \"devices\": {\n        \"routers\": [\"RTR-001\", \"RTR-002\"],\n        \"switches\": [\"SW-001\", \"SW-002\", \"SW-003\", \"SW-004\", \"SW-005\", \"SW-006\"],\n        \"firewalls\": [\"FW-001\", \"FW-002\", \"FW-003\", \"FW-007\"],\n        \"servers\": [\"SRV-001\", \"SRV-002\", \"SRV-003\", \"SRV-004\", \"SRV-005\", \"SRV-006\", \"SRV-007\", \"SRV-008\", \"SRV-009\", \"SRV-010\", \"SRV-011\", \"SRV-012\", \"SRV-014\", \"SRV-015\", \"SRV-016\", \"SRV-017\", \"SRV-018\"]\n      },\n      \"network\": {\n        \"bandwidth\": \"10 Gbps\",\n        \"latency\": \"2ms\",\n        \"uptime\": \"99.95%\"\n      },\n      \"health_score\": 98\n    },\n    {\n      \"id\": \"BR-002\",\n      \"name\": \"Dhanmondi Branch\",\n      \"location\": \"Dhaka\",\n      \"status\": \"online\",\n      \"employees\": 45,\n      \"devices\": {\n        \"routers\": [\"RTR-003\"],\n        \"switches\": [\"SW-008\"],\n        \"firewalls\": [\"FW-004\"],\n        \"servers\": [\"SRV-019\"],\n        \"atm\": [\"ATM-001\"],\n        \"pos\": [\"POS-001\", \"POS-002\"]\n      },\n      \"network\": {\n        \"bandwidth\": \"1 Gbps\",\n        \"latency\": \"15ms\",\n        \"uptime\": \"99.87%\"\n      },\n      \"health_score\": 95\n    },\n    {\n      \"id\": \"BR-003\",\n      \"name\": \"Gulshan Branch\",\n      \"location\": \"Dhaka\",\n      \"status\": \"online\",\n      \"employees\": 60,\n      \"devices\": {\n        \"routers\": [\"RTR-004\"],\n        \"switches\": [\"SW-009\"],\n        \"firewalls\": [\"FW-005\"],\n        \"servers\": [\"SRV-020\"],\n        \"atm\": [\"ATM-002\"],\n        \"pos\": [\"POS-003\"]\n      },\n      \"network\": {\n        \"bandwidth\": \"1 Gbps\",\n        \"latency\": \"18ms\",\n        \"uptime\": \"99.80%\"\n      },\n      \"health_score\": 92\n    },\n    {\n      \"id\": \"BR-004\",\n      \"name\": \"Chittagong Branch\",\n      \"location\": \"Chittagong\",\n      \"status\": \"degraded\",\n      \"employees\": 85,\n      \"devices\": {\n        \"routers\": [\"RTR-005\"],\n        \"switches\": [\"SW-010\"],\n        \"firewalls\": [\"FW-006\"],\n        \"servers\": [\"SRV-021\"],\n        \"atm\": [\"ATM-003\"],\n        \"pos\": [\"POS-004\"]\n      },\n      \"network\": {\n        \"bandwidth\": \"500 Mbps\",\n        \"latency\": \"45ms\",\n        \"uptime\": \"98.50%\"\n      },\n      \"health_score\": 78,\n      \"issues\": [\"High latency\", \"Degraded performance\"]\n    },\n    {\n      \"id\": \"BR-005\",\n      \"name\": \"Khulna Branch\",\n      \"location\": \"Khulna\",\n      \"status\": \"offline\",\n      \"employees\": 30,\n      \"devices\": {\n        \"routers\": [\"RTR-006\"],\n        \"switches\": [\"SW-011\"],\n        \"firewalls\": [\"FW-008\"],\n        \"servers\": [],\n        \"atm\": [\"ATM-004\"],\n        \"pos\": []\n      },\n      \"network\": {\n        \"bandwidth\": \"0 Mbps\",\n        \"latency\": \"0ms\",\n        \"uptime\": \"0%\"\n      },\n      \"health_score\": 0,\n      \"issues\": [\"Internet down\", \"All devices offline\"]\n    }\n  ],\n  \"total\": 5,\n  \"online\": 3,\n  \"degraded\": 1,\n  \"offline\": 1\n}",
+          "body": "{\n  \"branches\": [\n    {\n      \"id\": \"BR-001\",\n      \"name\": \"Head Office\",\n      \"location\": \"Dhaka\",\n      \"status\": \"online\",\n      \"employees\": 250,\n      \"health_score\": 98\n    },\n    {\n      \"id\": \"BR-002\",\n      \"name\": \"Dhanmondi Branch\",\n      \"location\": \"Dhaka\",\n      \"status\": \"online\",\n      \"employees\": 45,\n      \"health_score\": 95\n    },\n    {\n      \"id\": \"BR-003\",\n      \"name\": \"Gulshan Branch\",\n      \"location\": \"Dhaka\",\n      \"status\": \"online\",\n      \"employees\": 60,\n      \"health_score\": 92\n    },\n    {\n      \"id\": \"BR-004\",\n      \"name\": \"Chittagong Branch\",\n      \"location\": \"Chittagong\",\n      \"status\": \"degraded\",\n      \"employees\": 85,\n      \"health_score\": 78,\n      \"issues\": [\"High latency\", \"Degraded performance\"]\n    },\n    {\n      \"id\": \"BR-005\",\n      \"name\": \"Khulna Branch\",\n      \"location\": \"Khulna\",\n      \"status\": \"offline\",\n      \"employees\": 30,\n      \"health_score\": 0,\n      \"issues\": [\"Internet down\", \"All devices offline\"]\n    }\n  ],\n  \"total\": 5,\n  \"online\": 3,\n  \"degraded\": 1,\n  \"offline\": 1\n}",
           "rules": [],
           "disableTemplating": false,
           "rulesOperator": "OR",
@@ -434,6 +434,186 @@
         }
       ],
       "documentation": "List of all bank branches",
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "method": "get",
+      "endpoint": "/api/v1/knowledge-base",
+      "responses": [
+        {
+          "uuid": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
+          "statusCode": 200,
+          "label": "Knowledge Base",
+          "latency": 0,
+          "filePath": "",
+          "sendFileAsBody": false,
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"documents\": [\n    {\n      \"id\": \"DOC-001\",\n      \"title\": \"VPN Troubleshooting Guide\",\n      \"content\": \"Step 1: Check VPN tunnel status using 'show crypto isakmp sa'. Step 2: Verify Phase 1 and Phase 2 status. Step 3: Check firewall rules allowing VPN traffic. Step 4: Verify routing to remote subnet.\",\n      \"category\": \"VPN\"\n    },\n    {\n      \"id\": \"DOC-002\",\n      \"title\": \"Firewall Rule Change SOP\",\n      \"content\": \"Step 1: Create change request in ServiceNow. Step 2: Get approval from Security Manager. Step 3: Implement rule on FortiGate. Step 4: Test connectivity. Step 5: Update documentation.\",\n      \"category\": \"Firewall\"\n    },\n    {\n      \"id\": \"DOC-003\",\n      \"title\": \"Router Restart Procedure\",\n      \"content\": \"Step 1: Check active sessions. Step 2: Notify branch staff. Step 3: Execute 'reload' command. Step 4: Wait 5 minutes. Step 5: Verify connectivity.\",\n      \"category\": \"Router\"\n    }\n  ]\n}",
+          "rules": [],
+          "disableTemplating": false,
+          "rulesOperator": "OR",
+          "fallbackTo404": false,
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE",
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "documentation": "Knowledge Base for troubleshooting and SOPs",
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "c3d4e5f6-a7b8-9012-cdef-345678901234",
+      "method": "get",
+      "endpoint": "/api/v1/faq",
+      "responses": [
+        {
+          "uuid": "5d486f8b-71a3-48c8-91d6-3f823deb86ad",
+          "statusCode": 200,
+          "label": "FAQ Database",
+          "latency": 0,
+          "filePath": "",
+          "sendFileAsBody": false,
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"faqs\": [\n    {\n      \"id\": \"FAQ-001\",\n      \"question\": \"Internet slow\",\n      \"answer\": \"Check bandwidth usage in PRTG. If usage is high, check for unusual traffic. If low, reboot router.\",\n      \"category\": \"Network\"\n    },\n    {\n      \"id\": \"FAQ-002\",\n      \"question\": \"POS machine not connecting\",\n      \"answer\": \"Check network cable. Verify POS IP address. Check firewall rule allowing POS traffic.\",\n      \"category\": \"POS\"\n    },\n    {\n      \"id\": \"FAQ-003\",\n      \"question\": \"VPN is down\",\n      \"answer\": \"Check VPN tunnel status. Verify ISP connectivity. Check firewall VPN policies.\",\n      \"category\": \"VPN\"\n    }\n  ]\n}",
+          "rules": [],
+          "disableTemplating": false,
+          "rulesOperator": "OR",
+          "fallbackTo404": false,
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE",
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "documentation": "FAQ Database for common issues",
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "324db0bc-9c51-46d4-8364-bafc977ef09a",
+      "method": "get",
+      "endpoint": "/api/v1/alerts",
+      "responses": [
+        {
+          "uuid": "fa4a32b9-b250-4dab-a044-f145d65d0f97",
+          "statusCode": 200,
+          "label": "Real-time Alerts",
+          "latency": 0,
+          "filePath": "",
+          "sendFileAsBody": false,
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"alerts\": [\n    {\n      \"id\": \"ALERT-001\",\n      \"severity\": \"critical\",\n      \"device\": \"RTR-006\",\n      \"branch\": \"Khulna\",\n      \"message\": \"Router offline - No connectivity\",\n      \"timestamp\": \"2026-07-04T10:00:00Z\"\n    },\n    {\n      \"id\": \"ALERT-002\",\n      \"severity\": \"high\",\n      \"device\": \"FW-008\",\n      \"branch\": \"Khulna\",\n      \"message\": \"Firewall down - Power failure\",\n      \"timestamp\": \"2026-07-04T10:05:00Z\"\n    },\n    {\n      \"id\": \"ALERT-003\",\n      \"severity\": \"medium\",\n      \"device\": \"RTR-005\",\n      \"branch\": \"Chittagong\",\n      \"message\": \"High CPU usage - 85%\",\n      \"timestamp\": \"2026-07-04T09:30:00Z\"\n    }\n  ]\n}",
+          "rules": [],
+          "disableTemplating": false,
+          "rulesOperator": "OR",
+          "fallbackTo404": false,
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE",
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "documentation": "Real-time alerts from monitoring systems",
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "76ef3bc5-fe5e-4e53-93a1-22f3c788d7dc",
+      "method": "get",
+      "endpoint": "/api/v1/incidents",
+      "responses": [
+        {
+          "uuid": "9745ede1-b128-4fc3-8078-3432cbfd13b5",
+          "statusCode": 200,
+          "label": "Incident History",
+          "latency": 0,
+          "filePath": "",
+          "sendFileAsBody": false,
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"incidents\": [\n    {\n      \"id\": \"INC-001\",\n      \"title\": \"Khulna Branch Network Down\",\n      \"status\": \"open\",\n      \"severity\": \"P1\",\n      \"start_time\": \"2026-07-04T09:00:00Z\",\n      \"affected_devices\": [\"RTR-006\", \"SW-008\", \"FW-008\"],\n      \"description\": \"ISP failure causing complete network outage\"\n    },\n    {\n      \"id\": \"INC-002\",\n      \"title\": \"Chittagong Router High CPU\",\n      \"status\": \"in_progress\",\n      \"severity\": \"P2\",\n      \"start_time\": \"2026-07-04T08:00:00Z\",\n      \"affected_devices\": [\"RTR-005\"],\n      \"description\": \"CPU at 85% for last 4 hours\"\n    }\n  ]\n}",
+          "rules": [],
+          "disableTemplating": false,
+          "rulesOperator": "OR",
+          "fallbackTo404": false,
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE",
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "documentation": "Incident history for root cause analysis",
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2a5b9723-b078-48c7-a91c-8f1c9846776d",
+      "method": "get",
+      "endpoint": "/api/v1/threat-feeds",
+      "responses": [
+        {
+          "uuid": "dd457bad-5261-4723-a3bb-556f1d025687",
+          "statusCode": 200,
+          "label": "Global Threat Feeds",
+          "latency": 0,
+          "filePath": "",
+          "sendFileAsBody": false,
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"threats\": [\n    {\n      \"id\": \"THREAT-001\",\n      \"source\": \"MITRE ATT&CK\",\n      \"type\": \"Ransomware\",\n      \"severity\": \"high\",\n      \"description\": \"Ransomware detected in banking sector. Affects 100+ banks in South Asia.\",\n      \"timestamp\": \"2026-07-04T08:00:00Z\"\n    },\n    {\n      \"id\": \"THREAT-002\",\n      \"source\": \"CISA\",\n      \"type\": \"Phishing\",\n      \"severity\": \"medium\",\n      \"description\": \"Phishing campaign targeting bank employees. Looks like legitimate bank communication.\",\n      \"timestamp\": \"2026-07-04T06:00:00Z\"\n    },\n    {\n      \"id\": \"THREAT-003\",\n      \"source\": \"Fortinet\",\n      \"type\": \"Zero-Day\",\n      \"severity\": \"critical\",\n      \"description\": \"New zero-day vulnerability in FortiGate SSL VPN. Patch available.\",\n      \"timestamp\": \"2026-07-03T18:00:00Z\"\n    }\n  ]\n}",
+          "rules": [],
+          "disableTemplating": false,
+          "rulesOperator": "OR",
+          "fallbackTo404": false,
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE",
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "documentation": "Global threat intelligence feeds",
       "responseMode": null,
       "type": "http",
       "streamingMode": null,
@@ -519,6 +699,26 @@
     {
       "type": "route",
       "uuid": "9cb75e2c-9e82-49b9-80d1-b3812e4eeaed"
+    },
+    {
+      "type": "route",
+      "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+    },
+    {
+      "type": "route",
+      "uuid": "c3d4e5f6-a7b8-9012-cdef-345678901234"
+    },
+    {
+      "type": "route",
+      "uuid": "324db0bc-9c51-46d4-8364-bafc977ef09a"
+    },
+    {
+      "type": "route",
+      "uuid": "76ef3bc5-fe5e-4e53-93a1-22f3c788d7dc"
+    },
+    {
+      "type": "route",
+      "uuid": "2a5b9723-b078-48c7-a91c-8f1c9846776d"
     }
   ],
   "callbacks": [],
