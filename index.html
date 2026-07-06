@@ -1399,19 +1399,49 @@ document.querySelectorAll('.module-card .links a').forEach(link => {
 
 <script>
 // ==========================================
-// 1. PAGE VISIT COUNTER (Shows in Footer)
+// 1. UNIQUE VISITOR COUNTER (Shows in Footer)
 // ==========================================
 document.addEventListener('DOMContentLoaded', function() {
-    let visits = localStorage.getItem('macban_visits');
-    visits = visits ? parseInt(visits) + 1 : 1;
-    localStorage.setItem('macban_visits', visits);
+    // Check if this is a new visitor
+    const visitorId = localStorage.getItem('visitor_id');
+    let isNewVisitor = false;
+    
+    if (!visitorId) {
+        // New visitor - generate unique ID
+        const newId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('visitor_id', newId);
+        isNewVisitor = true;
+    }
+    
+    // Get or create visit stats
+    let stats = JSON.parse(localStorage.getItem('macban_stats') || '{}');
+    
+    // Update total visits
+    stats.totalVisits = (stats.totalVisits || 0) + 1;
+    
+    // Update unique visitors
+    if (isNewVisitor) {
+        stats.uniqueVisitors = (stats.uniqueVisitors || 0) + 1;
+    }
+    
+    // Update today's visits
+    const today = new Date().toDateString();
+    if (stats.lastDate !== today) {
+        stats.todayVisits = 1;
+        stats.lastDate = today;
+    } else {
+        stats.todayVisits = (stats.todayVisits || 0) + 1;
+    }
+    
+    // Save stats
+    localStorage.setItem('macban_stats', JSON.stringify(stats));
     
     // Show badge in footer
     const footer = document.querySelector('.footer .badges');
     if (footer) {
         const badge = document.createElement('span');
         badge.className = 'badge';
-        badge.textContent = `👁️ ${visits} visits`;
+        badge.textContent = `👁️ ${stats.totalVisits} visits | 👤 ${stats.uniqueVisitors} visitors`;
         footer.appendChild(badge);
     }
 });
@@ -1454,7 +1484,7 @@ document.addEventListener('DOMContentLoaded', function() {
         color: white;
         padding: 10px 20px;
         border-radius: 30px;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
         box-shadow: 0 4px 15px rgba(74, 0, 224, 0.3);
         z-index: 9999;
@@ -1462,6 +1492,9 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: transform 0.3s, box-shadow 0.3s;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         border: 2px solid rgba(255,255,255,0.1);
+        text-align: center;
+        line-height: 1.4;
+        min-width: 80px;
     `;
     
     // Hover effect
@@ -1476,15 +1509,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Click to show details
     counterDiv.onclick = function() {
-        const total = localStorage.getItem('macban_visits') || 0;
+        const stats = JSON.parse(localStorage.getItem('macban_stats') || '{}');
         const history = JSON.parse(localStorage.getItem('module_history') || '[]');
-        alert(`📊 Statistics:\n\n👁️ Total Visits: ${total}\n📚 Modules Viewed: ${history.length} times\n\nLast Visit: ${history[history.length-1]?.time || 'N/A'}`);
+        alert(`📊 Statistics:\n\n` +
+              `👁️ Total Visits: ${stats.totalVisits || 0}\n` +
+              `👤 Unique Visitors: ${stats.uniqueVisitors || 0}\n` +
+              `📅 Today's Visits: ${stats.todayVisits || 0}\n` +
+              `📚 Modules Viewed: ${history.length} times\n\n` +
+              `🕐 Last Visit: ${history[history.length-1]?.time || 'N/A'}`);
     };
     
     // Update counter function
     function updateCounter() {
-        const visits = localStorage.getItem('macban_visits') || 0;
-        counterDiv.innerHTML = `👁️ ${visits} <span style="font-weight:300; opacity:0.6;">views</span>`;
+        const stats = JSON.parse(localStorage.getItem('macban_stats') || '{}');
+        const total = stats.totalVisits || 0;
+        const unique = stats.uniqueVisitors || 0;
+        counterDiv.innerHTML = `
+            👁️ ${total}
+            <br>
+            <span style="font-size: 9px; font-weight: 300; opacity: 0.7;">👤 ${unique} visitors</span>
+        `;
     }
     
     // Update on page load
@@ -1493,20 +1537,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add to DOM
     document.body.appendChild(counterDiv);
     
-    // Update every 5 seconds (if changed in another tab)
+    // Update every 5 seconds
     setInterval(updateCounter, 5000);
 });
 
 // ==========================================
 // 4. SHOW DETAILED STATS IN CONSOLE
 // ==========================================
-console.log('📊 MACBan Visit Statistics:');
-console.log(`👁️ Total Visits: ${localStorage.getItem('macban_visits') || 0}`);
-const stats = JSON.parse(localStorage.getItem('module_stats') || '{}');
-console.log('📚 Module Stats:', stats);
+console.log('📊 MACBan Statistics:');
+const stats = JSON.parse(localStorage.getItem('macban_stats') || '{}');
+console.log(`👁️ Total Visits: ${stats.totalVisits || 0}`);
+console.log(`👤 Unique Visitors: ${stats.uniqueVisitors || 0}`);
+console.log(`📅 Today's Visits: ${stats.todayVisits || 0}`);
+console.log(`📅 Last Date: ${stats.lastDate || 'N/A'}`);
+const history = JSON.parse(localStorage.getItem('module_history') || '[]');
+console.log(`📚 Modules Viewed: ${history.length} times`);
+console.log('📚 Module Stats:', JSON.parse(localStorage.getItem('module_stats') || '{}'));
 
 // ==========================================
-// 5. OPTIONAL: MOBILE RESPONSIVE
+// 5. MOBILE RESPONSIVE
 // ==========================================
 if (window.innerWidth < 768) {
     const counter = document.getElementById('live-visit-counter');
@@ -1514,9 +1563,25 @@ if (window.innerWidth < 768) {
         counter.style.cssText += `
             bottom: 10px;
             right: 10px;
-            padding: 6px 14px;
-            font-size: 12px;
+            padding: 6px 12px;
+            font-size: 11px;
+            min-width: 60px;
+        `;
+        // Update counter text for mobile
+        const stats = JSON.parse(localStorage.getItem('macban_stats') || '{}');
+        counter.innerHTML = `
+            👁️ ${stats.totalVisits || 0}
+            <br>
+            <span style="font-size: 8px; font-weight: 300; opacity: 0.7;">👤 ${stats.uniqueVisitors || 0}</span>
         `;
     }
 }
+
+// ==========================================
+// 6. RESET STATS (Optional - for testing)
+// ==========================================
+// To reset all stats, uncomment the line below:
+// localStorage.removeItem('macban_stats');
+// localStorage.removeItem('visitor_id');
+// console.log('✅ Stats reset!');
 </script>
