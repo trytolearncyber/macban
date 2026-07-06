@@ -6,6 +6,10 @@
 
 📌 S — Scenario 2 (Banking, Non-Technical)
 
+একজন Bank Officer প্রতিদিন Loan Approval-এর আগে তিনটি ধাপে কাজ করেন। প্রথমে Customer-এর Documents এবং Information সংগ্রহ করা হয়, তারপর সেই তথ্য যাচাই ও বিশ্লেষণ করা হয়, এবং শেষে Loan Approval বা Rejection-এর জন্য একটি Recommendation Report তৈরি করা হয়। প্রতিটি ধাপ আলাদা কাজ করে এবং আগের ধাপের তথ্যের উপর নির্ভরশীল। প্রথম ধাপে কোনো তথ্য ভুল বা অসম্পূর্ণ হলে, পরের বিশ্লেষণ এবং চূড়ান্ত সিদ্ধান্তও ভুল হতে পারে।
+
+📌 S — Scenario 3 (Bank_Tech)
+
 Nord Bank Global Security Threat সম্পর্কে জানতে চাইলে, একজন Analyst-কে প্রথমে বিভিন্ন Source থেকে Threat News সংগ্রহ করতে হয়, তারপর সেটা Bank-এর নিজস্ব Log-এর সাথে মিলিয়ে দেখতে হয় সেই Threat আসলেই প্রাসঙ্গিক কিনা, আর শেষে একটা Report তৈরি করতে হয়। প্রতিটা ধাপ আলাদা দক্ষতা চায়, এবং একা একজনের পক্ষে সব ধাপ প্রতিদিন করা কঠিন।
 
 🎯 T — Task

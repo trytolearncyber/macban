@@ -6,6 +6,10 @@
 
 📌 S — Scenario 2 (Banking, Non-Technical)
 
+Nord Bank-এর একজন Customer Service Officer প্রতিদিন Customer-দের বিভিন্ন ধরনের প্রশ্নের উত্তর দেন, যেমন "আমার Account Balance কত?", "শেষ ৫টা Transaction দেখান", অথবা "Debit Card Block করতে চাই।" প্রতিটি প্রশ্নের উত্তর দিতে আলাদা Banking System থেকে তথ্য আনতে হয়। যদি একটি AI Assistant প্রশ্নের ধরন বুঝে সঠিক System থেকে তথ্য আনতে পারে, তাহলে Customer দ্রুত এবং সঠিক উত্তর পেতে পারে।
+
+📌 S — Scenario 3 (Bank_Tech)
+
 Nord Bank-এর একজন NOC Engineer রাতের Shift-এ কাজ করার সময় দ্রুত জানতে চায় "কতগুলো Branch এখন Offline আছে?" কিন্তু এই তথ্য বের করতে তাকে আলাদা আলাদা Monitoring Dashboard খুলে Manually খুঁজতে হয়, যা সময় নষ্ট করে যখন দ্রুত সিদ্ধান্ত দরকার।
 
 🎯 T — Task

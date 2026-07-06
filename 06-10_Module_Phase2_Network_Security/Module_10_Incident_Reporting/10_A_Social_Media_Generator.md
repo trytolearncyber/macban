@@ -6,6 +6,10 @@
 
 📌 S — Scenario 2 (Banking, Non-Technical)
 
+Nord Bank-এর একজন Branch Officer-কে প্রতিদিন বিভিন্ন ধরনের Banking Activity-এর Summary Report তৈরি করতে হয়, যেমন দিনের মোট Deposit, Withdrawal, এবং Customer Service-এর সারসংক্ষেপ। প্রতিটি Report প্রায় একই Format অনুসরণ করে, কিন্তু বিভিন্ন System থেকে তথ্য সংগ্রহ করে গুছিয়ে লিখতে সময় লাগে।
+
+📌 S — Scenario 3 (Bank_Tech)
+
 Nord Bank-এর IT Team-কে একটা বড় সমস্যার পর (যেমন কয়েক ঘন্টার Network Downtime) একটা Report লিখতে হয় যেখানে কী ঘটেছিল, কতক্ষণ স্থায়ী হয়েছিল, এবং কী কারণে হয়েছিল তা বর্ণনা করতে হয়। প্রতিবার এই ধরনের Report প্রায় একই Format মেনে লিখতে হয়, কিন্তু তথ্য জোগাড় করে গুছিয়ে লেখা সময়সাপেক্ষ।
 
 🎯 T — Task

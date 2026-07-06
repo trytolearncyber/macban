@@ -6,6 +6,11 @@
 
 📌 S — Scenario 2 (Banking, Non-Technical)
 
+Nord Bank-এর Customer Service Desk-এ প্রতিদিন Customer-রা একই ধরনের প্রশ্ন করেন, যেমন Account Balance কীভাবে জানা যাবে, Debit Card Block হলে কী করতে হবে, বা Cheque Book-এর জন্য কীভাবে আবেদন করতে হবে। Staff-দের বারবার একই উত্তর দিতে হয়, যদিও এসব প্রশ্নের উত্তর আগে থেকেই নির্ধারিত। তাই সাধারণ প্রশ্নগুলোর উত্তর আগে একটি Bot দিতে পারে, আর Bot সমাধান দিতে না পারলে বা বিষয়টি জটিল হলে Customer-কে একজন Bank Officer-এর কাছে পাঠিয়ে দেয়।
+
+
+📌 S — Scenario 2 (Bank_Tech)
+
 Nord Bank-এর একটা Branch-এর Staff প্রায়ই ছোট ছোট IT সমস্যায় পড়ে — "Printer কাজ করছে না", "Internet Slow", "POS Machine Connect হচ্ছে না। এই প্রতিটা সমস্যার জন্য IT Team-কে ফোন করতে হয়, যদিও বেশিরভাগ সমস্যার সমাধান একটা নির্দিষ্ট, পূর্বনির্ধারিত ধাপ অনুসরণ করলেই হয়ে যায়।
 
 🎯 T — Task

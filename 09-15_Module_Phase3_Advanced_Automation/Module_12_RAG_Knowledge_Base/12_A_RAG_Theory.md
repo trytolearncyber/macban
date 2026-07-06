@@ -6,6 +6,10 @@
 
 📌 S — Scenario 2 (Banking, Non-Technical)
 
+Nord Bank-এর একজন Customer Service Officer প্রতিদিন Customer-দের বিভিন্ন প্রশ্নের উত্তর দেন, যেমন Account খোলার নিয়ম, Debit Card Replacement, বা Loan-এর প্রয়োজনীয় Documents। এই তথ্যগুলো বিভিন্ন Policy ও Procedure Document-এ থাকে। কোনো নির্দিষ্ট নিয়ম জানতে হলে তাকে অনেক বড় Document-এর মধ্যে থেকে সঠিক অংশ খুঁজে বের করতে হয়, যা সময়সাপেক্ষ এবং ভুল হওয়ার ঝুঁকিও থাকে।
+
+📌 S — Scenario 3 (Bank_Tech)
+
 Nord Bank-এর একজন নতুন Branch Staff একটা নির্দিষ্ট Procedure Manual-এ কোনো Rule খুঁজতে চাইলে, তাকে শত শত পাতার Document-এর মধ্যে থেকে সঠিক অংশ খুঁজে বের করতে হয়। Senior Colleague-দের এই তথ্য মুখস্থ থাকে, কিন্তু নতুনদের জন্য এটা কঠিন।
 
 🎯 T — Task
