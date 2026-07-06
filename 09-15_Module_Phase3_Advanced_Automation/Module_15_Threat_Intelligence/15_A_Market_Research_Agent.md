@@ -1,145 +1,43 @@
-# 📘 Module 15 — Market Research Multi-Agent System (n8n)
+📘 Module 15 — Threat Intelligence Multi-Agent System (Section A)
 
-## 📌 S — Scenario
+📌 S — Scenario 1 (Non-Banking)
 
-Nord Bank-এর Security Team নতুন কোনো Threat সম্পর্কে জানতে চাইলে, একজন Security Analyst-কে Manually একাধিক Source (Security Blog, CVE Database, News) থেকে তথ্য সংগ্রহ করতে হয়, সেগুলো বিশ্লেষণ করতে হয়, তারপর একটি Report তৈরি করতে হয়।
+একজন Small Investor Stock Market-এর সিদ্ধান্ত নেওয়ার আগে তিনটা আলাদা কাজ করে — প্রথমে বিভিন্ন News Source থেকে তথ্য জোগাড় করে, তারপর সেই তথ্য বিশ্লেষণ করে বোঝার চেষ্টা করে ভালো না খারাপ, আর শেষে একটা Summary Report লেখে নিজের জন্য। এই তিনটা কাজ আলাদা হলেও, একটা আরেকটার উপর নির্ভরশীল — প্রথমটা ছাড়া দ্বিতীয়টা সম্ভব না।
 
-পুরো Process সম্পন্ন করতে প্রায় কয়েক ঘণ্টা সময় লাগে।
+📌 S — Scenario 2 (Banking, Non-Technical)
 
----
+Nord Bank Global Security Threat সম্পর্কে জানতে চাইলে, একজন Analyst-কে প্রথমে বিভিন্ন Source থেকে Threat News সংগ্রহ করতে হয়, তারপর সেটা Bank-এর নিজস্ব Log-এর সাথে মিলিয়ে দেখতে হয় সেই Threat আসলেই প্রাসঙ্গিক কিনা, আর শেষে একটা Report তৈরি করতে হয়। প্রতিটা ধাপ আলাদা দক্ষতা চায়, এবং একা একজনের পক্ষে সব ধাপ প্রতিদিন করা কঠিন।
 
-## 🚨 Challenge
+🎯 T — Task
 
-- একাধিক Source থেকে তথ্য সংগ্রহ করা Time-Consuming।
-- Data Collection, Analysis, এবং Report Writing তিনটি ভিন্ন ধরনের কাজ, যা একজন মানুষের জন্য Manualভাবে সম্পন্ন করতে সময় লাগে।
-- নতুন Threat খুব দ্রুত ছড়ায়, কিন্তু Manual Research সেই গতির সাথে তাল মিলিয়ে চলতে পারে না।
+আজকের লক্ষ্য:
+- একটা Multi-Step, Multi-Agent কাজে প্রতিটা Agent কীভাবে আলাদা ধরনের কাজ করে (Data Collection, Data Analysis, Report Generation) তা বোঝা
+- কেন এই কাজগুলো Sequential (একটার পর একটা) — একটা Agent-এর Output আরেকটা Agent-এর Input হয়
+- একটা Agent-এর ভুল কীভাবে পরের Agent-এর কাজে প্রভাব ফেলতে পারে তার ধারণা পাওয়া
 
----
+👀 O — Output
 
-## ✅ Solution
+Module শেষে learner বলতে পারবে:
+- Data Collection Agent, Data Analysis Agent, এবং Report Generation Agent-এর মধ্যে দায়িত্বের পার্থক্য কী
+- কেন একটা Agent-এর কাজ শেষ না হলে পরের Agent শুরু করতে পারে না (Sequential Dependency)
+- এই ধরনের Chain-এ একটা ভুল কীভাবে পরের ধাপে ছড়িয়ে যেতে পারে (Module 14-তে শেখা "ভুলের Chain Propagation"-এর একটা বাস্তব উদাহরণ)
 
-n8n ব্যবহার করে একটি **Multi-Agent Research System** তৈরি করা যায়, যেখানে একাধিক AI Agent Coordinatedভাবে কাজ করে।
+🤔 R — Reason
 
-- **Data Collection Agent** → বিভিন্ন Source থেকে তথ্য সংগ্রহ করে।
-- **Data Analysis Agent** → সংগৃহীত তথ্য বিশ্লেষণ করে।
-- **Report Generation Agent** → বিশ্লেষণের ভিত্তিতে একটি Readable Report তৈরি করে।
+জটিল কাজ (যেমন Threat Intelligence তৈরি করা) একসাথে অনেকগুলো ভিন্ন ধরনের দক্ষতা দাবি করে — তথ্য খোঁজা, বিশ্লেষণ করা, এবং গুছিয়ে উপস্থাপন করা। এই কাজগুলো একটা Agent-চেইনে ভাগ করলে প্রতিটা অংশ তার নির্দিষ্ট কাজে মনোযোগ দিতে পারে, কিন্তু এর মানে এই না যে চেইনটা নির্ভুল — প্রথম ধাপে ভুল তথ্য জোগাড় হলে, পরের প্রতিটা ধাপ সেই ভুলের উপর ভিত্তি করেই এগোবে।
 
-সব Agent একসাথে (Parallel) কাজ করতে পারে, ফলে পুরো Process অনেক দ্রুত সম্পন্ন হয়।
+🧠 Memory Tip
 
----
+এই ধরনের Agent Chain-কে ভাবা যেতে পারে একটা "Assembly Line"-এর মতো — প্রতিটা Station একটা নির্দিষ্ট কাজ করে পরের Station-এ পাঠায়, কিন্তু প্রথম Station-এই যদি ভুল Part বসানো হয়, শেষ Station পর্যন্ত সেই ভুল বহন হতে থাকে।
 
-# 🎯 T — Task
+⚠️ L — Limitation
 
-আজকের Learning Objective হলো **Multi-Agent Research System-এর Basic Components** বোঝা।
+- Sequential Chain-এ প্রতিটা ধাপ আগেরটার উপর নির্ভরশীল বলে, একটা ধাপ ধীর হলে পুরো Chain ধীর হয়ে যায়
+- Data Collection Agent যদি Incomplete বা Biased তথ্য সংগ্রহ করে, Analysis এবং Report — দুটোই সেই Incomplete তথ্যের উপর ভিত্তি করে তৈরি হবে, কেউ সেটা ধরতে পারবে না যদি আলাদা Check না থাকে
+- প্রতিটা ধাপ আলাদা হওয়ায়, সমস্যা হলে ঠিক কোন ধাপে হয়েছে তা বোঝা সহজ হলেও, ঠিক করতে পুরো Chain আবার চালাতে হতে পারে
+- এই ধারণা এখনও একটা ধাপের ভুল কীভাবে ধরা এবং আটকানো যায় (Verification) তা নিয়ে বিস্তারিত বলে না — এটা Section B-এর বিষয়
 
-### শেখার ধাপ
+✋ Y — Your Turn
 
-1. Data Collection Agent কী করে।
-2. Data Analysis Agent কী করে।
-3. Report Generation Agent কী করে।
+Stock Market Investor-এর উদাহরণে, যদি প্রথম ধাপে (News সংগ্রহ) কোনো গুরুত্বপূর্ণ News Miss হয়ে যায়, তাহলে দ্বিতীয় এবং তৃতীয় ধাপে (Analysis, Report) তার প্রভাব কেমন হতে পারে তা ২-৩ বাক্যে লিখতে হবে।
 
----
-
-# 👀 O — Output
-
-| Component | Simple Explanation |
-|-----------|--------------------|
-| Data Collection Agent | একাধিক Source থেকে Raw Data সংগ্রহ করে। |
-| Data Analysis Agent | সংগৃহীত Data থেকে গুরুত্বপূর্ণ Pattern ও Insight বের করে। |
-| Report Generation Agent | Analysis-এর ভিত্তিতে একটি সহজে পড়া যায় এমন Report তৈরি করে। |
-
----
-
-# 🤔 R — Reason
-
-Multi-Agent Research System ব্যবহারের প্রধান কারণগুলো হলো:
-
-- একাধিক Source থেকে Data Parallelভাবে সংগ্রহ করা যায়।
-- Collection, Analysis, এবং Reporting আলাদা Agent দ্বারা হওয়ায় প্রতিটি কাজ আরও Efficient হয়।
-- Automation-এর মাধ্যমে Manual Effort এবং Response Time কমে যায়।
-
----
-
-## ⚠️ Main Limitation
-
-এই System-এর সবচেয়ে গুরুত্বপূর্ণ সীমাবদ্ধতা হলো **Data Quality**।
-
-যদি Data Collection Agent ভুল, Outdated, অথবা Unverified Source থেকে তথ্য সংগ্রহ করে, তাহলে Data Analysis Agent সেই ভুল তথ্যকেই সত্য ধরে বিশ্লেষণ করবে।
-
-এই System-এর নিজস্ব কোনো **Fact-Checking** বা **Truth Verification** ক্ষমতা নেই।
-
-অর্থাৎ,
-
-> **Fast Report ≠ Accurate Report**
-
-Speed বাড়ানো সম্ভব, কিন্তু Source Verification যোগ না করলে Accuracy নিশ্চিত করা যায় না।
-
----
-
-# 📊 Simple Diagram
-
-```text
-[Security Blog]      [CVE Database]      [News]
-        │                  │                │
-        └──────────────────┴────────────────┘
-                         │
-          [Data Collection Agent]
-                         │
-          [Data Analysis Agent]
-          (Pattern & Insight)
-                         │
-       [Report Generation Agent]
-                         │
-                  Final Report
-```
-
----
-
-# 🏦 Real-World Use Case
-
-Bank-এর **Loan Approval Workflow**-এ যেমন একাধিক Approver Sequential বা Parallelভাবে কাজ করে, তেমনি একটি Multi-Agent Research System-এও একাধিক Agent একসাথে কাজ করতে পারে।
-
-তবে একটি গুরুত্বপূর্ণ পার্থক্য রয়েছে।
-
-### Loan Approval
-
-- Credit Score
-- Income Verification
-- KYC
-- Policy Rules
-
-সবগুলোই পূর্বনির্ধারিত এবং Verifiable Rules অনুসরণ করে।
-
-### Threat Research
-
-- বিভিন্ন Blog
-- News
-- Security Advisory
-- CVE Information
-
-এগুলোর মধ্যে সব Source সমানভাবে নির্ভরযোগ্য নয় এবং Truthfulness যাচাই করার কোনো Automatic Rule থাকে না।
-
-সুতরাং,
-
-> সব Multi-Agent System একই মাত্রার Reliable নয়।
-
----
-
-# 🧠 Memory Tip
-
-> **Fast ≠ Accurate**
-
-Multi-Agent System কাজের গতি বাড়ায়।
-
-কিন্তু **Trusted Sources**, **Source Validation**, এবং **Fact Verification** ছাড়া Accuracy নিশ্চিত করা যায় না।
-
----
-
-# ✋ Y — Your Turn
-
-নিজের ভাষায় উত্তর দিন (Copy করবেন না)।
-
-### Question 1
-
-Data Collection Agent কোন Source থেকে তথ্য নেবে তার একটা "Trusted Source List" যদি বানাতে হয়, সেখানে কী কী Criteria দিয়ে একটা Source-কে "Trusted" বলে ধরবেন?
-যদি দুইটা ভিন্ন Source একই Topic-এ পরস্পরবিরোধী তথ্য দেয় (একটা বলছে Threat Critical, আরেকটা বলছে Low), Analysis Agent-কে কীভাবে এই Conflict Handle করতে বলবেন?
