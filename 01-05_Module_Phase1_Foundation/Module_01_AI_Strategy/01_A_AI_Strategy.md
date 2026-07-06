@@ -4,9 +4,11 @@
 
 একজন Restaurant Owner প্রতিদিন Table Booking, Order Tracking, আর Inventory Check আলাদা আলাদা Notebook-এ Manually লিখে রাখে। সে জানে যে AI বা Automation দিয়ে কিছু একটা করা যায়, কিন্তু ঠিক কোন কাজটা কোন ধরনের Tool দিয়ে সহজ হবে তা তার কাছে পরিষ্কার না।
 
+
 📌 S — Scenario 2 (Banking, Non-Technical)
 
-Nord Bank-এর একজন IT Manager শুনেছে যে AI Agent দিয়ে অনেক কাজ Automate করা যায়, কিন্তু "AI Agent" বলতে ঠিক কী বোঝায় এবং সব AI Agent কি একইভাবে কাজ করে কিনা তা নিয়ে তার কাছে স্পষ্ট ধারণা নেই।
+Nord Bank-এর একজন Branch Manager ব্যাংকের দৈনন্দিন কাজে AI ব্যবহার করার পরিকল্পনা করছেন। কিন্তু তিনি বুঝতে পারছেন না, সব ধরনের কাজের জন্য কি একই AI ব্যবহার করা উচিত, নাকি কাজের ধরন অনুযায়ী ভিন্ন ধরনের AI Agent নির্বাচন করতে হয়।
+
 
 🎯 T — Task
 

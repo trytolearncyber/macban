@@ -4,9 +4,10 @@
 
 একজন Restaurant Owner প্রতিদিন Online Order আসলে Kitchen-কে জানাতে হয়, Delivery Rider খুঁজতে হয়, আর Customer-কে Confirmation SMS পাঠাতে হয়। এই তিনটা কাজ আলাদা আলাদা App দিয়ে manually করতে হয়, যার ফলে ভুল হয় এবং সময় লাগে। এই তিনটা কাজ একসাথে Automatic ভাবে সম্পন্ন করার জন্য একটা সঠিক Tool বেছে নেওয়া দরকার।
 
+
 📌 S — Scenario 2 (Banking, Non-Technical)
 
-Nord Bank-এর একজন IT Officer বিভিন্ন জায়গায় শুনেছে n8n, Langflow, আর LangChain নামে কিছু Tool আছে যেগুলো দিয়ে কাজ Automate করা যায়। কিন্তু কোনটা কী কাজে ব্যবহার হয় এবং কোনটা তার Team-এর জন্য উপযোগী, তা নিয়ে সে নিশ্চিত না। Tool বেছে নেওয়ার আগে প্রতিটার মূল পার্থক্য বোঝা দরকার।
+Nord Bank-এর একজন Operations Manager বিভিন্ন জায়গায় শুনেছে n8n, Langflow, আর LangChain নামে কিছু Tool আছে যেগুলো দিয়ে কাজ Automate করা যায়। কিন্তু কোনটা কী কাজে ব্যবহার হয় এবং কোনটা তার Team-এর জন্য উপযোগী, তা নিয়ে সে নিশ্চিত না। Tool বেছে নেওয়ার আগে প্রতিটার মূল পার্থক্য বোঝা দরকার।
 
 🎯 T — Task
 
